@@ -1,0 +1,108 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "Professional Construction & Renovation Services",
+    "subtitle": "Transform your space with our expert craftsmanship and attention to detail. From kitchen remodels to complete home renovations.",
+    "cta": "Get Free Quote",
+    "secondary_cta": "View Our Work"
+  },
+  "about": {
+    "title": "Why Choose Us",
+    "subtitle": "With over 15 years of experience, we deliver quality construction services you can trust.",
+    "experience": "15+ Years Experience",
+    "projects": "500+ Completed Projects",
+    "satisfaction": "100% Customer Satisfaction",
+    "licensed": "Licensed & Insured"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive construction and renovation services for your home and business",
+    "flooring": {
+      "title": "Flooring",
+      "description": "Hardwood, tile, laminate, and luxury vinyl installation"
+    },
+    "kitchen": {
+      "title": "Kitchen Remodeling",
+      "description": "Complete kitchen renovations and custom cabinetry"
+    },
+    "bathroom": {
+      "title": "Bathroom Renovation",
+      "description": "Modern bathroom designs and installations"
+    },
+    "basement": {
+      "title": "Basement Finishing",
+      "description": "Transform your basement into livable space"
+    },
+    "roofing": {
+      "title": "Roofing & Siding",
+      "description": "Roof repairs, replacements, and siding installation"
+    },
+    "painting": {
+      "title": "Painting & Drywall",
+      "description": "Interior and exterior painting services"
+    },
+    "outdoor": {
+      "title": "Outdoor & Landscaping",
+      "description": "Decks, patios, and landscaping projects"
+    },
+    "general": {
+      "title": "General Contracting",
+      "description": "Home additions and major renovations"
+    },
+    "prefab": {
+      "title": "Prefabricated Structures",
+      "description": "Sheds, garages, and custom structures"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "See our recent work and transformations",
+    "view_all": "View All Projects"
+  },
+  "contact": {
+    "title": "Get Your Free Quote",
+    "subtitle": "Ready to start your project? Contact us today for a free consultation and estimate.",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "service": "Service Needed",
+      "message": "Project Details",
+      "submit": "Send Message"
+    },
+    "info": {
+      "phone": "(555) 123-4567",
+      "email": "info@contractorpro.com",
+      "address": "123 Construction Ave, Builder City, BC 12345",
+      "hours": "Mon-Fri: 8AM-6PM, Sat: 9AM-4PM"
+    }
+  },
+  "footer": {
+    "description": "Professional construction and renovation services with quality craftsmanship and customer satisfaction guaranteed.",
+    "quick_links": "Quick Links",
+    "services_title": "Services",
+    "contact_info": "Contact Info",
+    "follow_us": "Follow Us",
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "toggle": "Change language",
+    "english": "English",
+    "french": "French",
+    "arabic": "Arabic"
+  }
+}
