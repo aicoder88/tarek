@@ -15,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import { Separator } from "./ui/separator";
 import { Badge } from "./ui/badge";
 
+import { Header } from "./layout/Header";
 import ServiceGrid from "./services/ServiceGrid";
 import ProjectGallery from "./projects/ProjectGallery";
 import ContactForm from "./contact/ContactForm";
@@ -32,6 +33,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
       className="flex flex-col min-h-screen bg-background"
       dir={isRTL ? "rtl" : "ltr"}
     >
+      {/* Header */}
+      <Header />
+
       {/* Hero Section */}
       <section className="relative w-full py-20 md:py-32 bg-gradient-to-b from-muted/50 to-background">
         <div className="container px-4 md:px-6">
@@ -39,41 +43,41 @@ const Home = ({ locale = "en" }: HomeProps) => {
             <div className="space-y-2">
               <Badge variant="outline" className="px-3 py-1">
                 {locale === "en"
-                  ? "Professional Contractor Services"
+                  ? "Professional Auto Detailing Services"
                   : locale === "fr"
-                    ? "Services d'entrepreneur professionnel"
-                    : "خدمات المقاول المحترف"}
+                    ? "Services de détaillage automobile professionnel"
+                    : "خدمات تفصيل السيارات المحترفة"}
               </Badge>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                 {locale === "en"
-                  ? "Transform Your Space With Expert Craftsmanship"
+                  ? "Transform Your Vehicle With Expert Auto Detailing"
                   : locale === "fr"
-                    ? "Transformez votre espace avec un savoir-faire expert"
-                    : "حوّل مساحتك بحرفية الخبراء"}
+                    ? "Transformez votre véhicule avec un détaillage automobile expert"
+                    : "حوّل سيارتك بتفصيل السيارات الخبير"}
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                 {locale === "en"
-                  ? "From concept to completion, we deliver exceptional renovation and construction services tailored to your vision."
+                  ? "From paint correction to ceramic coating, we deliver exceptional auto detailing services that protect and enhance your vehicle's appearance."
                   : locale === "fr"
-                    ? "Du concept à la réalisation, nous fournissons des services exceptionnels de rénovation et de construction adaptés à votre vision."
-                    : "من المفهوم إلى الإنجاز، نقدم خدمات تجديد وبناء استثنائية مصممة وفقًا لرؤيتك."}
+                    ? "De la correction de peinture au revêtement céramique, nous fournissons des services exceptionnels de détaillage automobile qui protègent et améliorent l'apparence de votre véhicule."
+                    : "من تصحيح الطلاء إلى الطلاء السيراميكي، نقدم خدمات تفصيل السيارات الاستثنائية التي تحمي وتعزز مظهر سيارتك."}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="gap-1">
                 {locale === "en"
-                  ? "Get a Free Quote"
+                  ? "Book Your Service"
                   : locale === "fr"
-                    ? "Obtenir un devis gratuit"
-                    : "احصل على عرض سعر مجاني"}
+                    ? "Réservez votre service"
+                    : "احجز خدمتك"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline">
                 {locale === "en"
-                  ? "View Our Projects"
+                  ? "View Our Work"
                   : locale === "fr"
-                    ? "Voir nos projets"
-                    : "عرض مشاريعنا"}
+                    ? "Voir notre travail"
+                    : "عرض أعمالنا"}
               </Button>
             </div>
           </div>
@@ -541,73 +545,77 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
                 {locale === "en"
-                  ? "Ready to Start Your Project?"
+                  ? "Ready to Detail Your Vehicle?"
                   : locale === "fr"
-                    ? "Prêt à démarrer votre projet?"
-                    : "هل أنت مستعد لبدء مشروعك؟"}
+                    ? "Prêt à détailler votre véhicule?"
+                    : "هل أنت مستعد لتفصيل سيارتك؟"}
               </h2>
               <p className="text-muted-foreground md:text-lg">
                 {locale === "en"
-                  ? "Fill out the form and our team will get back to you within 24 hours to discuss your project needs."
+                  ? "Contact us today to schedule your auto detailing service. We'll make your vehicle look like new again."
                   : locale === "fr"
-                    ? "Remplissez le formulaire et notre équipe vous répondra dans les 24 heures pour discuter des besoins de votre projet."
-                    : "املأ النموذج وسيعاود فريقنا الاتصال بك في غضون 24 ساعة لمناقشة احتياجات مشروعك."}
+                    ? "Contactez-nous aujourd'hui pour planifier votre service de détaillage automobile. Nous ferons en sorte que votre véhicule ait l'air neuf à nouveau."
+                    : "اتصل بنا اليوم لجدولة خدمة تفصيل السيارات الخاصة بك. سنجعل سيارتك تبدو جديدة مرة أخرى."}
               </p>
-              <div className="space-y-2">
-                <h3 className="font-medium">
-                  {locale === "en"
-                    ? "Our Office"
-                    : locale === "fr"
-                      ? "Notre bureau"
-                      : "مكتبنا"}
-                </h3>
-                <p className="text-muted-foreground">
-                  123 Construction Ave, Suite 101
-                  <br />
-                  Cityville, State 12345
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-medium">
-                  {locale === "en"
-                    ? "Contact Information"
-                    : locale === "fr"
-                      ? "Informations de contact"
-                      : "معلومات الاتصال"}
-                </h3>
-                <p className="text-muted-foreground">
-                  Email: info@constructioncompany.com
-                  <br />
-                  Phone: (555) 123-4567
-                </p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-medium">
-                  {locale === "en"
-                    ? "Business Hours"
-                    : locale === "fr"
-                      ? "Heures d'ouverture"
-                      : "ساعات العمل"}
-                </h3>
-                <p className="text-muted-foreground">
-                  {locale === "en"
-                    ? "Monday - Friday: 8:00 AM - 5:00 PM"
-                    : locale === "fr"
-                      ? "Lundi - Vendredi: 8h00 - 17h00"
-                      : "الاثنين - الجمعة: 8:00 صباحًا - 5:00 مساءً"}
-                  <br />
-                  {locale === "en"
-                    ? "Saturday: 9:00 AM - 2:00 PM"
-                    : locale === "fr"
-                      ? "Samedi: 9h00 - 14h00"
-                      : "السبت: 9:00 صباحًا - 2:00 مساءً"}
-                  <br />
-                  {locale === "en"
-                    ? "Sunday: Closed"
-                    : locale === "fr"
-                      ? "Dimanche: Fermé"
-                      : "الأحد: مغلق"}
-                </p>
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="font-medium">
+                    {locale === "en"
+                      ? "Our Location"
+                      : locale === "fr"
+                        ? "Notre emplacement"
+                        : "موقعنا"}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Toronto, Ontario, Canada
+                    <br />
+                    Mobile Service Available
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-medium">
+                    {locale === "en"
+                      ? "Contact Information"
+                      : locale === "fr"
+                        ? "Informations de contact"
+                        : "معلومات الاتصال"}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Email: info@instacarspa.com
+                    <br />
+                    Phone: (647) 860-5500
+                    <br />
+                    Website: instacarspa.com
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-medium">
+                    {locale === "en"
+                      ? "Service Hours"
+                      : locale === "fr"
+                        ? "Heures de service"
+                        : "ساعات الخدمة"}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {locale === "en"
+                      ? "Monday - Friday: 8:00 AM - 6:00 PM"
+                      : locale === "fr"
+                        ? "Lundi - Vendredi: 8h00 - 18h00"
+                        : "الاثنين - الجمعة: 8:00 صباحًا - 6:00 مساءً"}
+                    <br />
+                    {locale === "en"
+                      ? "Saturday: 9:00 AM - 5:00 PM"
+                      : locale === "fr"
+                        ? "Samedi: 9h00 - 17h00"
+                        : "السبت: 9:00 صباحًا - 5:00 مساءً"}
+                    <br />
+                    {locale === "en"
+                      ? "Sunday: 10:00 AM - 4:00 PM"
+                      : locale === "fr"
+                        ? "Dimanche: 10h00 - 16h00"
+                        : "الأحد: 10:00 صباحًا - 4:00 مساءً"}
+                  </p>
+                </div>
               </div>
             </div>
             <div className="rounded-xl border bg-card p-6 shadow-sm">

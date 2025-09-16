@@ -1,0 +1,108 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "services": "Services",
+    "projects": "Projets",
+    "about": "À propos",
+    "contact": "Contact",
+    "blog": "Blog",
+    "faq": "FAQ"
+  },
+  "hero": {
+    "title": "Services Professionnels de Construction et Rénovation",
+    "subtitle": "Transformez votre espace avec notre savoir-faire expert et notre attention aux détails. Des rénovations de cuisine aux rénovations complètes de maison.",
+    "cta": "Devis Gratuit",
+    "secondary_cta": "Voir Nos Travaux"
+  },
+  "about": {
+    "title": "Pourquoi Nous Choisir",
+    "subtitle": "Avec plus de 15 ans d'expérience, nous offrons des services de construction de qualité en qui vous pouvez avoir confiance.",
+    "experience": "15+ Années d'Expérience",
+    "projects": "500+ Projets Terminés",
+    "satisfaction": "100% Satisfaction Client",
+    "licensed": "Licencié et Assuré"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Services complets de construction et rénovation pour votre maison et entreprise",
+    "flooring": {
+      "title": "Revêtements de Sol",
+      "description": "Installation de bois franc, carrelage, stratifié et vinyle de luxe"
+    },
+    "kitchen": {
+      "title": "Rénovation de Cuisine",
+      "description": "Rénovations complètes de cuisine et armoires sur mesure"
+    },
+    "bathroom": {
+      "title": "Rénovation de Salle de Bain",
+      "description": "Conceptions et installations modernes de salle de bain"
+    },
+    "basement": {
+      "title": "Finition de Sous-sol",
+      "description": "Transformez votre sous-sol en espace habitable"
+    },
+    "roofing": {
+      "title": "Toiture et Revêtement",
+      "description": "Réparations de toit, remplacements et installation de revêtement"
+    },
+    "painting": {
+      "title": "Peinture et Cloisons Sèches",
+      "description": "Services de peinture intérieure et extérieure"
+    },
+    "outdoor": {
+      "title": "Extérieur et Aménagement Paysager",
+      "description": "Terrasses, patios et projets d'aménagement paysager"
+    },
+    "general": {
+      "title": "Entrepreneur Général",
+      "description": "Ajouts de maison et rénovations majeures"
+    },
+    "prefab": {
+      "title": "Structures Préfabriquées",
+      "description": "Remises, garages et structures personnalisées"
+    }
+  },
+  "projects": {
+    "title": "Projets en Vedette",
+    "subtitle": "Découvrez nos travaux récents et transformations",
+    "view_all": "Voir Tous les Projets"
+  },
+  "contact": {
+    "title": "Obtenez Votre Devis Gratuit",
+    "subtitle": "Prêt à commencer votre projet ? Contactez-nous aujourd'hui pour une consultation et estimation gratuite.",
+    "form": {
+      "name": "Nom Complet",
+      "email": "Adresse E-mail",
+      "phone": "Numéro de Téléphone",
+      "service": "Service Requis",
+      "message": "Détails du Projet",
+      "submit": "Envoyer le Message"
+    },
+    "info": {
+      "phone": "(555) 123-4567",
+      "email": "info@contractorpro.com",
+      "address": "123 Avenue de la Construction, Ville du Constructeur, BC 12345",
+      "hours": "Lun-Ven: 8h-18h, Sam: 9h-16h"
+    }
+  },
+  "footer": {
+    "description": "Services professionnels de construction et rénovation avec un savoir-faire de qualité et une satisfaction client garantie.",
+    "quick_links": "Liens Rapides",
+    "services_title": "Services",
+    "contact_info": "Informations de Contact",
+    "follow_us": "Suivez-Nous",
+    "rights": "Tous droits réservés."
+  },
+  "theme": {
+    "toggle": "Basculer le thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "language": {
+    "toggle": "Changer de langue",
+    "english": "Anglais",
+    "french": "Français",
+    "arabic": "Arabe"
+  }
+}

@@ -30,7 +30,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, AlertCircle, Phone, Mail, Car } from "lucide-react";
 
 // Define the form schema with Zod
 const formSchema = z.object({
@@ -80,20 +80,20 @@ interface ContactFormProps {
 const ContactForm: React.FC<ContactFormProps> = ({
   language = "en",
   services = [
-    { id: "flooring", name: "Flooring" },
-    { id: "kitchen", name: "Kitchen Remodeling" },
-    { id: "bathroom", name: "Bathroom Renovation" },
-    { id: "basement", name: "Basement Finishing" },
-    { id: "roofing", name: "Roofing & Siding" },
-    { id: "painting", name: "Painting & Drywall" },
-    { id: "outdoor", name: "Outdoor & Landscaping" },
-    { id: "general", name: "General Contracting" },
-    { id: "prefab", name: "Prefabricated Structures" },
+    { id: "exterior-wash", name: "Exterior Wash & Wax" },
+    { id: "interior-detail", name: "Interior Detailing" },
+    { id: "ceramic-coating", name: "Ceramic Coating" },
+    { id: "paint-correction", name: "Paint Correction" },
+    { id: "full-detail", name: "Full Detail Package" },
+    { id: "headlight-restoration", name: "Headlight Restoration" },
+    { id: "engine-cleaning", name: "Engine Bay Cleaning" },
+    { id: "mobile-service", name: "Mobile Service" },
+    { id: "other", name: "Other" },
   ],
   translations = {
-    title: "Contact Us",
+    title: "Contact InstaCar Spa",
     description:
-      "Fill out the form below and we'll get back to you as soon as possible.",
+      "Fill out the form below and we'll get back to you within 24 hours to discuss your auto detailing needs.",
     nameLabel: "Name",
     namePlaceholder: "Enter your name",
     emailLabel: "Email",
@@ -103,13 +103,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
     serviceLabel: "Service Needed",
     servicePlaceholder: "Select a service",
     messageLabel: "Message",
-    messagePlaceholder: "Tell us about your project",
-    submitButton: "Submit",
+    messagePlaceholder: "Tell us about your vehicle and detailing needs",
+    submitButton: "Get Free Quote",
     successTitle: "Thank you!",
     successMessage:
-      "Your message has been sent. We'll get back to you shortly.",
+      "Your message has been sent. We'll contact you within 24 hours with a personalized quote.",
     errorTitle: "Error",
-    errorMessage: "There was a problem submitting your form. Please try again.",
+    errorMessage: "There was a problem submitting your form. Please try again or call us at (647) 860-5500.",
   },
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -161,10 +161,21 @@ const ContactForm: React.FC<ContactFormProps> = ({
     <div className="w-full max-w-2xl mx-auto bg-background" dir={formDirection}>
       <Card className="border shadow-sm">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold">
-            {translations.title}
+          <CardTitle className="text-2xl font-bold flex items-center space-x-2">
+            <Car className="h-6 w-6 text-amber-600" />
+            <span>{translations.title}</span>
           </CardTitle>
           <CardDescription>{translations.description}</CardDescription>
+          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-1">
+              <Phone className="h-4 w-4" />
+              <span>(647) 860-5500</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Mail className="h-4 w-4" />
+              <span>info@instacarspa.com</span>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           {formStatus === "success" && (
@@ -290,8 +301,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 )}
               />
 
+              <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+                <h3 className="font-semibold text-amber-800 dark:text-amber-200 mb-2">
+                  Why Choose InstaCar Spa?
+                </h3>
+                <ul className="text-sm text-amber-700 dark:text-amber-300 space-y-1">
+                  <li>• Mobile service - we come to you!</li>
+                  <li>• Eco-friendly products & methods</li>
+                  <li>• Fully insured & satisfaction guaranteed</li>
+                  <li>• Serving Greater Toronto Area</li>
+                </ul>
+              </div>
+
               <div className="flex justify-end">
-                <Button type="submit" disabled={isSubmitting} className="px-8">
+                <Button type="submit" disabled={isSubmitting} className="px-8 bg-amber-600 hover:bg-amber-700">
                   {isSubmitting ? "Submitting..." : translations.submitButton}
                 </Button>
               </div>

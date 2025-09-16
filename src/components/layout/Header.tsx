@@ -1,6 +1,8 @@
+'use client';
+
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
-import { useTheme } from 'next-themes';
+import { useTheme } from '@/providers/ThemeProvider';
+import { useLocale } from '@/providers/LocaleProvider';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu, 
@@ -8,109 +10,194 @@ import {
   DropdownMenuItem, 
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
-import { Moon, Sun, Globe, Menu, X } from 'lucide-react';
+import { Moon, Sun, Globe, Menu, X, Hammer, Phone, Monitor } from 'lucide-react';
 
 export function Header() {
-  const t = useTranslations('navigation');
+  const { locale, setLocale, t } = useLocale();
   const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: t('home'), href: '/' },
-    { name: t('services'), href: '/services' },
-    { name: t('projects'), href: '/projects' },
-    { name: t('about'), href: '/about' },
-    { name: t('contact'), href: '/contact' },
+    { name: t('navigation.home'), href: '/' },
+    { name: t('navigation.services'), href: '/services' },
+    { name: t('navigation.projects'), href: '/projects' },
+    { name: t('navigation.about'), href: '/about' },
+    { name: t('navigation.contact'), href: '/contact' },
   ];
 
+  const languages = [
+    { code: 'en' as const, name: t('language.english'), flag: '🇺🇸', nativeName: 'English' },
+    { code: 'fr' as const, name: t('language.french'), flag: '🇫🇷', nativeName: 'Français' },
+    { code: 'ar' as const, name: t('language.arabic'), flag: '🇸🇦', nativeName: 'العربية' },
+  ];
+
+  const currentLanguage = languages.find(lang => lang.code === locale);
+
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-lg border-b border-amber-200/30 dark:border-amber-800/30 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-amber-600 dark:text-amber-400">
-              ContractorPro
-            </h1>
+        <div className="flex justify-between items-center h-20">
+          {/* Enhanced Logo */}
+          <div className="flex-shrink-0 flex items-center space-x-4">
+            <div className="relative p-3 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+              <Hammer className="h-8 w-8 text-white group-hover:rotate-12 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-300/20 to-transparent rounded-2xl"></div>
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 dark:from-amber-400 dark:via-amber-300 dark:to-amber-500 bg-clip-text text-transparent">
+                InstaCar Spa
+              </h1>
+              <p className="text-xs text-gray-600 dark:text-gray-400 font-medium tracking-wide">
+                Professional Auto Detailing
+              </p>
+            </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          {/* Enhanced Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-2">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 px-3 py-2 text-sm font-medium transition-colors"
+                className="relative px-5 py-2.5 text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-all duration-300 rounded-xl hover:bg-amber-50/80 dark:hover:bg-amber-900/20 group overflow-hidden"
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-amber-600/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></div>
+                <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-amber-500 to-amber-600 transition-all duration-300 group-hover:w-8 group-hover:left-1/2 group-hover:-translate-x-1/2 rounded-full"></span>
               </a>
             ))}
           </nav>
 
-          {/* Right side controls */}
-          <div className="flex items-center space-x-4">
-            {/* Language Selector */}
+          {/* Enhanced Right side controls */}
+          <div className="flex items-center space-x-3">
+            {/* Enhanced Call to Action Button */}
+            <Button 
+              className="hidden md:flex bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:via-amber-700 hover:to-amber-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 border-0 relative overflow-hidden group"
+              size="sm"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <Phone className="h-4 w-4 mr-2 relative z-10" />
+              <span className="relative z-10">(647) 860-5500</span>
+            </Button>
+
+            {/* Enhanced Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  <Globe className="h-4 w-4" />
-                  <span className="sr-only">Change language</span>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  className="flex items-center space-x-2 hover:bg-amber-50/80 dark:hover:bg-amber-900/20 transition-all duration-300 rounded-xl border border-transparent hover:border-amber-200/50 dark:hover:border-amber-800/50 backdrop-blur-sm"
+                >
+                  <span className="text-lg drop-shadow-sm">{currentLanguage?.flag}</span>
+                  <span className="hidden sm:inline text-sm font-semibold tracking-wide">
+                    {currentLanguage?.code.toUpperCase()}
+                  </span>
+                  <Globe className="h-4 w-4 opacity-70" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem>
-                  🇺🇸 English
+              <DropdownMenuContent align="end" className="w-52 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-amber-200/30 dark:border-amber-800/30 shadow-xl">
+                {languages.map((language) => (
+                  <DropdownMenuItem
+                    key={language.code}
+                    onClick={() => setLocale(language.code)}
+                    className={`flex items-center space-x-3 cursor-pointer transition-all duration-200 rounded-lg mx-1 ${
+                      locale === language.code 
+                        ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300' 
+                        : 'hover:bg-amber-50/50 dark:hover:bg-amber-900/20'
+                    }`}
+                  >
+                    <span className="text-lg">{language.flag}</span>
+                    <div className="flex flex-col flex-1">
+                      <span className="font-medium">{language.name}</span>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">{language.nativeName}</span>
+                    </div>
+                    {locale === language.code && (
+                      <div className="w-2 h-2 bg-amber-500 rounded-full shadow-sm"></div>
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Enhanced Theme Toggle */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hover:bg-amber-50/80 dark:hover:bg-amber-900/20 transition-all duration-300 rounded-xl border border-transparent hover:border-amber-200/50 dark:hover:border-amber-800/50 backdrop-blur-sm relative overflow-hidden group"
+                >
+                  <Sun className="h-4 w-4 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0 absolute" />
+                  <Moon className="h-4 w-4 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">{t('theme.toggle')}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-amber-200/30 dark:border-amber-800/30 shadow-xl">
+                <DropdownMenuItem 
+                  onClick={() => setTheme('light')}
+                  className={`transition-all duration-200 rounded-lg mx-1 ${theme === 'light' ? 'bg-amber-50 dark:bg-amber-900/30' : ''}`}
+                >
+                  <Sun className="h-4 w-4 mr-2" />
+                  {t('theme.light')}
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  🇫🇷 Français
+                <DropdownMenuItem 
+                  onClick={() => setTheme('dark')}
+                  className={`transition-all duration-200 rounded-lg mx-1 ${theme === 'dark' ? 'bg-amber-50 dark:bg-amber-900/30' : ''}`}
+                >
+                  <Moon className="h-4 w-4 mr-2" />
+                  {t('theme.dark')}
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  🇸🇦 العربية
+                <DropdownMenuItem 
+                  onClick={() => setTheme('system')}
+                  className={`transition-all duration-200 rounded-lg mx-1 ${theme === 'system' ? 'bg-amber-50 dark:bg-amber-900/30' : ''}`}
+                >
+                  <Monitor className="h-4 w-4 mr-2" />
+                  {t('theme.system')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Theme Toggle */}
+            {/* Enhanced Mobile menu button */}
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-
-            {/* Mobile menu button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="md:hidden"
+              className="lg:hidden hover:bg-amber-50/80 dark:hover:bg-amber-900/20 transition-all duration-300 rounded-xl border border-transparent hover:border-amber-200/50 dark:hover:border-amber-800/50"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5 transition-transform duration-300 rotate-90" />
               ) : (
-                <Menu className="h-4 w-4" />
+                <Menu className="h-5 w-5 transition-transform duration-300" />
               )}
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Enhanced Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-gray-700">
+          <div className="lg:hidden border-t border-amber-200/30 dark:border-amber-800/30 bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl">
+            <div className="px-2 pt-4 pb-6 space-y-2">
               {navigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 block px-3 py-2 text-base font-medium transition-colors"
+                  className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-all duration-300 rounded-xl hover:bg-amber-50/80 dark:hover:bg-amber-900/20 border border-transparent hover:border-amber-200/30 dark:hover:border-amber-800/30"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
               ))}
+              <div className="pt-4 border-t border-amber-200/30 dark:border-amber-800/30">
+                <Button 
+                  className="w-full bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700 hover:from-amber-600 hover:via-amber-700 hover:to-amber-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  size="lg"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <Phone className="h-4 w-4 mr-2 relative z-10" />
+                  <span className="relative z-10">Call Now - (647) 860-5500</span>
+                </Button>
+              </div>
             </div>
           </div>
         )}
