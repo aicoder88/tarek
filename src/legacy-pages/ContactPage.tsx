@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ContactForm from "@/components/contact/ContactForm";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Calendar, Car } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Calendar, Hammer } from "lucide-react";
 
 interface ContactPageProps {
   locale?: string;
@@ -25,17 +25,17 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
     {
       icon: Mail,
       title: locale === "en" ? "Email" : locale === "fr" ? "Email" : "بريد إلكتروني",
-      value: "info@instacarspa.com",
+      value: "info@truenorthconstruction.com",
       description: locale === "en" ? "Send us your questions anytime" : locale === "fr" ? "Envoyez-nous vos questions à tout moment" : "أرسل لنا أسئلتك في أي وقت",
-      href: "mailto:info@instacarspa.com",
+      href: "mailto:info@truenorthconstruction.com",
       available: locale === "en" ? "Response within 24 hours" : locale === "fr" ? "Réponse dans les 24 heures" : "الرد خلال 24 ساعة"
     },
     {
       icon: MessageCircle,
       title: locale === "en" ? "Website" : locale === "fr" ? "Site web" : "موقع إلكتروني",
-      value: "instacarspa.com",
+      value: "truenorthconstruction.com",
       description: locale === "en" ? "Visit our website for more info" : locale === "fr" ? "Visitez notre site web pour plus d'informations" : "قم بزيارة موقعنا للحصول على مزيد من المعلومات",
-      href: "https://instacarspa.com",
+      href: "https://truenorthconstruction.com",
       available: locale === "en" ? "Online booking available" : locale === "fr" ? "Réservation en ligne disponible" : "الحجز عبر الإنترنت متاح"
     },
     {
@@ -65,12 +65,12 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
 
   const faqs = [
     {
-      question: locale === "en" ? "Do you offer mobile service?" : locale === "fr" ? "Offrez-vous un service mobile?" : "هل تقدمون خدمة متنقلة؟",
+      question: locale === "en" ? "Do you provide free estimates?" : locale === "fr" ? "Offrez-vous des estimations gratuites?" : "هل تقدّمون تقديرات مجانية؟",
       answer: locale === "en" 
-        ? "Yes! We bring our professional equipment directly to your location anywhere in the Greater Toronto Area."
+        ? "Yes, we offer free, no‑obligation estimates for all projects."
         : locale === "fr"
-        ? "Oui! Nous apportons notre équipement professionnel directement à votre emplacement partout dans la région du Grand Toronto."
-        : "نعم! نحضر معداتنا المهنية مباشرة إلى موقعك في أي مكان في منطقة تورونتو الكبرى."
+        ? "Oui, nous offrons des estimations gratuites et sans obligation pour tous les projets."
+        : "نعم، نقدم تقديرات مجانية وبدون التزام لجميع المشاريع."
     },
     {
       question: locale === "en" ? "How long does a typical detail take?" : locale === "fr" ? "Combien de temps prend un détail typique?" : "كم من الوقت يستغرق التفصيل النموذجي؟",
@@ -89,12 +89,12 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
         : "نحن نقبل النقد وبطاقات الائتمان (فيزا، ماستركارد، أمكس) وبطاقات الخصم والتحويل الإلكتروني."
     },
     {
-      question: locale === "en" ? "Do you provide a warranty?" : locale === "fr" ? "Fournissez-vous une garantie?" : "هل تقدمون ضمانًا؟",
+      question: locale === "en" ? "Do you provide a warranty?" : locale === "fr" ? "Fournissez‑vous une garantie ?" : "هل تقدمون ضمانًا؟",
       answer: locale === "en"
-        ? "Yes! We offer satisfaction guarantees on all services, with extended warranties on ceramic coatings (up to 5 years)."
+        ? "Yes! We offer satisfaction guarantees on all services, with product warranties where applicable."
         : locale === "fr"
-        ? "Oui! Nous offrons des garanties de satisfaction sur tous les services, avec des garanties étendues sur les revêtements céramiques (jusqu'à 5 ans)."
-        : "نعم! نحن نقدم ضمانات الرضا على جميع الخدمات، مع ضمانات ممتدة على الطلاءات السيراميكية (حتى 5 سنوات)."
+        ? "Oui ! Nous offrons des garanties de satisfaction sur tous les services, avec garanties de produits lorsque applicable."
+        : "نعم! نقدم ضمانات رضا على جميع الخدمات، مع ضمانات للمواد عند الاقتضاء."
     }
   ];
 
@@ -111,17 +111,17 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
             </Badge>
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
               {locale === "en" 
-                ? "Get In Touch With InstaCar Spa"
+                ? "Get In Touch With TrueNorth Construction"
                 : locale === "fr"
-                ? "Contactez InstaCar Spa"
-                : "تواصل مع InstaCar Spa"}
+                ? "Contactez TrueNorth Construction"
+                : "تواصل مع TrueNorth Construction"}
             </h1>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               {locale === "en"
-                ? "Ready to give your vehicle the care it deserves? Contact us today to schedule your auto detailing service or get a free quote."
+                ? "Ready to start your renovation or build? Contact us today to discuss your project or get a free estimate."
                 : locale === "fr"
-                ? "Prêt à donner à votre véhicule les soins qu'il mérite? Contactez-nous aujourd'hui pour planifier votre service de détaillage automobile ou obtenir un devis gratuit."
-                : "هل أنت مستعد لإعطاء سيارتك العناية التي تستحقها؟ اتصل بنا اليوم لجدولة خدمة تفصيل السيارات أو الحصول على عرض سعر مجاني."}
+                ? "Prêt à démarrer votre rénovation ou construction ? Contactez‑nous aujourd’hui pour discuter de votre projet ou obtenir une estimation gratuite."
+                : "هل أنت مستعد لبدء مشروع التجديد أو البناء؟ تواصل معنا اليوم لمناقشة مشروعك أو للحصول على تقدير مجاني."}
             </p>
           </div>
         </div>
@@ -238,16 +238,16 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
                     <div className="text-center">
                       <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
                       <p className="text-gray-500 dark:text-gray-400">
-                        {locale === "en" ? "Greater Toronto Area" : locale === "fr" ? "Région du Grand Toronto" : "منطقة تورونتو الكبرى"}
+                        {locale === "en" ? "Greater Montreal Area" : locale === "fr" ? "Grand Montréal" : "منطقة مونتريال الكبرى"}
                       </p>
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     {locale === "en"
-                      ? "We provide mobile auto detailing services throughout Toronto, Mississauga, Brampton, Markham, Richmond Hill, and surrounding areas."
+                      ? "We serve Montreal, Laval, Longueuil, and surrounding areas. On‑site walk‑throughs available."
                       : locale === "fr"
-                      ? "Nous fournissons des services de détaillage automobile mobile dans tout Toronto, Mississauga, Brampton, Markham, Richmond Hill et les environs."
-                      : "نحن نقدم خدمات تفصيل السيارات المتنقلة في جميع أنحاء تورونتو وميسيساغا وبرامبتون وماركهام وريتشموند هيل والمناطق المحيطة."}
+                      ? "Nous desservons Montréal, Laval, Longueuil et les environs. Visites sur place disponibles."
+                      : "نخدم مونتريال ولافال ولونغوي والمناطق المجاورة. زيارات ميدانية متاحة."}
                   </p>
                 </CardContent>
               </Card>
@@ -265,10 +265,10 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
             </h2>
             <p className="text-muted-foreground md:text-lg max-w-2xl mx-auto">
               {locale === "en"
-                ? "Find answers to common questions about our auto detailing services."
+                ? "Find answers to common questions about our construction and renovation services."
                 : locale === "fr"
-                ? "Trouvez des réponses aux questions courantes sur nos services de détaillage automobile."
-                : "ابحث عن إجابات للأسئلة الشائعة حول خدمات تفصيل السيارات لدينا."}
+                ? "Trouvez des réponses aux questions fréquentes sur nos services de construction et de rénovation."
+                : "اعثر على إجابات للأسئلة الشائعة حول خدمات البناء والتجديد لدينا."}
             </p>
           </div>
           
@@ -296,10 +296,10 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
             </h2>
             <p className="text-muted-foreground md:text-lg max-w-2xl mx-auto">
               {locale === "en"
-                ? "Don't wait - give your vehicle the professional care it deserves. Contact InstaCar Spa today!"
+                ? "Don’t wait—let’s bring your vision to life. Contact TrueNorth Construction today!"
                 : locale === "fr"
-                ? "N'attendez pas - donnez à votre véhicule les soins professionnels qu'il mérite. Contactez InstaCar Spa aujourd'hui!"
-                : "لا تنتظر - امنح سيارتك العناية المهنية التي تستحقها. اتصل بـ InstaCar Spa اليوم!"}
+                ? "N’attendez pas — concrétisons votre projet. Contactez TrueNorth Construction dès aujourd’hui !"
+                : "لا تنتظر — فلنحوّل رؤيتك إلى واقع. تواصل مع TrueNorth Construction اليوم!"}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
@@ -309,7 +309,7 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="mailto:info@instacarspa.com">
+                <a href="mailto:info@truenorthconstruction.com">
                   <Mail className="h-4 w-4 mr-2" />
                   {locale === "en" ? "Email Us" : locale === "fr" ? "Envoyez-nous un email" : "راسلنا"}
                 </a>

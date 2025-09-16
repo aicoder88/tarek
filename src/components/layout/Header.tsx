@@ -1,34 +1,75 @@
 'use client';
 
 import { useState } from 'react';
-import { useTheme } from '@/providers/ThemeProvider';
-import { useLocale } from '@/providers/LocaleProvider';
 import { Button } from '@/components/ui/button';
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuTrigger 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import { Moon, Sun, Globe, Menu, X, Hammer, Phone, Monitor } from 'lucide-react';
 
-export function Header() {
-  const { locale, setLocale, t } = useLocale();
-  const { theme, setTheme } = useTheme();
+interface HeaderProps {
+  locale?: string;
+}
+
+export function Header({ locale = 'en' }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const getTranslations = (locale: string) => {
+    const translations = {
+      en: {
+        home: 'Home',
+        services: 'Services',
+        projects: 'Projects',
+        about: 'About',
+        contact: 'Contact',
+        callNow: 'Call Now',
+        english: 'English',
+        french: 'French',
+        arabic: 'Arabic'
+      },
+      fr: {
+        home: 'Accueil',
+        services: 'Services',
+        projects: 'Projets',
+        about: 'À propos',
+        contact: 'Contact',
+        callNow: 'Appeler maintenant',
+        english: 'Anglais',
+        french: 'Français',
+        arabic: 'Arabe'
+      },
+      ar: {
+        home: 'الرئيسية',
+        services: 'خدمات',
+        projects: 'مشاريع',
+        about: 'معلومات عنا',
+        contact: 'اتصل',
+        callNow: 'اتصل الآن',
+        english: 'الإنجليزية',
+        french: 'الفرنسية',
+        arabic: 'العربية'
+      }
+    };
+    return translations[locale as keyof typeof translations] || translations.en;
+  };
+
+  const t = getTranslations(locale);
+
   const navigation = [
-    { name: t('navigation.home'), href: '/' },
-    { name: t('navigation.services'), href: '/services' },
-    { name: t('navigation.projects'), href: '/projects' },
-    { name: t('navigation.about'), href: '/about' },
-    { name: t('navigation.contact'), href: '/contact' },
+    { name: t.home, href: `/${locale}` },
+    { name: t.services, href: `/${locale}/services` },
+    { name: t.projects, href: `/${locale}/projects` },
+    { name: t.about, href: `/${locale}/about` },
+    { name: t.contact, href: `/${locale}/contact` },
   ];
 
   const languages = [
-    { code: 'en' as const, name: t('language.english'), flag: '🇺🇸', nativeName: 'English' },
-    { code: 'fr' as const, name: t('language.french'), flag: '🇫🇷', nativeName: 'Français' },
-    { code: 'ar' as const, name: t('language.arabic'), flag: '🇸🇦', nativeName: 'العربية' },
+    { code: 'en', name: t.english, flag: '🇺🇸', nativeName: 'English' },
+    { code: 'fr', name: t.french, flag: '🇫🇷', nativeName: 'Français' },
+    { code: 'ar', name: t.arabic, flag: '🇸🇦', nativeName: 'العربية' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === locale);
@@ -45,10 +86,10 @@ export function Header() {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-600 via-amber-500 to-amber-700 dark:from-amber-400 dark:via-amber-300 dark:to-amber-500 bg-clip-text text-transparent">
-                InstaCar Spa
+                TrueNorth Construction
               </h1>
               <p className="text-xs text-gray-600 dark:text-gray-400 font-medium tracking-wide">
-                Professional Auto Detailing
+                Construction & Renovation Experts
               </p>
             </div>
           </div>
@@ -83,8 +124,8 @@ export function Header() {
             {/* Enhanced Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
+                <Button
+                  variant="ghost"
                   size="sm"
                   className="flex items-center space-x-2 hover:bg-amber-50/80 dark:hover:bg-amber-900/20 transition-all duration-300 rounded-xl border border-transparent hover:border-amber-200/50 dark:hover:border-amber-800/50 backdrop-blur-sm"
                 >
@@ -99,64 +140,28 @@ export function Header() {
                 {languages.map((language) => (
                   <DropdownMenuItem
                     key={language.code}
-                    onClick={() => setLocale(language.code)}
+                    asChild
                     className={`flex items-center space-x-3 cursor-pointer transition-all duration-200 rounded-lg mx-1 ${
-                      locale === language.code 
-                        ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300' 
+                      locale === language.code
+                        ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300'
                         : 'hover:bg-amber-50/50 dark:hover:bg-amber-900/20'
                     }`}
                   >
-                    <span className="text-lg">{language.flag}</span>
-                    <div className="flex flex-col flex-1">
-                      <span className="font-medium">{language.name}</span>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">{language.nativeName}</span>
-                    </div>
-                    {locale === language.code && (
-                      <div className="w-2 h-2 bg-amber-500 rounded-full shadow-sm"></div>
-                    )}
+                    <a href={`/${language.code}`}>
+                      <span className="text-lg">{language.flag}</span>
+                      <div className="flex flex-col flex-1">
+                        <span className="font-medium">{language.name}</span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">{language.nativeName}</span>
+                      </div>
+                      {locale === language.code && (
+                        <div className="w-2 h-2 bg-amber-500 rounded-full shadow-sm"></div>
+                      )}
+                    </a>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Enhanced Theme Toggle */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="hover:bg-amber-50/80 dark:hover:bg-amber-900/20 transition-all duration-300 rounded-xl border border-transparent hover:border-amber-200/50 dark:hover:border-amber-800/50 backdrop-blur-sm relative overflow-hidden group"
-                >
-                  <Sun className="h-4 w-4 rotate-0 scale-100 transition-all duration-300 dark:-rotate-90 dark:scale-0 absolute" />
-                  <Moon className="h-4 w-4 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100" />
-                  <span className="sr-only">{t('theme.toggle')}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-amber-200/30 dark:border-amber-800/30 shadow-xl">
-                <DropdownMenuItem 
-                  onClick={() => setTheme('light')}
-                  className={`transition-all duration-200 rounded-lg mx-1 ${theme === 'light' ? 'bg-amber-50 dark:bg-amber-900/30' : ''}`}
-                >
-                  <Sun className="h-4 w-4 mr-2" />
-                  {t('theme.light')}
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => setTheme('dark')}
-                  className={`transition-all duration-200 rounded-lg mx-1 ${theme === 'dark' ? 'bg-amber-50 dark:bg-amber-900/30' : ''}`}
-                >
-                  <Moon className="h-4 w-4 mr-2" />
-                  {t('theme.dark')}
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => setTheme('system')}
-                  className={`transition-all duration-200 rounded-lg mx-1 ${theme === 'system' ? 'bg-amber-50 dark:bg-amber-900/30' : ''}`}
-                >
-                  <Monitor className="h-4 w-4 mr-2" />
-                  {t('theme.system')}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
 
             {/* Enhanced Mobile menu button */}
             <Button

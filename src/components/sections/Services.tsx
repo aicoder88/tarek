@@ -8,7 +8,7 @@ import {
   Wrench, 
   TreePine, 
   Building, 
-  Roof,
+  // Roof icon may not exist in this lucide version; fallback to Home
   Bath,
   ChefHat
 } from 'lucide-react';
@@ -42,7 +42,7 @@ export function Services() {
       image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80'
     },
     {
-      icon: Roof,
+      icon: Home,
       title: t('roofing.title'),
       description: t('roofing.description'),
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80'

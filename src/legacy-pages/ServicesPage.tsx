@@ -36,7 +36,7 @@ const ServicesPage = ({ locale = "en" }: ServicesPageProps) => {
       icon: Sparkles,
       title: locale === "en" ? "Interior Detailing" : locale === "fr" ? "Détaillage intérieur" : "تفصيل داخلي",
       description: locale === "en" 
-        ? "Deep cleaning and protection for your vehicle's interior"
+        ? "Deep cleaning and protection for your home's interior surfaces"
         : locale === "fr"
         ? "Nettoyage en profondeur et protection pour l'intérieur de votre véhicule"
         : "تنظيف عميق وحماية لداخل سيارتك",
@@ -114,7 +114,7 @@ const ServicesPage = ({ locale = "en" }: ServicesPageProps) => {
     {
       name: locale === "en" ? "Ultimate Detail" : locale === "fr" ? "Détail ultime" : "تفصيل نهائي",
       price: "$400",
-      description: locale === "en" ? "Show car quality finish" : locale === "fr" ? "Finition de qualité voiture d'exposition" : "لمسة نهائية بجودة سيارة العرض",
+      description: locale === "en" ? "Premium finish for a flawless look" : locale === "fr" ? "Finition haut de gamme pour un rendu impeccable" : "تشطيبات فاخرة لمظهر لا تشوبه شائبة",
       services: [
         locale === "en" ? "Everything in Premium Detail" : locale === "fr" ? "Tout dans le détail premium" : "كل شيء في التفصيل المتميز",
         locale === "en" ? "Paint correction (1-step)" : locale === "fr" ? "Correction de peinture (1 étape)" : "تصحيح الطلاء (خطوة واحدة)",
@@ -138,17 +138,17 @@ const ServicesPage = ({ locale = "en" }: ServicesPageProps) => {
             </Badge>
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
               {locale === "en" 
-                ? "Professional Auto Detailing Services"
+                ? "Professional Construction Services"
                 : locale === "fr"
-                ? "Services de détaillage automobile professionnel"
-                : "خدمات تفصيل السيارات المحترفة"}
+                ? "Services de construction professionnels"
+                : "خدمات بناء احترافية"}
             </h1>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               {locale === "en"
-                ? "From basic washes to premium ceramic coatings, we offer comprehensive auto detailing services to keep your vehicle looking its best."
+                ? "From kitchens and baths to roofing, we offer comprehensive renovation services to elevate your home."
                 : locale === "fr"
-                ? "Des lavages de base aux revêtements céramiques premium, nous offrons des services complets de détaillage automobile pour que votre véhicule soit à son meilleur."
-                : "من الغسيل الأساسي إلى الطلاءات السيراميكية المتميزة، نقدم خدمات تفصيل السيارات الشاملة للحفاظ على أفضل مظهر لسيارتك."}
+                ? "Des cuisines et salles de bain à la toiture, nous offrons des services de rénovation complets pour valoriser votre maison."
+                : "من المطابخ والحمامات إلى الأسقف، نقدم خدمات تجديد شاملة لرفع قيمة منزلك."}
             </p>
           </div>
         </div>
@@ -258,10 +258,10 @@ const ServicesPage = ({ locale = "en" }: ServicesPageProps) => {
             </h2>
             <p className="text-muted-foreground md:text-lg max-w-2xl mx-auto">
               {locale === "en"
-                ? "Contact us today to schedule your auto detailing service. We'll make your vehicle look amazing!"
+                ? "Contact us today to request a free estimate. Let’s bring your vision to life!"
                 : locale === "fr"
-                ? "Contactez-nous aujourd'hui pour planifier votre service de détaillage automobile. Nous ferons en sorte que votre véhicule soit magnifique!"
-                : "اتصل بنا اليوم لجدولة خدمة تفصيل السيارات الخاصة بك. سنجعل سيارتك تبدو رائعة!"}
+                ? "Contactez‑nous dès aujourd’hui pour demander une estimation gratuite. Concrétisons votre vision !"
+                : "تواصل معنا اليوم لطلب تقدير مجاني. لنجعل رؤيتك واقعاً!"}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg">

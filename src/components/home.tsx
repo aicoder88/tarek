@@ -11,11 +11,10 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { Separator } from "./ui/separator";
 import { Badge } from "./ui/badge";
 
 import { Header } from "./layout/Header";
+import { Footer } from "./layout/Footer";
 import ServiceGrid from "./services/ServiceGrid";
 import ProjectGallery from "./projects/ProjectGallery";
 import ContactForm from "./contact/ContactForm";
@@ -34,7 +33,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Header */}
-      <Header />
+      <Header locale={locale} />
 
       {/* Hero Section */}
       <section className="relative w-full py-20 md:py-32 bg-gradient-to-b from-muted/50 to-background">
@@ -43,24 +42,24 @@ const Home = ({ locale = "en" }: HomeProps) => {
             <div className="space-y-2">
               <Badge variant="outline" className="px-3 py-1">
                 {locale === "en"
-                  ? "Professional Auto Detailing Services"
+                  ? "Professional Construction & Renovation"
                   : locale === "fr"
-                    ? "Services de détaillage automobile professionnel"
-                    : "خدمات تفصيل السيارات المحترفة"}
+                    ? "Construction et rénovation professionnelles"
+                    : "خدمات بناء وتجديد احترافية"}
               </Badge>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                 {locale === "en"
-                  ? "Transform Your Vehicle With Expert Auto Detailing"
+                  ? "Transform Your Home With Expert Craftsmanship"
                   : locale === "fr"
-                    ? "Transformez votre véhicule avec un détaillage automobile expert"
-                    : "حوّل سيارتك بتفصيل السيارات الخبير"}
+                    ? "Transformez votre maison avec un savoir‑faire expert"
+                    : "حوّل منزلك بحرفية خبيرة"}
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                 {locale === "en"
-                  ? "From paint correction to ceramic coating, we deliver exceptional auto detailing services that protect and enhance your vehicle's appearance."
+                  ? "From kitchen remodels to full home renovations, we deliver quality results that elevate your space."
                   : locale === "fr"
-                    ? "De la correction de peinture au revêtement céramique, nous fournissons des services exceptionnels de détaillage automobile qui protègent et améliorent l'apparence de votre véhicule."
-                    : "من تصحيح الطلاء إلى الطلاء السيراميكي، نقدم خدمات تفصيل السيارات الاستثنائية التي تحمي وتعزز مظهر سيارتك."}
+                    ? "Des rénovations de cuisine aux rénovations complètes de maison, nous livrons des résultats de qualité qui valorisent votre espace."
+                    : "من تجديدات المطبخ إلى التجديدات الكاملة للمنزل، نقدّم نتائج عالية الجودة ترتقي بمساحتك."}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -83,9 +82,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
           </div>
         </div>
 
-        {/* Decorative elements */}
+        {/* Decorative elements - temporarily disabled for testing */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <motion.div
+          {/* <motion.div
             className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
             animate={{
               x: [0, 10, 0],
@@ -108,7 +107,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               duration: 10,
               ease: "easeInOut",
             }}
-          />
+          /> */}
         </div>
       </section>
 
@@ -545,17 +544,17 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
                 {locale === "en"
-                  ? "Ready to Detail Your Vehicle?"
+                  ? "Ready to Start Your Project?"
                   : locale === "fr"
-                    ? "Prêt à détailler votre véhicule?"
-                    : "هل أنت مستعد لتفصيل سيارتك؟"}
+                    ? "Prêt à démarrer votre projet ?"
+                    : "جاهز لبدء مشروعك؟"}
               </h2>
               <p className="text-muted-foreground md:text-lg">
                 {locale === "en"
-                  ? "Contact us today to schedule your auto detailing service. We'll make your vehicle look like new again."
+                  ? "Contact us today to request a free estimate. Let’s bring your vision to life."
                   : locale === "fr"
-                    ? "Contactez-nous aujourd'hui pour planifier votre service de détaillage automobile. Nous ferons en sorte que votre véhicule ait l'air neuf à nouveau."
-                    : "اتصل بنا اليوم لجدولة خدمة تفصيل السيارات الخاصة بك. سنجعل سيارتك تبدو جديدة مرة أخرى."}
+                    ? "Contactez‑nous dès aujourd’hui pour demander une estimation gratuite. Concrétisons votre vision."
+                    : "تواصل معنا اليوم لطلب تقدير مجاني. لنجعل رؤيتك واقعاً."}
               </p>
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -581,11 +580,11 @@ const Home = ({ locale = "en" }: HomeProps) => {
                         : "معلومات الاتصال"}
                   </h3>
                   <p className="text-muted-foreground">
-                    Email: info@instacarspa.com
+                    Email: info@truenorthconstruction.com
                     <br />
                     Phone: (647) 860-5500
                     <br />
-                    Website: instacarspa.com
+                    Website: truenorthconstruction.com
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -619,7 +618,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </div>
             </div>
             <div className="rounded-xl border bg-card p-6 shadow-sm">
-              <ContactForm locale={locale} />
+              <ContactForm language={locale as "en" | "fr" | "ar"} />
             </div>
           </div>
         </div>
@@ -665,6 +664,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer locale={locale} />
     </div>
   );
 };

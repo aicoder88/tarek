@@ -18,32 +18,32 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
   const projects = [
     {
       id: 1,
-      title: locale === "en" ? "BMW M3 Paint Correction" : locale === "fr" ? "Correction de peinture BMW M3" : "تصحيح طلاء BMW M3",
-      category: "paint-correction",
-      service: locale === "en" ? "Paint Correction" : locale === "fr" ? "Correction de peinture" : "تصحيح الطلاء",
-      vehicle: "2020 BMW M3",
+      title: locale === "en" ? "Kitchen Remodel — Westmount" : locale === "fr" ? "Rénovation de cuisine — Westmount" : "تجديد مطبخ — ويستمونت",
+      category: "kitchen-remodeling",
+      service: locale === "en" ? "Kitchen Remodeling" : locale === "fr" ? "Rénovation de cuisine" : "تجديد مطابخ",
+      vehicle: "Single‑family Home",
       date: "March 2024",
       rating: 5,
       beforeImage: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80",
       afterImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80",
       description: locale === "en" 
-        ? "Complete paint correction removing swirl marks and minor scratches, followed by ceramic coating application."
+        ? "Full kitchen modernization with custom cabinetry, stone countertops, new lighting and backsplash."
         : locale === "fr"
-        ? "Correction complète de la peinture éliminant les marques de tourbillon et les rayures mineures, suivie de l'application d'un revêtement céramique."
-        : "تصحيح كامل للطلاء لإزالة علامات الدوامة والخدوش الطفيفة، متبوعًا بتطبيق الطلاء السيراميكي.",
+        ? "Modernisation complète de la cuisine avec armoires sur mesure, comptoirs en pierre, nouvel éclairage et dosseret."
+        : "تحديث كامل للمطبخ مع خزائن مخصّصة وأسْطُح حجرية وإضاءة جديدة وواجهة خلفية.",
       testimonial: locale === "en"
-        ? "Amazing work! My BMW looks better than when I first bought it. The attention to detail is incredible."
+        ? "Amazing work! Our kitchen looks better than we imagined. The attention to detail is incredible."
         : locale === "fr"
-        ? "Travail incroyable! Ma BMW a l'air mieux que quand je l'ai achetée pour la première fois. L'attention aux détails est incroyable."
-        : "عمل مذهل! تبدو BMW الخاصة بي أفضل من عندما اشتريتها لأول مرة. الاهتمام بالتفاصيل لا يصدق.",
+        ? "Travail incroyable ! Notre cuisine est encore mieux que nous l’imaginions. L’attention aux détails est incroyable."
+        : "عمل مذهل! يبدو مطبخنا أفضل مما تخيلنا. الاهتمام بالتفاصيل مذهل.",
       client: "Michael R."
     },
     {
       id: 2,
-      title: locale === "en" ? "Mercedes S-Class Interior Detail" : locale === "fr" ? "Détail intérieur Mercedes Classe S" : "تفصيل داخلي مرسيدس الفئة S",
-      category: "interior",
-      service: locale === "en" ? "Interior Detailing" : locale === "fr" ? "Détaillage intérieur" : "تفصيل داخلي",
-      vehicle: "2019 Mercedes S-Class",
+      title: locale === "en" ? "Bathroom Renovation — Plateau" : locale === "fr" ? "Rénovation de salle de bain — Plateau" : "تجديد حمام — بلاتو",
+      category: "bathroom-renovation",
+      service: locale === "en" ? "Bathroom Renovation" : locale === "fr" ? "Rénovation de salle de bain" : "تجديد حمام",
+      vehicle: "Downtown Condo",
       date: "February 2024",
       rating: 5,
       beforeImage: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
@@ -62,41 +62,41 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
     },
     {
       id: 3,
-      title: locale === "en" ? "Porsche 911 Ceramic Coating" : locale === "fr" ? "Revêtement céramique Porsche 911" : "طلاء سيراميكي بورش 911",
-      category: "ceramic-coating",
-      service: locale === "en" ? "Ceramic Coating" : locale === "fr" ? "Revêtement céramique" : "طلاء سيراميكي",
-      vehicle: "2021 Porsche 911",
+      title: locale === "en" ? "Roof Replacement — Laval" : locale === "fr" ? "Remplacement de toiture — Laval" : "استبدال السقف — لافال",
+      category: "roofing-siding",
+      service: locale === "en" ? "Roofing & Siding" : locale === "fr" ? "Toiture et revêtement" : "الأسقف والكسوة",
+      vehicle: "Detached Home",
       date: "January 2024",
       rating: 5,
       beforeImage: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80",
       afterImage: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80",
       description: locale === "en"
-        ? "Multi-stage paint correction followed by premium ceramic coating application with 5-year warranty."
+        ? "Old shingles removed and new architectural asphalt roof installed with upgraded underlayment and flashing."
         : locale === "fr"
-        ? "Correction de peinture multi-étapes suivie de l'application d'un revêtement céramique premium avec garantie de 5 ans."
-        : "تصحيح طلاء متعدد المراحل متبوعًا بتطبيق طلاء سيراميكي متميز مع ضمان 5 سنوات.",
+        ? "Anciennes bardeaux retirés et nouvelle toiture en bardeaux architecturaux installée avec sous‑couche et solins améliorés."
+        : "إزالة السقف القديم وتركيب سقف أسفلت معماري جديد مع طبقات عزل وحواف محسّنة.",
       testimonial: locale === "en"
-        ? "Outstanding work! The ceramic coating makes maintenance so much easier and the shine is incredible."
+        ? "Outstanding work! The new roof looks fantastic and the crew was professional."
         : locale === "fr"
-        ? "Travail exceptionnel! Le revêtement céramique rend l'entretien beaucoup plus facile et la brillance est incroyable."
-        : "عمل متميز! الطلاء السيراميكي يجعل الصيانة أسهل بكثير واللمعان لا يصدق.",
+        ? "Travail exceptionnel ! La nouvelle toiture est superbe et l’équipe a été professionnelle."
+        : "عمل متميز! السقف الجديد يبدو رائعاً والفريق كان محترفاً.",
       client: "David K."
     },
     {
       id: 4,
-      title: locale === "en" ? "Tesla Model S Full Detail" : locale === "fr" ? "Détail complet Tesla Model S" : "تفصيل كامل تسلا موديل S",
-      category: "full-detail",
-      service: locale === "en" ? "Full Detail Package" : locale === "fr" ? "Forfait détail complet" : "حزمة التفصيل الكاملة",
-      vehicle: "2022 Tesla Model S",
+      title: locale === "en" ? "Basement Finishing — Brossard" : locale === "fr" ? "Aménagement de sous‑sol — Brossard" : "تشطيب قبو — بروسار",
+      category: "basement-finishing",
+      service: locale === "en" ? "Basement Finishing" : locale === "fr" ? "Aménagement de sous‑sol" : "تشطيب القبو",
+      vehicle: "Semi‑detached Home",
       date: "December 2023",
       rating: 5,
       beforeImage: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80",
       afterImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
       description: locale === "en"
-        ? "Complete exterior and interior detailing with paint correction and ceramic coating application."
+        ? "Framing, insulation, drywall, flooring and new bathroom added to create a comfortable living space."
         : locale === "fr"
-        ? "Détaillage complet extérieur et intérieur avec correction de peinture et application de revêtement céramique."
-        : "تفصيل كامل خارجي وداخلي مع تصحيح الطلاء وتطبيق الطلاء السيراميكي.",
+        ? "Ossature, isolation, gypse, plancher et nouvelle salle de bain ajoutés pour créer un espace de vie confortable."
+        : "إنشاء هيكل وعزل وجبس وأرضيات وإضافة حمام جديد لخلق مساحة معيشية مريحة.",
       testimonial: locale === "en"
         ? "Exceptional service from start to finish. My Tesla has never looked better!"
         : locale === "fr"
@@ -108,10 +108,10 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
 
   const categories = [
     { id: "all", name: locale === "en" ? "All Projects" : locale === "fr" ? "Tous les projets" : "جميع المشاريع" },
-    { id: "paint-correction", name: locale === "en" ? "Paint Correction" : locale === "fr" ? "Correction de peinture" : "تصحيح الطلاء" },
-    { id: "interior", name: locale === "en" ? "Interior Detailing" : locale === "fr" ? "Détaillage intérieur" : "تفصيل داخلي" },
-    { id: "ceramic-coating", name: locale === "en" ? "Ceramic Coating" : locale === "fr" ? "Revêtement céramique" : "طلاء سيراميكي" },
-    { id: "full-detail", name: locale === "en" ? "Full Detail" : locale === "fr" ? "Détail complet" : "تفصيل كامل" }
+    { id: "kitchen-remodeling", name: locale === "en" ? "Kitchen Remodeling" : locale === "fr" ? "Rénovation de cuisine" : "تجديد المطابخ" },
+    { id: "bathroom-renovation", name: locale === "en" ? "Bathroom Renovation" : locale === "fr" ? "Rénovation de salle de bain" : "تجديد الحمامات" },
+    { id: "roofing-siding", name: locale === "en" ? "Roofing & Siding" : locale === "fr" ? "Toiture et revêtement" : "الأسقف والكسوة" },
+    { id: "basement-finishing", name: locale === "en" ? "Basement Finishing" : locale === "fr" ? "Aménagement de sous‑sol" : "تشطيب القبو" }
   ];
 
   const [activeCategory, setActiveCategory] = useState("all");
@@ -139,10 +139,10 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
             </h1>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               {locale === "en"
-                ? "See the incredible transformations we've achieved for our clients. From paint correction to full details, every project showcases our commitment to excellence."
+                ? "See the incredible transformations we've achieved for our clients. From kitchens and baths to basements and roofs, every project showcases our commitment to excellence."
                 : locale === "fr"
-                ? "Découvrez les transformations incroyables que nous avons réalisées pour nos clients. De la correction de peinture aux détails complets, chaque projet montre notre engagement envers l'excellence."
-                : "شاهد التحولات المذهلة التي حققناها لعملائنا. من تصحيح الطلاء إلى التفاصيل الكاملة، كل مشروع يظهر التزامنا بالتميز."}
+                ? "Découvrez les transformations incroyables réalisées pour nos clients. Des cuisines et salles de bain aux sous‑sols et toitures, chaque projet reflète notre engagement envers l’excellence."
+                : "شاهد التحولات المذهلة التي حققناها لعملائنا. من المطابخ والحمامات إلى الأقبية والأسقف، يعكس كل مشروع التزامنا بالتميز."}
             </p>
           </div>
         </div>
@@ -201,7 +201,7 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
                     <div>
                       <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
                       <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                        <Car className="h-4 w-4" />
+                        <Hammer className="h-4 w-4" />
                         <span>{project.vehicle}</span>
                         <Calendar className="h-4 w-4 ml-2" />
                         <span>{project.date}</span>
@@ -296,14 +296,14 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
         <div className="container px-4 md:px-6">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-              {locale === "en" ? "Ready for Your Transformation?" : locale === "fr" ? "Prêt pour votre transformation?" : "هل أنت مستعد لتحولك؟"}
+              {locale === "en" ? "Ready to Transform Your Space?" : locale === "fr" ? "Prêt à transformer votre espace ?" : "هل أنت مستعد لتحويل مساحتك؟"}
             </h2>
             <p className="text-muted-foreground md:text-lg max-w-2xl mx-auto">
               {locale === "en"
-                ? "Let us transform your vehicle with the same attention to detail and quality you see in our work."
+                ? "Let us transform your home with the same attention to detail and quality you see in our work."
                 : locale === "fr"
-                ? "Laissez-nous transformer votre véhicule avec la même attention aux détails et la qualité que vous voyez dans notre travail."
-                : "دعنا نحول سيارتك بنفس الاهتمام بالتفاصيل والجودة التي تراها في عملنا."}
+                ? "Laissez‑nous transformer votre maison avec la même attention aux détails et la qualité que vous voyez dans notre travail."
+                : "دعنا نحول منزلك بنفس الاهتمام بالتفاصيل والجودة التي تراها في عملنا."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg">

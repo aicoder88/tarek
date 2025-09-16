@@ -40,7 +40,7 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
       icon: Target,
       title: locale === "en" ? "Precision" : locale === "fr" ? "Précision" : "دقة",
       description: locale === "en" 
-        ? "Every detail matters. We approach each vehicle with meticulous attention to achieve perfection."
+        ? "Every detail matters. We approach each project with meticulous attention to achieve perfection."
         : locale === "fr"
         ? "Chaque détail compte. Nous abordons chaque véhicule avec une attention méticuleuse pour atteindre la perfection."
         : "كل التفاصيل مهمة. نتعامل مع كل سيارة بعناية دقيقة لتحقيق الكمال."
@@ -58,7 +58,7 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
       icon: Shield,
       title: locale === "en" ? "Trust" : locale === "fr" ? "Confiance" : "ثقة",
       description: locale === "en"
-        ? "Your vehicle is safe with us. We treat every car as if it were our own, with care and respect."
+        ? "Your home is in good hands. We treat every property as if it were our own, with care and respect."
         : locale === "fr"
         ? "Votre véhicule est en sécurité avec nous. Nous traitons chaque voiture comme si c'était la nôtre, avec soin et respect."
         : "سيارتك آمنة معنا. نتعامل مع كل سيارة كما لو كانت ملكنا، بعناية واحترام."
@@ -72,7 +72,7 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
       experience: locale === "en" ? "8+ years experience" : locale === "fr" ? "8+ années d'expérience" : "8+ سنوات من الخبرة",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
       description: locale === "en"
-        ? "Certified in advanced paint correction and ceramic coating application. Passionate about automotive perfection."
+        ? "Certified in residential construction and renovation best practices. Passionate about craftsmanship."
         : locale === "fr"
         ? "Certifié en correction de peinture avancée et application de revêtement céramique. Passionné par la perfection automobile."
         : "معتمد في تصحيح الطلاء المتقدم وتطبيق الطلاء السيراميكي. شغوف بالكمال في السيارات."
@@ -128,10 +128,10 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
             </h1>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               {locale === "en"
-                ? "InstaCar Spa was founded with a simple mission: to provide the highest quality auto detailing services while treating every vehicle with the care it deserves."
+                ? "TrueNorth Construction was founded with a simple mission: to provide the highest quality construction services while treating every home with the care it deserves."
                 : locale === "fr"
-                ? "InstaCar Spa a été fondé avec une mission simple : fournir des services de détaillage automobile de la plus haute qualité tout en traitant chaque véhicule avec le soin qu'il mérite."
-                : "تأسست InstaCar Spa بمهمة بسيطة: تقديم خدمات تفصيل السيارات عالية الجودة مع معاملة كل سيارة بالعناية التي تستحقها."}
+                ? "TrueNorth Construction a été fondée avec une mission simple : offrir des services de construction de la plus haute qualité tout en traitant chaque maison avec le soin qu’elle mérite."
+                : "تأسست TrueNorth Construction بمهمة بسيطة: تقديم خدمات بناء عالية الجودة مع معاملة كل منزل بالعناية التي يستحقها."}
             </p>
           </div>
         </div>
@@ -170,16 +170,16 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
                 </h2>
                 <p className="text-muted-foreground md:text-lg">
                   {locale === "en"
-                    ? "Founded in 2019 in Toronto, InstaCar Spa began as a mobile detailing service with a vision to bring professional-grade car care directly to our customers. What started as a one-person operation has grown into a trusted team of automotive care specialists."
+                    ? "Founded in 2019 in Montreal, TrueNorth Construction began as a small remodeling team with a vision to bring professional craftsmanship directly to our clients. What started as a one‑person operation has grown into a trusted team of construction specialists."
                     : locale === "fr"
-                    ? "Fondé en 2019 à Toronto, InstaCar Spa a commencé comme un service de détaillage mobile avec une vision d'apporter des soins automobiles de qualité professionnelle directement à nos clients. Ce qui a commencé comme une opération d'une personne s'est développé en une équipe de confiance de spécialistes en soins automobiles."
-                    : "تأسست في عام 2019 في تورونتو، بدأت InstaCar Spa كخدمة تفصيل متنقلة برؤية لجلب رعاية السيارات ذات الجودة المهنية مباشرة إلى عملائنا. ما بدأ كعملية شخص واحد نما إلى فريق موثوق من متخصصي رعاية السيارات."}
+                    ? "Fondée en 2019 à Montréal, TrueNorth Construction a commencé comme une petite équipe de rénovation avec la vision d’apporter un savoir‑faire professionnel directement à nos clients. Ce qui a commencé comme une opération individuelle est devenu une équipe de spécialistes de la construction de confiance."
+                    : "تأسست في عام 2019 في مونتريال، بدأت TrueNorth Construction كفريق تجديد صغير برؤية تقديم حرفية احترافية مباشرة لعملائنا. ما بدأ كعملٍ فردي أصبح فريقًا موثوقًا من مختصي البناء."}
                 </p>
               </div>
               
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold">
-                  {locale === "en" ? "Why Choose InstaCar Spa?" : locale === "fr" ? "Pourquoi choisir InstaCar Spa?" : "لماذا تختار InstaCar Spa؟"}
+                  {locale === "en" ? "Why Choose TrueNorth Construction?" : locale === "fr" ? "Pourquoi choisir TrueNorth Construction ?" : "لماذا تختار TrueNorth Construction؟"}
                 </h3>
                 <ul className="space-y-3">
                   {[
@@ -201,7 +201,7 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-                alt={locale === "en" ? "Car detailing process" : locale === "fr" ? "Processus de détaillage automobile" : "عملية تفصيل السيارات"}
+                alt={locale === "en" ? "Construction process" : locale === "fr" ? "Processus de construction" : "عملية البناء"}
                 className="rounded-xl shadow-lg w-full aspect-video object-cover"
               />
             </div>
@@ -324,10 +324,10 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
             </h2>
             <p className="text-muted-foreground md:text-lg max-w-2xl mx-auto">
               {locale === "en"
-                ? "Join hundreds of satisfied customers who trust InstaCar Spa with their vehicle care needs."
+                ? "Join hundreds of satisfied customers who trust TrueNorth Construction with their renovation needs."
                 : locale === "fr"
-                ? "Rejoignez des centaines de clients satisfaits qui font confiance à InstaCar Spa pour leurs besoins de soins automobiles."
-                : "انضم إلى مئات العملاء الراضين الذين يثقون في InstaCar Spa لاحتياجات رعاية سياراتهم."}
+                ? "Rejoignez des centaines de clients satisfaits qui font confiance à TrueNorth Construction pour leurs besoins de rénovation."
+                : "انضم إلى مئات العملاء الراضين الذين يثقون بـ TrueNorth Construction لاحتياجات التجديد لديهم."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg">

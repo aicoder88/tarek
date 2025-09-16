@@ -7,7 +7,11 @@ import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ChevronLeft, ChevronRight, Star, Calendar, MapPin, Eye, ArrowRight } from 'lucide-react';
 
-export default function ProjectGallery() {
+interface ProjectGalleryProps {
+  locale?: string;
+}
+
+export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [beforeAfterPosition, setBeforeAfterPosition] = useState(50);

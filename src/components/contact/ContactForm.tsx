@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,7 +32,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircle, AlertCircle, Phone, Mail, Car } from "lucide-react";
+import { CheckCircle, AlertCircle, Phone, Mail, Hammer } from "lucide-react";
 
 // Define the form schema with Zod
 const formSchema = z.object({
@@ -54,64 +56,89 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 interface ContactFormProps {
-  language?: "en" | "fr" | "ar";
+  locale?: string;
   services?: Array<{ id: string; name: string }>;
-  translations?: {
-    title: string;
-    description: string;
-    nameLabel: string;
-    namePlaceholder: string;
-    emailLabel: string;
-    emailPlaceholder: string;
-    phoneLabel: string;
-    phonePlaceholder: string;
-    serviceLabel: string;
-    servicePlaceholder: string;
-    messageLabel: string;
-    messagePlaceholder: string;
-    submitButton: string;
-    successTitle: string;
-    successMessage: string;
-    errorTitle: string;
-    errorMessage: string;
-  };
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
-  language = "en",
+  locale = "en",
   services = [
-    { id: "exterior-wash", name: "Exterior Wash & Wax" },
-    { id: "interior-detail", name: "Interior Detailing" },
-    { id: "ceramic-coating", name: "Ceramic Coating" },
-    { id: "paint-correction", name: "Paint Correction" },
-    { id: "full-detail", name: "Full Detail Package" },
-    { id: "headlight-restoration", name: "Headlight Restoration" },
-    { id: "engine-cleaning", name: "Engine Bay Cleaning" },
-    { id: "mobile-service", name: "Mobile Service" },
+    { id: "kitchen-remodeling", name: "Kitchen Remodeling" },
+    { id: "bathroom-renovation", name: "Bathroom Renovation" },
+    { id: "flooring", name: "Flooring" },
+    { id: "basement-finishing", name: "Basement Finishing" },
+    { id: "roofing-siding", name: "Roofing & Siding" },
+    { id: "painting-drywall", name: "Painting & Drywall" },
+    { id: "outdoor-landscaping", name: "Outdoor & Landscaping" },
+    { id: "general-contracting", name: "General Contracting & Additions" },
+    { id: "prefab-structures", name: "Prefabricated Structures" },
     { id: "other", name: "Other" },
   ],
-  translations = {
-    title: "Contact InstaCar Spa",
-    description:
-      "Fill out the form below and we'll get back to you within 24 hours to discuss your auto detailing needs.",
-    nameLabel: "Name",
-    namePlaceholder: "Enter your name",
-    emailLabel: "Email",
-    emailPlaceholder: "Enter your email",
-    phoneLabel: "Phone",
-    phonePlaceholder: "Enter your phone number",
-    serviceLabel: "Service Needed",
-    servicePlaceholder: "Select a service",
-    messageLabel: "Message",
-    messagePlaceholder: "Tell us about your vehicle and detailing needs",
-    submitButton: "Get Free Quote",
-    successTitle: "Thank you!",
-    successMessage:
-      "Your message has been sent. We'll contact you within 24 hours with a personalized quote.",
-    errorTitle: "Error",
-    errorMessage: "There was a problem submitting your form. Please try again or call us at (647) 860-5500.",
-  },
 }) => {
+  const getTranslations = (locale: string) => {
+    const translations = {
+      en: {
+        title: "Contact TrueNorth Construction",
+        description: "Fill out the form below and we'll get back to you within 24 hours to discuss your construction or renovation project.",
+        nameLabel: "Name",
+        namePlaceholder: "Enter your name",
+        emailLabel: "Email",
+        emailPlaceholder: "Enter your email",
+        phoneLabel: "Phone",
+        phonePlaceholder: "Enter your phone number",
+        serviceLabel: "Service Needed",
+        servicePlaceholder: "Select a service",
+        messageLabel: "Message",
+        messagePlaceholder: "Tell us about your project and service needs",
+        submitButton: "Get Free Quote",
+        successTitle: "Thank you!",
+        successMessage: "Your message has been sent. We'll contact you within 24 hours with a personalized quote.",
+        errorTitle: "Error",
+        errorMessage: "There was a problem submitting your form. Please try again or call us at (647) 860-5500.",
+      },
+      fr: {
+        title: "Contactez TrueNorth Construction",
+        description: "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures pour discuter de votre projet de construction ou de rénovation.",
+        nameLabel: "Nom",
+        namePlaceholder: "Entrez votre nom",
+        emailLabel: "Email",
+        emailPlaceholder: "Entrez votre email",
+        phoneLabel: "Téléphone",
+        phonePlaceholder: "Entrez votre numéro de téléphone",
+        serviceLabel: "Service requis",
+        servicePlaceholder: "Sélectionnez un service",
+        messageLabel: "Message",
+        messagePlaceholder: "Parlez-nous de votre projet et de vos besoins en services",
+        submitButton: "Obtenir un devis gratuit",
+        successTitle: "Merci!",
+        successMessage: "Votre message a été envoyé. Nous vous contacterons dans les 24 heures avec un devis personnalisé.",
+        errorTitle: "Erreur",
+        errorMessage: "Il y a eu un problème lors de la soumission de votre formulaire. Veuillez réessayer ou nous appeler au (647) 860-5500.",
+      },
+      ar: {
+        title: "اتصل بـ TrueNorth Construction",
+        description: "املأ النموذج أدناه وسنعاود الاتصال بك خلال 24 ساعة لمناقشة مشروع البناء أو التجديد الخاص بك.",
+        nameLabel: "الاسم",
+        namePlaceholder: "أدخل اسمك",
+        emailLabel: "البريد الإلكتروني",
+        emailPlaceholder: "أدخل بريدك الإلكتروني",
+        phoneLabel: "الهاتف",
+        phonePlaceholder: "أدخل رقم هاتفك",
+        serviceLabel: "الخدمة المطلوبة",
+        servicePlaceholder: "اختر خدمة",
+        messageLabel: "الرسالة",
+        messagePlaceholder: "أخبرنا عن مشروعك واحتياجاتك من الخدمات",
+        submitButton: "احصل على عرض سعر مجاني",
+        successTitle: "شكرًا لك!",
+        successMessage: "تم إرسال رسالتك. سنتواصل معك خلال 24 ساعة بعرض سعر مخصص.",
+        errorTitle: "خطأ",
+        errorMessage: "حدثت مشكلة في إرسال النموذج. يرجى المحاولة مرة أخرى أو الاتصال بنا على (647) 860-5500.",
+      }
+    };
+    return translations[locale as keyof typeof translations] || translations.en;
+  };
+
+  const translations = getTranslations(locale);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
     "idle",
@@ -154,7 +181,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
     }
   };
 
-  const isRtl = language === "ar";
+  const isRtl = locale === "ar";
   const formDirection = isRtl ? "rtl" : "ltr";
 
   return (
@@ -162,7 +189,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       <Card className="border shadow-sm">
         <CardHeader>
           <CardTitle className="text-2xl font-bold flex items-center space-x-2">
-            <Car className="h-6 w-6 text-amber-600" />
+            <Hammer className="h-6 w-6 text-amber-600" />
             <span>{translations.title}</span>
           </CardTitle>
           <CardDescription>{translations.description}</CardDescription>
@@ -173,7 +200,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             </div>
             <div className="flex items-center space-x-1">
               <Mail className="h-4 w-4" />
-              <span>info@instacarspa.com</span>
+              <span>info@truenorthconstruction.com</span>
             </div>
           </div>
         </CardHeader>
@@ -303,13 +330,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
               <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
                 <h3 className="font-semibold text-amber-800 dark:text-amber-200 mb-2">
-                  Why Choose InstaCar Spa?
+              Why Choose TrueNorth Construction?
                 </h3>
                 <ul className="text-sm text-amber-700 dark:text-amber-300 space-y-1">
-                  <li>• Mobile service - we come to you!</li>
-                  <li>• Eco-friendly products & methods</li>
-                  <li>• Fully insured & satisfaction guaranteed</li>
-                  <li>• Serving Greater Toronto Area</li>
+                  <li>• Licensed & insured professionals</li>
+                  <li>• Free estimates and transparent pricing</li>
+                  <li>• Quality materials & craftsmanship</li>
+                  <li>• Serving Greater Montreal and surrounding areas</li>
                 </ul>
               </div>
 
