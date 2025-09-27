@@ -180,7 +180,7 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
         </div>
       </div>
     </section>
-  );}
+  );
 };
 
 export default ServiceGrid;
