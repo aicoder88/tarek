@@ -8,26 +8,32 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         subtitle: 'Transform your floors with durable, stylish, and professional solutions tailored to your home or business.',
         intro: 'Transform your floors with durable, stylish, and professional solutions tailored to your home or business. Our expert team delivers quality flooring installations that enhance both the beauty and functionality of your space.',
         badge: 'Flooring Experts',
+        heroImage: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1200&q=80',
         subServices: [
           {
             title: 'Tiling',
-            description: 'Durable and stylish tiles for floors, kitchens, and bathrooms. Perfect for easy maintenance and a modern look.'
+            description: 'Durable and stylish tiles for floors, kitchens, and bathrooms. Perfect for easy maintenance and a modern look.',
+            image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80'
           },
           {
             title: 'Hardwood Flooring',
-            description: 'Classic, elegant wood floors that add warmth and long-lasting beauty to any home.'
+            description: 'Classic, elegant wood floors that add warmth and long-lasting beauty to any home.',
+            image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80'
           },
           {
             title: 'Laminate & Vinyl Flooring',
-            description: 'Affordable, scratch-resistant flooring options that mimic wood or stone finishes.'
+            description: 'Affordable, scratch-resistant flooring options that mimic wood or stone finishes.',
+            image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
           },
           {
             title: 'Epoxy Coatings',
-            description: 'High-performance, glossy floors ideal for garages, basements, and commercial spaces.'
+            description: 'High-performance, glossy floors ideal for garages, basements, and commercial spaces.',
+            image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&q=80'
           },
           {
             title: 'Carpet Installation',
-            description: 'Soft, comfortable carpets for bedrooms, living areas, and cozy spaces.'
+            description: 'Soft, comfortable carpets for bedrooms, living areas, and cozy spaces.',
+            image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80'
           }
         ],
         ctaTitle: 'Ready for New Flooring?',
@@ -42,22 +48,27 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         subtitle: 'Upgrade your kitchen with modern designs, quality materials, and professional installation.',
         intro: 'Upgrade your kitchen with modern designs, quality materials, and professional installation. We transform outdated kitchens into beautiful, functional spaces that become the heart of your home.',
         badge: 'Kitchen Specialists',
+        heroImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80',
         subServices: [
           {
             title: 'Cabinetry & Countertops',
-            description: 'Custom-built cabinets and premium countertops to transform your kitchen\'s look and function.'
+            description: 'Custom-built cabinets and premium countertops to transform your kitchen\'s look and function.',
+            image: 'https://images.unsplash.com/photo-1556909909-4f5e4c0a8f8d?w=600&q=80'
           },
           {
             title: 'Backsplashes & Tiling',
-            description: 'Add style and protection with decorative, easy-to-clean backsplash options.'
+            description: 'Add style and protection with decorative, easy-to-clean backsplash options.',
+            image: 'https://images.unsplash.com/photo-1556909002-f6ce5b3f17d7?w=600&q=80'
           },
           {
             title: 'Flooring & Lighting Upgrades',
-            description: 'Modern lighting and flooring to brighten and refresh your cooking space.'
+            description: 'Modern lighting and flooring to brighten and refresh your cooking space.',
+            image: 'https://images.unsplash.com/photo-1556909186-45a1d9b5d4f8?w=600&q=80'
           },
           {
             title: 'Plumbing & Appliance Installation',
-            description: 'Seamless installation of sinks, faucets, and modern kitchen appliances.'
+            description: 'Seamless installation of sinks, faucets, and modern kitchen appliances.',
+            image: 'https://images.unsplash.com/photo-1556909231-4f3d4eae6c1e?w=600&q=80'
           }
         ],
         ctaTitle: 'Ready for Your Dream Kitchen?',
@@ -72,22 +83,27 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         subtitle: 'Create a spa-like experience with elegant, functional bathroom renovations.',
         intro: 'Create a spa-like experience with elegant, functional bathroom renovations. Our expert team transforms ordinary bathrooms into luxurious retreats that combine style, comfort, and functionality.',
         badge: 'Bathroom Experts',
+        heroImage: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&q=80',
         subServices: [
           {
             title: 'Shower & Tub Installation',
-            description: 'Elegant showers and tubs designed for comfort and luxury in your bathroom.'
+            description: 'Elegant showers and tubs designed for comfort and luxury in your bathroom.',
+            image: 'https://images.unsplash.com/photo-1564540529430-7dc5ac68e9a9?w=600&q=80'
           },
           {
             title: 'Vanity & Countertops',
-            description: 'Functional, stylish vanities and counters for a polished and organized bathroom.'
+            description: 'Functional, stylish vanities and counters for a polished and organized bathroom.',
+            image: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=600&q=80'
           },
           {
             title: 'Tiling & Waterproofing',
-            description: 'Expert waterproofing and tiling for long-lasting, mold-free bathroom surfaces.'
+            description: 'Expert waterproofing and tiling for long-lasting, mold-free bathroom surfaces.',
+            image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80'
           },
           {
             title: 'Plumbing & Fixtures',
-            description: 'Professional installation of sinks, toilets, and high-end bathroom fixtures.'
+            description: 'Professional installation of sinks, toilets, and high-end bathroom fixtures.',
+            image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80'
           }
         ],
         ctaTitle: 'Ready for Your Spa-Like Bathroom?',
@@ -102,22 +118,27 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         subtitle: 'Turn your basement into a functional, beautiful living space with our expert finishing services.',
         intro: 'Turn your basement into a functional, beautiful living space with our expert finishing services. We transform unfinished basements into comfortable, inviting areas that add value and space to your home.',
         badge: 'Basement Specialists',
+        heroImage: 'https://images.unsplash.com/photo-1615873968403-89e068629265?w=1200&q=80',
         subServices: [
           {
             title: 'Framing & Drywall',
             description: 'Professional framing and drywall services to turn your basement into a finished living area.',
+            image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80'
           },
           {
             title: 'Flooring & Lighting',
             description: 'Add bright lighting and durable flooring to create a cozy, inviting basement space.',
+            image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80'
           },
           {
             title: 'Bathroom/Kitchenette Additions',
             description: 'Full-service installation for functional basement bathrooms or mini kitchens.',
+            image: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?w=600&q=80'
           },
           {
             title: 'Insulation & Waterproofing',
             description: 'Proper insulation and waterproofing for a comfortable, moisture-free basement.',
+            image: 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=600&q=80'
           }
         ],
         ctaTitle: 'Ready to Transform Your Basement?',
