@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -8,14 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ServiceCardProps {
   image: string;
@@ -67,6 +62,7 @@ interface ServiceGridProps {
 }
 
 const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const defaultServices: ServiceCardProps[] = [
     {
       image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=300&q=80',
@@ -135,6 +131,17 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
 
   const displayServices = services || defaultServices;
 
+  const itemsPerView = 3; // Desktop: 3, Tablet: 2, Mobile: 1
+  const maxIndex = Math.max(0, displayServices.length - itemsPerView);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
+
   return (
     <section className="w-full py-12 bg-background">
       <div className="container mx-auto px-4">
@@ -149,28 +156,59 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
         </div>
 
         <div className="relative">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {displayServices.map((service, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <ServiceCard
-                    image={service.image}
-                    title={service.title}
-                    description={service.description}
-                    href={service.href}
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
+          {/* Desktop/Tablet: Carousel view */}
+          <div className="hidden md:block">
+            <div className="flex items-center">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={prevSlide}
+                className="mr-4 h-10 w-10 rounded-full"
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+
+              <div className="flex-1 overflow-hidden">
+                <div
+                  className="flex transition-transform duration-300 ease-in-out gap-4"
+                  style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
+                >
+                  {displayServices.map((service, index) => (
+                    <div key={index} className="w-1/3 flex-shrink-0">
+                      <ServiceCard
+                        image={service.image}
+                        title={service.title}
+                        description={service.description}
+                        href={service.href}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={nextSlide}
+                className="ml-4 h-10 w-10 rounded-full"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Mobile: Grid view */}
+          <div className="md:hidden grid grid-cols-1 gap-6">
+            {displayServices.map((service, index) => (
+              <ServiceCard
+                key={index}
+                image={service.image}
+                title={service.title}
+                description={service.description}
+                href={service.href}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 text-center">
