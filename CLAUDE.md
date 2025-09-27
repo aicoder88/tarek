@@ -89,7 +89,7 @@ npm run types:supabase
 ### Component Features
 - Contact form with React Hook Form validation
 - Project gallery with image optimization
-- Service grid with responsive cards
+- Service carousel with responsive cards and image focus
 - Testimonials with star ratings
 - Animated hero section with Framer Motion
 
