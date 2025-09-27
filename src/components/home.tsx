@@ -1,6 +1,8 @@
+'use client';
+
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Star } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 
 import { Button } from "./ui/button";
 import {
