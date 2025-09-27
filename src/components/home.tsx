@@ -37,55 +37,65 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <Header locale={locale} />
 
       {/* Hero Section */}
-      <section className="relative w-full py-20 md:py-32 bg-gradient-to-b from-muted/50 to-background">
+      <section className="relative w-full py-24 md:py-40 bg-gradient-to-br from-muted/60 via-background to-muted/30">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <Badge variant="outline" className="px-3 py-1">
+          <div className="flex flex-col items-center space-y-8 text-center">
+            <motion.div
+              className="space-y-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Badge variant="outline" className="px-4 py-2 text-sm bg-background/50 backdrop-blur-sm border-primary/20">
                 {locale === "en"
                   ? "Professional Construction & Renovation"
                   : locale === "fr"
                     ? "Construction et rénovation professionnelles"
                     : "خدمات بناء وتجديد احترافية"}
               </Badge>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
                 {locale === "en"
                   ? "Building Dreams, One Project at a Time"
                   : locale === "fr"
                     ? "Construire des rêves, un projet à la fois"
                     : "بناء الأحلام، مشروع واحد في كل مرة"}
               </h1>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+              <p className="mx-auto max-w-[800px] text-muted-foreground md:text-xl lg:text-2xl leading-relaxed">
                 {locale === "en"
                   ? "Professional construction, renovation, and remodeling services in Toronto. Transform your space with expert craftsmanship and attention to detail."
                   : locale === "fr"
                     ? "Services professionnels de construction, rénovation et remodelage à Toronto. Transformez votre espace avec un savoir-faire expert et une attention aux détails."
                     : "خدمات البناء والتجديد والإعادة التصميم المهنية في تورونتو. حوّل مساحتك بحرفية خبيرة واهتمام بالتفاصيل."}
               </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gap-1">
+            </motion.div>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <Button size="lg" className="gap-2 px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-primary to-primary/90">
                 {locale === "en"
                   ? "Get a Free Estimate"
                   : locale === "fr"
                     ? "Obtenez une estimation gratuite"
                     : "احصل على تقدير مجاني"}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="px-8 py-6 text-lg font-semibold border-2 hover:bg-muted/50 transition-all duration-300">
                 {locale === "en"
                   ? "View Our Projects"
                   : locale === "fr"
                     ? "Voir nos projets"
                     : "عرض مشاريعنا"}
               </Button>
-            </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Decorative elements - temporarily disabled for testing */}
+        {/* Decorative elements */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          {/* <motion.div
+          <motion.div
             className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
             animate={{
               x: [0, 10, 0],
@@ -108,12 +118,24 @@ const Home = ({ locale = "en" }: HomeProps) => {
               duration: 10,
               ease: "easeInOut",
             }}
-          /> */}
+          />
+          <motion.div
+            className="absolute top-1/2 right-1/3 w-64 h-64 bg-accent/5 rounded-full blur-2xl"
+            animate={{
+              x: [0, 20, 0],
+              y: [0, -10, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 12,
+              ease: "easeInOut",
+            }}
+          />
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
@@ -193,7 +215,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/20 to-muted/40">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -236,7 +258,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/40 to-background">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -357,7 +379,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -400,7 +422,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/30 to-background">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -540,7 +562,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <FAQ locale={locale} />
 
       {/* Contact Section */}
-      <section className="py-16 md:py-24 bg-muted/10">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
             <div className="space-y-4">
@@ -634,7 +656,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-primary/5">
+      <section className="py-20 md:py-32 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
