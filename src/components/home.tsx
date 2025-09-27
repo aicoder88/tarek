@@ -18,6 +18,7 @@ import { Footer } from "./layout/Footer";
 import ServiceGrid from "./services/ServiceGrid";
 import ProjectGallery from "./projects/ProjectGallery";
 import ContactForm from "./contact/ContactForm";
+import { FAQ } from "./sections/FAQ";
 
 interface HomeProps {
   locale?: string;
@@ -49,34 +50,34 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </Badge>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                 {locale === "en"
-                  ? "Transform Your Home With Expert Craftsmanship"
+                  ? "Building Dreams, One Project at a Time"
                   : locale === "fr"
-                    ? "Transformez votre maison avec un savoir‑faire expert"
-                    : "حوّل منزلك بحرفية خبيرة"}
+                    ? "Construire des rêves, un projet à la fois"
+                    : "بناء الأحلام، مشروع واحد في كل مرة"}
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                 {locale === "en"
-                  ? "From kitchen remodels to full home renovations, we deliver quality results that elevate your space."
+                  ? "Professional construction, renovation, and remodeling services in Toronto. Transform your space with expert craftsmanship and attention to detail."
                   : locale === "fr"
-                    ? "Des rénovations de cuisine aux rénovations complètes de maison, nous livrons des résultats de qualité qui valorisent votre espace."
-                    : "من تجديدات المطبخ إلى التجديدات الكاملة للمنزل، نقدّم نتائج عالية الجودة ترتقي بمساحتك."}
+                    ? "Services professionnels de construction, rénovation et remodelage à Toronto. Transformez votre espace avec un savoir-faire expert et une attention aux détails."
+                    : "خدمات البناء والتجديد والإعادة التصميم المهنية في تورونتو. حوّل مساحتك بحرفية خبيرة واهتمام بالتفاصيل."}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="gap-1">
                 {locale === "en"
-                  ? "Book Your Service"
+                  ? "Get a Free Estimate"
                   : locale === "fr"
-                    ? "Réservez votre service"
-                    : "احجز خدمتك"}
+                    ? "Obtenez une estimation gratuite"
+                    : "احصل على تقدير مجاني"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline">
                 {locale === "en"
-                  ? "View Our Work"
+                  ? "View Our Projects"
                   : locale === "fr"
-                    ? "Voir notre travail"
-                    : "عرض أعمالنا"}
+                    ? "Voir nos projets"
+                    : "عرض مشاريعنا"}
               </Button>
             </div>
           </div>
@@ -132,28 +133,33 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </h2>
               <p className="text-muted-foreground md:text-lg">
                 {locale === "en"
-                  ? "We are a family-owned business dedicated to delivering high-quality construction and renovation services. Our team of skilled professionals brings expertise, precision, and passion to every project."
+                  ? "At TrueNorth Construction, we specialize in transforming houses into dream homes. With years of experience, a dedicated team, and a passion for quality, we deliver top-notch services on time and within budget."
                   : locale === "fr"
-                    ? "Nous sommes une entreprise familiale dédiée à fournir des services de construction et de rénovation de haute qualité. Notre équipe de professionnels qualifiés apporte expertise, précision et passion à chaque projet."
-                    : "نحن شركة عائلية مكرسة لتقديم خدمات بناء وتجديد عالية الجودة. يجلب فريقنا من المحترفين المهرة الخبرة والدقة والشغف لكل مشروع."}
+                    ? "Chez TrueNorth Construction, nous nous spécialisons dans la transformation de maisons en maisons de rêve. Avec des années d'expérience, une équipe dévouée et une passion pour la qualité, nous livrons des services de premier plan dans les délais et le budget."
+                    : "في TrueNorth Construction، نتخصص في تحويل المنازل إلى منازل الأحلام. مع سنوات من الخبرة وفريق مخصص وشغف بالجودة، نقدم خدمات من الطراز الأول في الوقت المحدد وضمن الميزانية."}
               </p>
               <ul className="grid gap-2">
                 {[
                   locale === "en"
-                    ? "Licensed & Insured Professionals"
+                    ? "Licensed & Insured Contractors"
                     : locale === "fr"
-                      ? "Professionnels agréés et assurés"
-                      : "محترفون مرخصون ومؤمنون",
+                      ? "Entrepreneurs agréés et assurés"
+                      : "مقاولون مرخصون ومؤمنون",
                   locale === "en"
-                    ? "On-Time & On-Budget Delivery"
+                    ? "Transparent Pricing & Free Estimates"
                     : locale === "fr"
-                      ? "Livraison dans les délais et dans le budget"
-                      : "التسليم في الوقت المحدد وضمن الميزانية",
+                      ? "Prix transparents et devis gratuits"
+                      : "أسعار شفافة وتقديرات مجانية",
                   locale === "en"
-                    ? "Premium Materials & Craftsmanship"
+                    ? "Professional, On-Time Service"
                     : locale === "fr"
-                      ? "Matériaux et savoir-faire de qualité supérieure"
-                      : "مواد وحرفية ممتازة",
+                      ? "Service professionnel et ponctuel"
+                      : "خدمة مهنية وفي الوقت المحدد",
+                  locale === "en"
+                    ? "100% Customer Satisfaction"
+                    : locale === "fr"
+                      ? "100% satisfaction client"
+                      : "100% رضا العملاء",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-primary" />
@@ -530,8 +536,11 @@ const Home = ({ locale = "en" }: HomeProps) => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <FAQ locale={locale} />
+
       {/* Contact Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-16 md:py-24 bg-muted/10">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
             <div className="space-y-4">

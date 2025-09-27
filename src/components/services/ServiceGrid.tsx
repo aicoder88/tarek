@@ -63,72 +63,73 @@ const ServiceCard = ({
 
 interface ServiceGridProps {
   services?: ServiceCardProps[];
+  locale?: string;
 }
 
-const ServiceGrid = ({ services }: ServiceGridProps) => {
+const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
   const defaultServices: ServiceCardProps[] = [
     {
       icon: <Hammer className="h-6 w-6" />,
       title: "Flooring",
       description:
         "Hardwood, laminate, tile, and vinyl flooring installation with expert craftsmanship.",
-      href: "/services/flooring",
+      href: `/${locale}/services/flooring`,
     },
     {
       icon: <Home className="h-6 w-6" />,
       title: "Kitchen Remodeling",
       description:
         "Complete kitchen renovations including cabinets, countertops, and appliance installation.",
-      href: "/services/kitchen-remodeling",
+      href: `/${locale}/services/kitchen-remodeling`,
     },
     {
       icon: <Wrench className="h-6 w-6" />,
       title: "Bathroom Renovation",
       description:
         "Transform your bathroom with new fixtures, tiling, and custom shower installations.",
-      href: "/services/bathroom-renovation",
+      href: `/${locale}/services/bathroom-renovation`,
     },
     {
       icon: <Warehouse className="h-6 w-6" />,
       title: "Basement Finishing",
       description:
         "Convert your basement into a functional living space with proper insulation and design.",
-      href: "/services/basement-finishing",
+      href: `/${locale}/services/basement-finishing`,
     },
     {
       icon: <Building className="h-6 w-6" />,
       title: "Roofing & Siding",
       description:
         "Quality roofing and siding installation to protect and beautify your home exterior.",
-      href: "/services/roofing-siding",
+      href: `/${locale}/services/roofing-siding`,
     },
     {
       icon: <PaintBucket className="h-6 w-6" />,
       title: "Painting & Drywall",
       description:
         "Professional interior and exterior painting services with drywall repair and installation.",
-      href: "/services/painting-drywall",
+      href: `/${locale}/services/painting-drywall`,
     },
     {
       icon: <TreePine className="h-6 w-6" />,
       title: "Outdoor & Landscaping",
       description:
         "Deck building, patio installation, and landscaping to enhance your outdoor living areas.",
-      href: "/services/outdoor-landscaping",
+      href: `/${locale}/services/outdoor-landscaping`,
     },
     {
       icon: <HardHat className="h-6 w-6" />,
       title: "General Contracting",
       description:
         "Full-service general contracting for additions, renovations, and custom home projects.",
-      href: "/services/general-contracting",
+      href: `/${locale}/services/general-contracting`,
     },
     {
       icon: <Brush className="h-6 w-6" />,
       title: "Prefabricated Structures",
       description:
         "Quick and efficient installation of prefabricated structures for various purposes.",
-      href: "/services/prefabricated-structures",
+      href: `/${locale}/services/prefabricated-structures`,
     },
   ];
 
@@ -159,7 +160,7 @@ const ServiceGrid = ({ services }: ServiceGridProps) => {
         </div>
         <div className="mt-12 text-center">
           <Button size="lg" className="px-8">
-            <a href="/services">View All Services</a>
+            <a href={`/${locale}/services`}>View All Services</a>
           </Button>
         </div>
       </div>
