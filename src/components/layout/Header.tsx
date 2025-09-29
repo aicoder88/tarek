@@ -44,7 +44,7 @@ export function Header({ locale = 'en' }: HeaderProps) {
         <div className="flex justify-between items-center h-20">
           {/* Enhanced Logo */}
           <div className="flex-shrink-0 flex items-center space-x-4">
-            <div className="relative h-16 w-16 hover:scale-105 transition-all duration-300">
+            <div className="relative h-16 w-16 hover:scale-105 transition-all duration-300 p-2 bg-white dark:bg-white/95 rounded-xl shadow-sm">
               <Image
                 src="/logo.png"
                 alt="TrueNorth Construction Logo"
