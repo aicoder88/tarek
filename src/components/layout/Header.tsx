@@ -61,7 +61,6 @@ export function Header({ locale = 'en' }: HeaderProps) {
   const navigation = [
     { name: t.home, href: `/${locale}` },
     { name: t.services, href: `/${locale}/services` },
-    { name: t.projects, href: `/${locale}/projects` },
     { name: t.about, href: `/${locale}/about` },
     { name: t.contact, href: `/${locale}/contact` },
   ];

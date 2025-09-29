@@ -3,14 +3,14 @@
   "/api/sitemap/route": "/api/sitemap",
   "/page": "/",
   "/[locale]/services/page": "/[locale]/services",
-  "/[locale]/page": "/[locale]",
   "/[locale]/services/basement-finishing/page": "/[locale]/services/basement-finishing",
-  "/[locale]/services/bathroom-renovation/page": "/[locale]/services/bathroom-renovation",
   "/[locale]/services/flooring/page": "/[locale]/services/flooring",
+  "/[locale]/page": "/[locale]",
   "/[locale]/services/outdoor-landscaping/page": "/[locale]/services/outdoor-landscaping",
   "/[locale]/services/kitchen-remodeling/page": "/[locale]/services/kitchen-remodeling",
-  "/[locale]/services/roofing-siding/page": "/[locale]/services/roofing-siding",
-  "/[locale]/services/painting-drywall/page": "/[locale]/services/painting-drywall",
+  "/[locale]/services/bathroom-renovation/page": "/[locale]/services/bathroom-renovation",
   "/[locale]/services/general-contracting/page": "/[locale]/services/general-contracting",
+  "/[locale]/services/painting-drywall/page": "/[locale]/services/painting-drywall",
+  "/[locale]/services/roofing-siding/page": "/[locale]/services/roofing-siding",
   "/[locale]/services/prefabricated-structures/page": "/[locale]/services/prefabricated-structures"
 }

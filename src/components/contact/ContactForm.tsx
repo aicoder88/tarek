@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import emailjs from '@emailjs/browser';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -237,6 +237,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
   );
   const [errorType, setErrorType] = useState<"general" | "network" | "validation">("general");
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const formContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollFormIntoView = () => {
+    formContainerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -355,7 +360,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         serviceId,
         templateId,
         templateParams,
-        publicKey
+        { publicKey }
       );
 
       console.log('Email sent successfully:', result);
@@ -364,12 +369,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
       setUploadedFiles([]);
 
       // Scroll to top to show success message
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollFormIntoView();
     } catch (error: any) {
       console.error("Form submission error:", error);
 
       // Determine error type for better user feedback
-      if (error?.message?.includes('network') || error?.message?.includes('fetch')) {
+      if (error instanceof EmailJSResponseStatus) {
+        console.error('EmailJS error status:', error.status, error.text);
+        setErrorType("network");
+      } else if (error?.message?.includes('network') || error?.message?.includes('fetch')) {
         setErrorType("network");
       } else if (error?.message?.includes('validation') || error?.message?.includes('required')) {
         setErrorType("validation");
@@ -380,7 +388,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       setFormStatus("error");
 
       // Scroll to top to show error message
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollFormIntoView();
     } finally {
       setIsSubmitting(false);
     }
@@ -390,7 +398,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const formDirection = isRtl ? "rtl" : "ltr";
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-background" dir={formDirection}>
+    <div ref={formContainerRef} className="w-full max-w-2xl mx-auto bg-background" dir={formDirection}>
       <Card className="border shadow-sm">
         <CardHeader>
           <CardTitle className="text-2xl font-bold flex items-center space-x-2">

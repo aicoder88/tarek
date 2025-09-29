@@ -82,12 +82,6 @@ export function Footer({ locale = 'en' }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href={`/${locale}/projects`} className="text-gray-300 hover:text-amber-400 transition-colors duration-200 flex items-center space-x-2 group">
-                  <span className="w-0 group-hover:w-2 h-0.5 bg-amber-400 transition-all duration-200"></span>
-                  <span>{t.projects}</span>
-                </a>
-              </li>
-              <li>
                 <a href={`/${locale}/about`} className="text-gray-300 hover:text-amber-400 transition-colors duration-200 flex items-center space-x-2 group">
                   <span className="w-0 group-hover:w-2 h-0.5 bg-amber-400 transition-all duration-200"></span>
                   <span>{t.about}</span>
