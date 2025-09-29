@@ -140,9 +140,6 @@ const Home = ({ locale = "en" }: HomeProps) => {
                   </li>
                 ))}
               </ul>
-              <Button variant="outline">
-                {t('about.cta')}
-              </Button>
             </div>
             <div className="relative aspect-video overflow-hidden rounded-xl">
               <img
@@ -173,11 +170,6 @@ const Home = ({ locale = "en" }: HomeProps) => {
           </div>
           <div className="mt-8">
             <ServiceGrid locale={locale} />
-          </div>
-          <div className="mt-8 flex justify-center">
-            <Button>
-              {t('services.cta')}
-            </Button>
           </div>
         </div>
       </section>
@@ -228,11 +220,6 @@ const Home = ({ locale = "en" }: HomeProps) => {
           </div>
           <div className="mt-8">
             <ProjectGallery locale={locale} />
-          </div>
-          <div className="mt-8 flex justify-center">
-            <Button>
-              {t('featured_projects.cta')}
-            </Button>
           </div>
         </div>
       </section>
@@ -370,9 +357,6 @@ const Home = ({ locale = "en" }: HomeProps) => {
               <Button size="lg" className="gap-1">
                 {t('cta.primary_cta')}
                 <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline">
-                {t('cta.secondary_cta')}
               </Button>
             </div>
           </div>

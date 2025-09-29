@@ -63,17 +63,6 @@ export function Footer({ locale = 'en' }: FooterProps) {
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
               {t.description}
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200 hover:scale-110">
-                Facebook
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200 hover:scale-110">
-                Instagram
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200 hover:scale-110">
-                LinkedIn
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
