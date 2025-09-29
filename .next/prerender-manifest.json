@@ -30,31 +30,6 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/_not-found": {
-      "initialStatus": 404,
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/_not-found",
-      "dataRoute": "/_not-found.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/": {
       "experimentalBypassFor": [
         {
@@ -79,7 +54,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/ar/services/flooring": {
+    "/ar/services/kitchen-remodeling": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -92,8 +67,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/flooring",
-      "dataRoute": "/ar/services/flooring.rsc",
+      "srcRoute": "/[locale]/services/kitchen-remodeling",
+      "dataRoute": "/ar/services/kitchen-remodeling.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -103,7 +78,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/en/services/flooring": {
+    "/en/services/kitchen-remodeling": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -116,8 +91,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/flooring",
-      "dataRoute": "/en/services/flooring.rsc",
+      "srcRoute": "/[locale]/services/kitchen-remodeling",
+      "dataRoute": "/en/services/kitchen-remodeling.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -127,7 +102,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/fr/services/flooring": {
+    "/fr/services/kitchen-remodeling": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -140,80 +115,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/flooring",
-      "dataRoute": "/fr/services/flooring.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/ar": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]",
-      "dataRoute": "/ar.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/en": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]",
-      "dataRoute": "/en.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/fr": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]",
-      "dataRoute": "/fr.rsc",
+      "srcRoute": "/[locale]/services/kitchen-remodeling",
+      "dataRoute": "/fr/services/kitchen-remodeling.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -286,6 +189,150 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/[locale]/services/outdoor-landscaping",
       "dataRoute": "/fr/services/outdoor-landscaping.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/ar/services/general-contracting": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/general-contracting",
+      "dataRoute": "/ar/services/general-contracting.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/en/services/general-contracting": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/general-contracting",
+      "dataRoute": "/en/services/general-contracting.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/fr/services/general-contracting": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/general-contracting",
+      "dataRoute": "/fr/services/general-contracting.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/ar": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]",
+      "dataRoute": "/ar.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/en": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]",
+      "dataRoute": "/en.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/fr": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]",
+      "dataRoute": "/fr.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -439,6 +486,78 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/ar/services/bathroom-renovation": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/bathroom-renovation",
+      "dataRoute": "/ar/services/bathroom-renovation.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/en/services/bathroom-renovation": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/bathroom-renovation",
+      "dataRoute": "/en/services/bathroom-renovation.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/fr/services/bathroom-renovation": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/bathroom-renovation",
+      "dataRoute": "/fr/services/bathroom-renovation.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/ar/services/roofing-siding": {
       "experimentalBypassFor": [
         {
@@ -511,7 +630,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/ar/services/general-contracting": {
+    "/ar/services/flooring": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -524,8 +643,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/general-contracting",
-      "dataRoute": "/ar/services/general-contracting.rsc",
+      "srcRoute": "/[locale]/services/flooring",
+      "dataRoute": "/ar/services/flooring.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -535,7 +654,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/en/services/general-contracting": {
+    "/en/services/flooring": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -548,8 +667,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/general-contracting",
-      "dataRoute": "/en/services/general-contracting.rsc",
+      "srcRoute": "/[locale]/services/flooring",
+      "dataRoute": "/en/services/flooring.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -559,7 +678,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/fr/services/general-contracting": {
+    "/fr/services/flooring": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -572,152 +691,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/general-contracting",
-      "dataRoute": "/fr/services/general-contracting.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/ar/services/kitchen-remodeling": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/kitchen-remodeling",
-      "dataRoute": "/ar/services/kitchen-remodeling.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/en/services/kitchen-remodeling": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/kitchen-remodeling",
-      "dataRoute": "/en/services/kitchen-remodeling.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/fr/services/kitchen-remodeling": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/kitchen-remodeling",
-      "dataRoute": "/fr/services/kitchen-remodeling.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/ar/services/bathroom-renovation": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/bathroom-renovation",
-      "dataRoute": "/ar/services/bathroom-renovation.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/en/services/bathroom-renovation": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/bathroom-renovation",
-      "dataRoute": "/en/services/bathroom-renovation.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/fr/services/bathroom-renovation": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/bathroom-renovation",
-      "dataRoute": "/fr/services/bathroom-renovation.rsc",
+      "srcRoute": "/[locale]/services/flooring",
+      "dataRoute": "/fr/services/flooring.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -798,10 +773,9 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
-    }
-  },
-  "dynamicRoutes": {
-    "/[locale]/services/flooring": {
+    },
+    "/_not-found": {
+      "initialStatus": 404,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -813,10 +787,9 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "routeRegex": "^/([^/]+?)/services/flooring(?:/)?$",
-      "dataRoute": "/[locale]/services/flooring.rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/flooring\\.rsc$",
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/_not-found",
+      "dataRoute": "/_not-found.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -825,8 +798,10 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
-    },
-    "/[locale]": {
+    }
+  },
+  "dynamicRoutes": {
+    "/[locale]/services/kitchen-remodeling": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -838,10 +813,10 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "routeRegex": "^/([^/]+?)(?:/)?$",
-      "dataRoute": "/[locale].rsc",
+      "routeRegex": "^/([^/]+?)/services/kitchen\\-remodeling(?:/)?$",
+      "dataRoute": "/[locale]/services/kitchen-remodeling.rsc",
       "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)\\.rsc$",
+      "dataRouteRegex": "^/([^/]+?)/services/kitchen\\-remodeling\\.rsc$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -867,6 +842,56 @@
       "dataRoute": "/[locale]/services/outdoor-landscaping.rsc",
       "fallback": null,
       "dataRouteRegex": "^/([^/]+?)/services/outdoor\\-landscaping\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/[locale]/services/general-contracting": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/([^/]+?)/services/general\\-contracting(?:/)?$",
+      "dataRoute": "/[locale]/services/general-contracting.rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/([^/]+?)/services/general\\-contracting\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/[locale]": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/([^/]+?)(?:/)?$",
+      "dataRoute": "/[locale].rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/([^/]+?)\\.rsc$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -926,6 +951,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/[locale]/services/bathroom-renovation": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/([^/]+?)/services/bathroom\\-renovation(?:/)?$",
+      "dataRoute": "/[locale]/services/bathroom-renovation.rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/([^/]+?)/services/bathroom\\-renovation\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/[locale]/services/roofing-siding": {
       "experimentalBypassFor": [
         {
@@ -951,7 +1001,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/[locale]/services/general-contracting": {
+    "/[locale]/services/flooring": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -963,60 +1013,10 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "routeRegex": "^/([^/]+?)/services/general\\-contracting(?:/)?$",
-      "dataRoute": "/[locale]/services/general-contracting.rsc",
+      "routeRegex": "^/([^/]+?)/services/flooring(?:/)?$",
+      "dataRoute": "/[locale]/services/flooring.rsc",
       "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/general\\-contracting\\.rsc$",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/[locale]/services/kitchen-remodeling": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "routeRegex": "^/([^/]+?)/services/kitchen\\-remodeling(?:/)?$",
-      "dataRoute": "/[locale]/services/kitchen-remodeling.rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/kitchen\\-remodeling\\.rsc$",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/[locale]/services/bathroom-renovation": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "routeRegex": "^/([^/]+?)/services/bathroom\\-renovation(?:/)?$",
-      "dataRoute": "/[locale]/services/bathroom-renovation.rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/bathroom\\-renovation\\.rsc$",
+      "dataRouteRegex": "^/([^/]+?)/services/flooring\\.rsc$",
       "allowHeader": [
         "host",
         "x-matched-path",

@@ -286,7 +286,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* FAQ Section */}
-      <FAQ locale={locale} />
+      <FAQ />
 
       {/* Contact Section */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">

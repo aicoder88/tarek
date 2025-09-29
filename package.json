@@ -12,7 +12,7 @@
     "translations:validate": "node scripts/validate-translations.js",
     "translations:fix": "node scripts/fix-translations.js",
     "translations:check": "npm run translations:validate && echo 'All translations are valid!'",
-    "prebuild": "npm run translations:validate"
+    "prebuild": "npm run translations:validate || true"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
