@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Sparkles } from "lucide-react";
+import { ArrowRight, Star, Sparkles, Award, Shield, Users } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
 import { Button } from "./ui/button";
@@ -206,7 +206,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* About Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 -left-40 w-96 h-96 bg-red-500/5 rounded-full blur-[100px]"></div>
@@ -270,7 +270,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Services Section */}
-      <section className="py-10 md:py-14 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-8 md:py-12 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 left-10 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
@@ -304,7 +304,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -327,7 +327,10 @@ const Home = ({ locale = "en" }: HomeProps) => {
             </h2>
           </motion.div>
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
-            {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => (
+            {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => {
+              const icons = [Award, Shield, Users];
+              const Icon = icons[i % icons.length];
+              return (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -341,7 +344,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
 
                   <CardHeader className="pb-4 relative">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg">
-                      <div className="w-8 h-8 bg-white/20 rounded-lg backdrop-blur-sm"></div>
+                      <Icon className="h-7 w-7 text-white" />
                     </div>
                     <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
                       {item.title}
@@ -354,13 +357,13 @@ const Home = ({ locale = "en" }: HomeProps) => {
                   </CardContent>
                 </Card>
               </motion.div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-14 md:py-20 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-10 md:py-14 bg-gradient-to-b from-background to-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -382,7 +385,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -456,7 +459,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <FAQ />
 
       {/* Contact Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 -left-40 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -548,7 +551,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img

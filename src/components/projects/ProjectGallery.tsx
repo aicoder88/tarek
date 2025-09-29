@@ -42,6 +42,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [beforeAfterPosition, setBeforeAfterPosition] = useState(50);
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const projects = [
     {
@@ -241,8 +242,9 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
           {['All', 'Kitchen', 'Bathroom', 'Basement', 'Outdoor'].map((filter) => (
             <Button
               key={filter}
-              variant={filter === 'All' ? 'default' : 'outline'}
-              className={`${filter === 'All' ? 'bg-red-600 hover:bg-red-700' : 'hover:bg-red-50 dark:hover:bg-red-900/20'} transition-all duration-200`}
+              variant={filter === activeFilter ? 'default' : 'outline'}
+              className={`${filter === activeFilter ? 'bg-red-600 hover:bg-red-700' : 'hover:bg-red-50 dark:hover:bg-red-900/20'} transition-all duration-200`}
+              onClick={() => setActiveFilter(filter)}
             >
               {filter}
             </Button>
@@ -251,7 +253,9 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {projects.map((project) => (
+          {projects.filter(project =>
+            activeFilter === 'All' || project.category.toLowerCase().includes(activeFilter.toLowerCase())
+          ).map((project) => (
             <Card key={project.id} className="group overflow-hidden hover-lift bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 shadow-xl">
               <div className="relative">
                 <BeforeAfterSlider 
