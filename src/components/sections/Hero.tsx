@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export function Hero() {
   const t = useTranslations('hero');
@@ -26,21 +26,13 @@ export function Hero() {
             {t('subtitle')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
-              size="lg" 
-              className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg font-semibold"
+          <div>
+            <Button
+              size="lg"
+              className="bg-amber-600 hover:bg-amber-700 text-white px-12 py-6 text-xl font-semibold"
             >
               {t('cta')}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold"
-            >
-              <Phone className="mr-2 h-5 w-5" />
-              {t('secondary_cta')}
+              <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
           </div>
         </div>

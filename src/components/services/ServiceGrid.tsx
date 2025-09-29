@@ -163,29 +163,35 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
       <div className="relative">
         {/* Desktop/Tablet: Enhanced Carousel view */}
         <div className="hidden lg:block">
-          {/* Carousel Header with Navigation Hint */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="text-sm text-muted-foreground flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span>Browse our services</span>
+          {/* Carousel Header with Prominent Navigation Hint */}
+          <div className="text-center mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+              Browse our services
+            </h2>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="flex items-center gap-2 text-lg text-muted-foreground">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+                <span>Use the arrows to explore all services</span>
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
               </div>
             </div>
-            <div className="text-sm text-muted-foreground">
-              {currentIndex + 1} - {Math.min(currentIndex + itemsPerView, displayServices.length)} of {displayServices.length} services
+            <div className="text-base text-muted-foreground bg-muted/30 px-4 py-2 rounded-full inline-block">
+              Showing {currentIndex + 1} - {Math.min(currentIndex + itemsPerView, displayServices.length)} of {displayServices.length} services
             </div>
           </div>
 
           <div className="flex items-center gap-6 relative">
-            {/* Left Arrow - Bigger and more prominent */}
+            {/* Left Arrow - Extra Large and Very Prominent */}
             <Button
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="h-16 w-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 bg-background/80 backdrop-blur-sm z-10 hover:scale-110"
+              className="h-20 w-20 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 border-4 border-primary/30 hover:border-primary/70 bg-background/90 backdrop-blur-sm z-20 hover:scale-125 relative group"
               disabled={currentIndex === 0}
             >
-              <ChevronLeft className="h-8 w-8" />
+              <ChevronLeft className="h-12 w-12 text-primary group-hover:text-primary/80" />
+              <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+              <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary/20 rounded-full animate-ping" />
             </Button>
 
             {/* Carousel Container with enhanced styling */}
@@ -207,23 +213,25 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
               </div>
             </div>
 
-            {/* Right Arrow - Bigger and more prominent */}
+            {/* Right Arrow - Extra Large and Very Prominent */}
             <Button
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="h-16 w-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 bg-background/80 backdrop-blur-sm z-10 hover:scale-110"
+              className="h-20 w-20 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 border-4 border-primary/30 hover:border-primary/70 bg-background/90 backdrop-blur-sm z-20 hover:scale-125 relative group"
               disabled={currentIndex >= maxIndex}
             >
-              <ChevronRight className="h-8 w-8" />
+              <ChevronRight className="h-12 w-12 text-primary group-hover:text-primary/80" />
+              <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" />
+              <div className="absolute -top-1 -left-1 w-6 h-6 bg-primary/20 rounded-full animate-ping" />
             </Button>
 
             {/* Gradient overlays to indicate more content */}
             {currentIndex > 0 && (
-              <div className="absolute left-16 top-0 bottom-0 w-8 bg-gradient-to-r from-background/60 to-transparent pointer-events-none z-5" />
+              <div className="absolute left-20 top-0 bottom-0 w-12 bg-gradient-to-r from-background/60 to-transparent pointer-events-none z-5" />
             )}
             {currentIndex < maxIndex && (
-              <div className="absolute right-16 top-0 bottom-0 w-8 bg-gradient-to-l from-background/60 to-transparent pointer-events-none z-5" />
+              <div className="absolute right-20 top-0 bottom-0 w-12 bg-gradient-to-l from-background/60 to-transparent pointer-events-none z-5" />
             )}
           </div>
 
@@ -247,40 +255,60 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
             ))}
           </div>
 
-          {/* Call-to-action hint */}
-          <div className="text-center mt-4">
-            <p className="text-sm text-muted-foreground">
-              Click on any service card to learn more or use the arrows to browse all services
+          {/* Enhanced Call-to-action with visual cues */}
+          <div className="text-center mt-6 space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border-2 border-primary/20">
+                <ChevronLeft className="h-5 w-5 text-primary animate-bounce" />
+                <span className="text-base font-medium text-primary">Click arrows to browse</span>
+                <ChevronRight className="h-5 w-5 text-primary animate-bounce" />
+              </div>
+            </div>
+            <p className="text-muted-foreground">
+              Click on any service card to learn more about our professional construction services
             </p>
           </div>
         </div>
 
         {/* Tablet: 2-column grid */}
-        <div className="hidden md:grid lg:hidden grid-cols-2 gap-6">
-          {displayServices.slice(0, 6).map((service, index) => (
-            <ServiceCard
-              key={index}
-              image={service.image}
-              title={service.title}
-              description={service.description}
-              href={service.href}
-            />
-          ))}
+        <div className="hidden md:block lg:hidden">
+          <div className="text-center mb-8">
+            <h2 className="text-4xl font-bold text-foreground mb-4 tracking-tight">
+              Browse our services
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Explore our professional construction and renovation services
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-6">
+            {displayServices.slice(0, 6).map((service, index) => (
+              <ServiceCard
+                key={index}
+                image={service.image}
+                title={service.title}
+                description={service.description}
+                href={service.href}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Mobile: Enhanced horizontal scroll with clear indicators */}
         <div className="md:hidden">
-          {/* Mobile scroll hint */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="text-sm text-muted-foreground flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                <span>Swipe to explore services</span>
+          {/* Mobile prominent title and scroll hint */}
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-foreground mb-4 tracking-tight">
+              Browse our services
+            </h2>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border-2 border-primary/20">
+                <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+                <span className="text-base font-medium text-primary">Swipe to explore</span>
+                <div className="flex items-center gap-1">
+                  <ChevronLeft className="h-4 w-4 text-primary animate-bounce" />
+                  <ChevronRight className="h-4 w-4 text-primary animate-bounce" />
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-              <ChevronLeft className="h-3 w-3" />
-              <ChevronRight className="h-3 w-3" />
             </div>
           </div>
 
