@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import ContactForm from "@/components/contact/ContactForm";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Calendar, Hammer } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Calendar, Hammer, Calculator } from "lucide-react";
 
 interface ContactPageProps {
   locale?: string;
@@ -215,7 +215,7 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
                     {locale === "en" ? "Schedule Appointment" : locale === "fr" ? "Planifier un rendez-vous" : "جدولة موعد"}
                   </Button>
                   <Button className="w-full justify-start" variant="outline">
-                    <Car className="h-4 w-4 mr-2" />
+                    <Calculator className="h-4 w-4 mr-2" />
                     {locale === "en" ? "Get Free Quote" : locale === "fr" ? "Obtenir un devis gratuit" : "احصل على عرض سعر مجاني"}
                   </Button>
                   <Button className="w-full justify-start" variant="outline">

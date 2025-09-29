@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight, Star, Calendar, Car } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Calendar, Car, Hammer } from "lucide-react";
 
 interface ProjectsPageProps {
   locale?: string;

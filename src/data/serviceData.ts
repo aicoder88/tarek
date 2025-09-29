@@ -1,3 +1,4 @@
+import React from 'react';
 import { ServicePageData } from '@/components/services/ServicePageTemplate';
 import {
   Hammer,
@@ -24,27 +25,27 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'Tiling',
             description: 'Durable and stylish tiles for floors, kitchens, and bathrooms. Perfect for easy maintenance and a modern look.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'Hardwood Flooring',
             description: 'Classic, elegant wood floors that add warmth and long-lasting beauty to any home.',
-            icon: <TreePine className="h-6 w-6" />
+            icon: React.createElement(TreePine, { className: "h-6 w-6" })
           },
           {
             title: 'Laminate & Vinyl Flooring',
             description: 'Affordable, scratch-resistant flooring options that mimic wood or stone finishes.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'Epoxy Coatings',
             description: 'High-performance, glossy floors ideal for garages, basements, and commercial spaces.',
-            icon: <Paintbrush className="h-6 w-6" />
+            icon: React.createElement(Paintbrush, { className: "h-6 w-6" })
           },
           {
             title: 'Carpet Installation',
             description: 'Soft, comfortable carpets for bedrooms, living areas, and cozy spaces.',
-            icon: <Home className="h-6 w-6" />
+            icon: React.createElement(Home, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'Ready for New Flooring?',
@@ -61,27 +62,27 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'Carrelage',
             description: 'Carreaux durables et élégants pour sols, cuisines et salles de bains. Parfait pour un entretien facile et un look moderne.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'Parquet en Bois Dur',
             description: 'Sols en bois classiques et élégants qui ajoutent chaleur et beauté durable à toute maison.',
-            icon: <TreePine className="h-6 w-6" />
+            icon: React.createElement(TreePine, { className: "h-6 w-6" })
           },
           {
             title: 'Revêtement Stratifié et Vinyle',
             description: 'Options de revêtement abordables et résistantes aux rayures qui imitent les finitions bois ou pierre.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'Revêtements Époxy',
             description: 'Sols haute performance et brillants idéaux pour garages, sous-sols et espaces commerciaux.',
-            icon: <Paintbrush className="h-6 w-6" />
+            icon: React.createElement(Paintbrush, { className: "h-6 w-6" })
           },
           {
             title: 'Installation de Moquette',
             description: 'Moquettes douces et confortables pour chambres, espaces de vie et zones cosy.',
-            icon: <Home className="h-6 w-6" />
+            icon: React.createElement(Home, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'Prêt pour un Nouveau Revêtement de Sol?',
@@ -98,27 +99,27 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'البلاط',
             description: 'بلاط متين وأنيق للأرضيات والمطابخ والحمامات. مثالي للصيانة السهلة والمظهر العصري.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'الأرضيات الخشبية الصلبة',
             description: 'أرضيات خشبية كلاسيكية وأنيقة تضيف الدفء والجمال الدائم لأي منزل.',
-            icon: <TreePine className="h-6 w-6" />
+            icon: React.createElement(TreePine, { className: "h-6 w-6" })
           },
           {
             title: 'الأرضيات المصفحة والفينيل',
             description: 'خيارات أرضيات ميسورة التكلفة ومقاومة للخدش تحاكي تشطيبات الخشب أو الحجر.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'طلاءات الإيبوكسي',
             description: 'أرضيات عالية الأداء ولامعة مثالية للمرائب والأقبية والمساحات التجارية.',
-            icon: <Paintbrush className="h-6 w-6" />
+            icon: React.createElement(Paintbrush, { className: "h-6 w-6" })
           },
           {
             title: 'تركيب السجاد',
             description: 'سجاد ناعم ومريح لغرف النوم ومناطق المعيشة والمساحات المريحة.',
-            icon: <Home className="h-6 w-6" />
+            icon: React.createElement(Home, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'جاهز لأرضيات جديدة؟',
@@ -137,22 +138,22 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'Cabinetry & Countertops',
             description: 'Custom-built cabinets and premium countertops to transform your kitchen\'s look and function.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'Backsplashes & Tiling',
             description: 'Add style and protection with decorative, easy-to-clean backsplash options.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'Flooring & Lighting Upgrades',
             description: 'Modern lighting and flooring to brighten and refresh your cooking space.',
-            icon: <Zap className="h-6 w-6" />
+            icon: React.createElement(Zap, { className: "h-6 w-6" })
           },
           {
             title: 'Plumbing & Appliance Installation',
             description: 'Seamless installation of sinks, faucets, and modern kitchen appliances.',
-            icon: <Wrench className="h-6 w-6" />
+            icon: React.createElement(Wrench, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'Ready for Your Dream Kitchen?',
@@ -169,22 +170,22 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'Armoires et Comptoirs',
             description: 'Armoires sur mesure et comptoirs haut de gamme pour transformer l\'apparence et la fonction de votre cuisine.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'Dosserets et Carrelage',
             description: 'Ajoutez du style et de la protection avec des options de dosseret décoratives et faciles à nettoyer.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'Améliorations d\'Éclairage et de Sol',
             description: 'Éclairage moderne et revêtement de sol pour illuminer et rafraîchir votre espace de cuisson.',
-            icon: <Zap className="h-6 w-6" />
+            icon: React.createElement(Zap, { className: "h-6 w-6" })
           },
           {
             title: 'Installation de Plomberie et d\'Appareils',
             description: 'Installation transparente d\'éviers, robinets et appareils de cuisine modernes.',
-            icon: <Wrench className="h-6 w-6" />
+            icon: React.createElement(Wrench, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'Prêt pour Votre Cuisine de Rêve?',
@@ -201,22 +202,22 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'الخزائن وأسطح العمل',
             description: 'خزائن مصنوعة حسب الطلب وأسطح عمل ممتازة لتحويل مظهر ووظيفة مطبخك.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'الجدران الخلفية والبلاط',
             description: 'أضف الأناقة والحماية مع خيارات الجدران الخلفية الزخرفية وسهلة التنظيف.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'ترقيات الأرضيات والإضاءة',
             description: 'إضاءة عصرية وأرضيات لإنارة وتجديد مساحة الطبخ.',
-            icon: <Zap className="h-6 w-6" />
+            icon: React.createElement(Zap, { className: "h-6 w-6" })
           },
           {
             title: 'تركيب السباكة والأجهزة',
             description: 'تركيب سلس للأحواض والصنابير وأجهزة المطبخ العصرية.',
-            icon: <Wrench className="h-6 w-6" />
+            icon: React.createElement(Wrench, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'جاهز لمطبخ أحلامك؟',
@@ -235,22 +236,22 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'Shower & Tub Installation',
             description: 'Elegant showers and tubs designed for comfort and luxury in your bathroom.',
-            icon: <Droplets className="h-6 w-6" />
+            icon: React.createElement(Droplets, { className: "h-6 w-6" })
           },
           {
             title: 'Vanity & Countertops',
             description: 'Functional, stylish vanities and counters for a polished and organized bathroom.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'Tiling & Waterproofing',
             description: 'Expert waterproofing and tiling for long-lasting, mold-free bathroom surfaces.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'Plumbing & Fixtures',
             description: 'Professional installation of sinks, toilets, and high-end bathroom fixtures.',
-            icon: <Wrench className="h-6 w-6" />
+            icon: React.createElement(Wrench, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'Ready for Your Spa-Like Bathroom?',
@@ -267,22 +268,22 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'Installation de Douche et Baignoire',
             description: 'Douches et baignoires élégantes conçues pour le confort et le luxe dans votre salle de bain.',
-            icon: <Droplets className="h-6 w-6" />
+            icon: React.createElement(Droplets, { className: "h-6 w-6" })
           },
           {
             title: 'Vanité et Comptoirs',
             description: 'Vanités fonctionnelles et élégantes et comptoirs pour une salle de bain soignée et organisée.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'Carrelage et Étanchéité',
             description: 'Étanchéité et carrelage experts pour des surfaces de salle de bain durables et sans moisissure.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'Plomberie et Accessoires',
             description: 'Installation professionnelle d\'éviers, toilettes et accessoires de salle de bain haut de gamme.',
-            icon: <Wrench className="h-6 w-6" />
+            icon: React.createElement(Wrench, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'Prêt pour Votre Salle de Bain Type Spa?',
@@ -299,22 +300,22 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
           {
             title: 'تركيب الدش وحوض الاستحمام',
             description: 'دشات وأحواض استحمام أنيقة مصممة للراحة والفخامة في حمامك.',
-            icon: <Droplets className="h-6 w-6" />
+            icon: React.createElement(Droplets, { className: "h-6 w-6" })
           },
           {
             title: 'خزانة الحمام وأسطح العمل',
             description: 'خزائن حمام عملية وأنيقة وأسطح عمل لحمام مصقول ومنظم.',
-            icon: <Building className="h-6 w-6" />
+            icon: React.createElement(Building, { className: "h-6 w-6" })
           },
           {
             title: 'البلاط والعزل المائي',
             description: 'عزل مائي وبلاط خبير لأسطح حمام دائمة وخالية من العفن.',
-            icon: <Hammer className="h-6 w-6" />
+            icon: React.createElement(Hammer, { className: "h-6 w-6" })
           },
           {
             title: 'السباكة والتركيبات',
             description: 'تركيب مهني للأحواض والمراحيض وتركيبات الحمام عالية الجودة.',
-            icon: <Wrench className="h-6 w-6" />
+            icon: React.createElement(Wrench, { className: "h-6 w-6" })
           }
         ],
         ctaTitle: 'جاهز لحمامك الذي يشبه السبا؟',

@@ -7,12 +7,39 @@ import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ChevronLeft, ChevronRight, Star, Calendar, MapPin, Eye, ArrowRight } from 'lucide-react';
 
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  location: string;
+  date: string;
+  rating: number;
+  beforeImage: string;
+  afterImage: string;
+  images: string[];
+  description: string;
+  features: string[];
+  testimonial: {
+    text: string;
+    author: string;
+    rating: number;
+  };
+  duration: string;
+  budget: string;
+}
+
 interface ProjectGalleryProps {
   locale?: string;
 }
 
+interface BeforeAfterSliderProps {
+  beforeImage: string;
+  afterImage: string;
+  title: string;
+}
+
 export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [beforeAfterPosition, setBeforeAfterPosition] = useState(50);
 
@@ -24,12 +51,12 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
       location: 'Beverly Hills, CA',
       date: '2024',
       rating: 5,
-      beforeImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&sat=2&brightness=1.1',
+      beforeImage: 'https://images.unsplash.com/photo-1571548800669-0c0c09b73b0c?w=800&q=80',
+      afterImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
       images: [
         'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
-        'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&sat=2',
-        'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&brightness=1.2'
+        'https://images.unsplash.com/photo-1556909039-13df7e6faa6c?w=800&q=80',
+        'https://images.unsplash.com/photo-1556909052-14f6e4a9c4b4?w=800&q=80'
       ],
       description: 'Complete kitchen renovation featuring custom cabinetry, quartz countertops, and premium appliances. This project transformed a dated kitchen into a modern culinary masterpiece.',
       features: ['Custom Cabinetry', 'Quartz Countertops', 'Premium Appliances', 'LED Lighting'],
@@ -48,12 +75,12 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
       location: 'Manhattan, NY',
       date: '2024',
       rating: 5,
-      beforeImage: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80&sat=2&brightness=1.1',
+      beforeImage: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80',
+      afterImage: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80',
       images: [
         'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80',
-        'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80&sat=2',
-        'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80&brightness=1.2'
+        'https://images.unsplash.com/photo-1564540574859-0dfb63ff2630?w=800&q=80',
+        'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=80'
       ],
       description: 'Luxury bathroom transformation with heated floors, rainfall shower, and premium fixtures creating a spa-like experience.',
       features: ['Heated Floors', 'Rainfall Shower', 'Premium Fixtures', 'Natural Stone'],
@@ -72,12 +99,12 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
       location: 'Chicago, IL',
       date: '2024',
       rating: 5,
-      beforeImage: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&sat=2&brightness=1.1',
+      beforeImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+      afterImage: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
       images: [
         'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80',
-        'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&sat=2',
-        'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80&brightness=1.2'
+        'https://images.unsplash.com/photo-1571548800669-0c0c09b73b0c?w=800&q=80',
+        'https://images.unsplash.com/photo-1615873968403-89e068629265?w=800&q=80'
       ],
       description: 'Complete basement transformation into a modern entertainment space with home theater, bar area, and game room.',
       features: ['Home Theater', 'Wet Bar', 'Game Area', 'Surround Sound'],
@@ -96,12 +123,12 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
       location: 'Austin, TX',
       date: '2024',
       rating: 5,
-      beforeImage: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80',
-      afterImage: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80&sat=2&brightness=1.1',
+      beforeImage: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80',
+      afterImage: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80',
       images: [
         'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80',
-        'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80&sat=2',
-        'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80&brightness=1.2'
+        'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80',
+        'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80'
       ],
       description: 'Custom deck and outdoor kitchen with integrated lighting, fire pit, and landscaping for year-round entertainment.',
       features: ['Custom Deck', 'Outdoor Kitchen', 'Fire Pit', 'Landscape Lighting'],
@@ -115,7 +142,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
     }
   ];
 
-  const BeforeAfterSlider = ({ beforeImage, afterImage, title }) => {
+  const BeforeAfterSlider = ({ beforeImage, afterImage, title }: BeforeAfterSliderProps) => {
     return (
       <div className="relative w-full h-64 overflow-hidden rounded-xl before-after-slider">
         <div className="absolute inset-0">
@@ -135,22 +162,55 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
             className="w-full h-full object-cover"
           />
         </div>
-        <div 
+        <div
           className="slider-handle"
           style={{ left: `${beforeAfterPosition}%` }}
           onMouseDown={(e) => {
-            const rect = e.currentTarget.parentElement.getBoundingClientRect();
-            const handleMouseMove = (e) => {
-              const x = e.clientX - rect.left;
+            const rect = e.currentTarget.parentElement?.getBoundingClientRect();
+            if (!rect) return;
+
+            const handleMove = (clientX: number) => {
+              const x = clientX - rect.left;
               const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
               setBeforeAfterPosition(percentage);
             };
-            const handleMouseUp = () => {
-              document.removeEventListener('mousemove', handleMouseMove);
-              document.removeEventListener('mouseup', handleMouseUp);
+
+            const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX);
+            const handleTouchMove = (e: TouchEvent) => {
+              e.preventDefault();
+              handleMove(e.touches[0].clientX);
             };
+
+            const handleEnd = () => {
+              document.removeEventListener('mousemove', handleMouseMove);
+              document.removeEventListener('mouseup', handleEnd);
+              document.removeEventListener('touchmove', handleTouchMove);
+              document.removeEventListener('touchend', handleEnd);
+            };
+
             document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleMouseUp);
+            document.addEventListener('mouseup', handleEnd);
+            document.addEventListener('touchmove', handleTouchMove, { passive: false });
+            document.addEventListener('touchend', handleEnd);
+          }}
+          onTouchStart={(e) => {
+            const rect = e.currentTarget.parentElement?.getBoundingClientRect();
+            if (!rect) return;
+
+            const handleTouchMove = (e: TouchEvent) => {
+              e.preventDefault();
+              const x = e.touches[0].clientX - rect.left;
+              const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+              setBeforeAfterPosition(percentage);
+            };
+
+            const handleTouchEnd = () => {
+              document.removeEventListener('touchmove', handleTouchMove);
+              document.removeEventListener('touchend', handleTouchEnd);
+            };
+
+            document.addEventListener('touchmove', handleTouchMove, { passive: false });
+            document.addEventListener('touchend', handleTouchEnd);
           }}
         />
         <div className="absolute top-4 left-4">

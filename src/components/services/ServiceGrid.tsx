@@ -89,14 +89,14 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
       href: `/${locale}/services/basement-finishing`,
     },
     {
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&q=80',
+      image: 'https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=500&h=300&q=80',
       title: "Roofing & Siding",
       description:
         "Quality roofing and siding installation to protect and beautify your home exterior.",
       href: `/${locale}/services/roofing-siding`,
     },
     {
-      image: 'https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=500&h=300&q=80',
+      image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=500&h=300&q=80',
       title: "Painting & Drywall",
       description:
         "Professional interior and exterior painting services with drywall repair and installation.",
@@ -117,7 +117,7 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
       href: `/${locale}/services/general-contracting`,
     },
     {
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&h=300&q=80',
+      image: 'https://images.unsplash.com/photo-1558036117-15d82d732b20?w=500&h=300&q=80',
       title: "Prefabricated Structures",
       description:
         "Quick and efficient installation of prefabricated structures for various purposes.",

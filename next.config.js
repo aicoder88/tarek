@@ -18,9 +18,9 @@ const nextConfig = {
       }
     ];
   },
-  // Disable TypeScript checking during build for deployment
+  // TypeScript checking enabled for better code quality
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
 };
 

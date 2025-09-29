@@ -204,10 +204,10 @@ const Home = ({ locale = "en" }: HomeProps) => {
                 src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
                 alt={
                   locale === "en"
-                    ? "Construction team at work"
+                    ? "Professional construction team working on a residential project with tools and equipment"
                     : locale === "fr"
-                      ? "Équipe de construction au travail"
-                      : "فريق البناء في العمل"
+                      ? "Équipe de construction professionnelle travaillant sur un projet résidentiel avec outils et équipement"
+                      : "فريق البناء المحترف يعمل في مشروع سكني مع الأدوات والمعدات"
                 }
                 className="object-cover w-full h-full"
               />
@@ -651,7 +651,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </div>
             </div>
             <div className="rounded-xl border bg-card p-6 shadow-sm">
-              <ContactForm language={locale as "en" | "fr" | "ar"} />
+              <ContactForm locale={locale} />
             </div>
           </div>
         </div>
