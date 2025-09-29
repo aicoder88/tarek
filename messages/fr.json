@@ -104,5 +104,221 @@
     "english": "Anglais",
     "french": "Français",
     "arabic": "Arabe"
+  },
+  "stats": {
+    "years_experience": "Années d'Expérience",
+    "projects_completed": "Projets Terminés",
+    "satisfaction_rate": "Taux de Satisfaction",
+    "support_available": "Support Disponible",
+    "happy_clients": "Clients Satisfaits",
+    "average_rating": "Note Moyenne"
+  },
+  "faq": {
+    "title": "Foire Aux Questions",
+    "subtitle": "Obtenez des réponses aux questions courantes sur nos services",
+    "items": [
+      {
+        "question": "Combien de temps prend un projet de rénovation typique?",
+        "answer": "Les délais de projet varient selon l'ampleur et la complexité. Les rénovations de cuisine prennent généralement 2-4 semaines, les rénovations de salle de bain 1-2 semaines, et les rénovations complètes de maison peuvent prendre 2-6 mois. Nous fournissons des délais détaillés lors de notre consultation initiale."
+      },
+      {
+        "question": "Fournissez-vous des estimations gratuites?",
+        "answer": "Oui, nous fournissons des estimations complètement gratuites et sans obligation pour tous nos services. Notre équipe visitera votre propriété, évaluera vos besoins et fournira une estimation écrite détaillée dans les 24-48 heures."
+      },
+      {
+        "question": "Êtes-vous agréés et assurés?",
+        "answer": "Absolument. Nous sommes des entrepreneurs entièrement agréés et portons une assurance responsabilité complète et une couverture d'indemnisation des travailleurs. Tous nos travaux sont garantis, et nous pouvons fournir une preuve d'assurance sur demande."
+      },
+      {
+        "question": "Quelles zones desservez-vous?",
+        "answer": "Nous desservons principalement la région du Grand Toronto (RGT) incluant Toronto, Mississauga, Brampton, Oakville, Burlington et les zones environnantes. Contactez-nous pour confirmer la disponibilité du service dans votre emplacement spécifique."
+      },
+      {
+        "question": "Gérez-vous les permis et inspections?",
+        "answer": "Oui, nous gérons tous les permis nécessaires et coordonnons les inspections tel que requis par les codes de construction locaux. Ceci est inclus dans notre service de gestion de projet complet pour assurer que votre projet respecte toutes les exigences réglementaires."
+      },
+      {
+        "question": "Quels modes de paiement acceptez-vous?",
+        "answer": "Nous acceptons divers modes de paiement incluant espèces, chèque, cartes de crédit et virements bancaires. Les échéanciers de paiement sont généralement structurés avec un petit dépôt pour commencer, des paiements de progression pendant la construction, et le paiement final à l'achèvement."
+      },
+      {
+        "question": "Offrez-vous des garanties sur votre travail?",
+        "answer": "Oui, nous soutenons notre travail avec des garanties complètes. La plupart de nos travaux viennent avec une garantie de 1 an sur la main-d'œuvre, et les matériaux portent des garanties du fabricant. Nous fournissons également des services de support et maintenance continus."
+      },
+      {
+        "question": "Pouvez-vous travailler dans mon budget?",
+        "answer": "Nous travaillons avec des clients de toutes gammes de budget et pouvons souvent suggérer des alternatives ou des approches par phases pour vous aider à atteindre vos objectifs dans votre budget. Lors de notre consultation, nous discuterons de vos priorités et trouverons des solutions rentables."
+      }
+    ]
+  },
+  "about": {
+    "title": "À Propos de Nous",
+    "subtitle": "Services de construction professionnels avec un savoir-faire de qualité",
+    "values": {
+      "precision": {
+        "title": "Précision",
+        "description": "Chaque détail compte. Nous abordons chaque projet avec une attention méticuleuse pour atteindre la perfection."
+      },
+      "passion": {
+        "title": "Passion",
+        "description": "Nous aimons ce que nous faisons. Notre passion pour l'excellence en construction nous pousse à livrer des résultats exceptionnels."
+      },
+      "trust": {
+        "title": "Confiance",
+        "description": "Votre maison est en bonnes mains. Nous traitons chaque propriété comme si c'était la nôtre, avec soin et respect."
+      }
+    },
+    "team": {
+      "title": "Rencontrez Notre Équipe",
+      "subtitle": "Professionnels expérimentés dédiés au succès de votre projet",
+      "members": {
+        "alex": {
+          "name": "Alex Johnson",
+          "role": "Fondateur et Maître Constructeur",
+          "experience": "15+ années d'expérience",
+          "description": "Certifié en meilleures pratiques de construction résidentielle et de rénovation. Passionné par l'artisanat."
+        },
+        "maria": {
+          "name": "Maria Rodriguez",
+          "role": "Spécialiste Intérieur",
+          "experience": "10+ années d'expérience",
+          "description": "Experte en design intérieur et finitions. L'attention aux détails est sa spécialité."
+        },
+        "david": {
+          "name": "David Chen",
+          "role": "Gestionnaire de Projet",
+          "experience": "8+ années d'expérience",
+          "description": "Spécialisé en coordination de projet et contrôle qualité. Perfectionniste par nature."
+        }
+      }
+    }
+  },
+  "services_page": {
+    "title": "Nos Services",
+    "subtitle": "Services professionnels de construction et rénovation",
+    "cta": "Devis Gratuit",
+    "contact_now": "Contactez Maintenant",
+    "schedule_appointment": "Planifier un Rendez-vous",
+    "get_free_quote": "Obtenir un Devis Gratuit",
+    "live_chat_support": "Support de Chat en Direct",
+    "service_hours": "Heures de Service",
+    "quick_actions": "Actions Rapides",
+    "service_area": "Zone de Service",
+    "greater_montreal_area": "Grand Montréal",
+    "mobile_service_gta": "Service mobile dans tout le GTA",
+    "online_booking_available": "Réservation en ligne disponible",
+    "emergency_services_available": "Services d'urgence disponibles sur rendez-vous"
+  },
+  "contact_page": {
+    "title": "Contactez-nous",
+    "subtitle": "Contactez TrueNorth Construction",
+    "phone_description": "Appelez-nous pour une assistance immédiate",
+    "email_description": "Envoyez-nous vos questions à tout moment",
+    "website_description": "Visitez notre site web pour plus d'informations"
+  },
+  "home": {
+    "hero": {
+      "badge": "Construction et rénovation professionnelles",
+      "title": "Construire des rêves, un projet à la fois",
+      "subtitle": "Services professionnels de construction, rénovation et remodelage à Toronto. Transformez votre espace avec un savoir-faire expert et une attention aux détails.",
+      "cta": "Obtenez une estimation gratuite"
+    },
+    "about": {
+      "badge": "À propos de nous",
+      "title": "Plus de 20 ans d'excellence dans la construction",
+      "description": "Chez TrueNorth Construction, nous nous spécialisons dans la transformation de maisons en maisons de rêve. Avec des années d'expérience, une équipe dévouée et une passion pour la qualité, nous livrons des services de premier plan dans les délais et le budget.",
+      "features": [
+        "Entrepreneurs agréés et assurés",
+        "Prix transparents et devis gratuits",
+        "Service professionnel et ponctuel",
+        "100% satisfaction client"
+      ],
+      "cta": "En savoir plus sur nous"
+    },
+    "services": {
+      "badge": "Nos Services",
+      "title": "Solutions complètes de construction et de rénovation",
+      "description": "Des petites réparations aux transformations complètes de maisons, nous offrons une large gamme de services pour répondre à vos besoins.",
+      "cta": "Voir tous les services"
+    },
+    "why_choose_us": {
+      "badge": "Pourquoi nous choisir",
+      "title": "Le choix préféré pour une construction de qualité",
+      "items": [
+        {
+          "title": "Savoir-faire expert",
+          "description": "Notre équipe est composée de professionnels qualifiés avec des années d'expérience dans l'industrie."
+        },
+        {
+          "title": "Matériaux de qualité",
+          "description": "Nous utilisons uniquement des matériaux de la plus haute qualité pour assurer durabilité et longévité."
+        },
+        {
+          "title": "Prix transparents",
+          "description": "Pas de frais cachés ou de surprises. Nous fournissons des devis détaillés avant de commencer tout travail."
+        },
+        {
+          "title": "Achèvement dans les délais",
+          "description": "Nous valorisons votre temps et nous efforçons de terminer les projets dans les délais sans compromettre la qualité."
+        },
+        {
+          "title": "Satisfaction du client",
+          "description": "Votre satisfaction est notre priorité. Nous travaillons en étroite collaboration avec vous pour que votre vision devienne réalité."
+        },
+        {
+          "title": "Garantie et support",
+          "description": "Nous soutenons notre travail avec des garanties complètes et un support continu."
+        }
+      ]
+    },
+    "featured_projects": {
+      "badge": "Projets en vedette",
+      "title": "Découvrez nos transformations",
+      "description": "Parcourez notre portfolio de projets terminés et découvrez les transformations spectaculaires avant et après.",
+      "cta": "Voir tous les projets"
+    },
+    "testimonials": {
+      "badge": "Témoignages",
+      "title": "Ce que disent nos clients",
+      "items": [
+        {
+          "name": "Sarah Johnson",
+          "role": "Propriétaire",
+          "content": "L'équipe a transformé notre cuisine démodée en un espace moderne et fonctionnel que nous adorons. Leur attention aux détails et leur savoir-faire ont dépassé nos attentes."
+        },
+        {
+          "name": "Michael Thompson",
+          "role": "Propriétaire d'entreprise",
+          "content": "Nous les avons engagés pour la rénovation de notre bureau et ne pourrions pas être plus satisfaits des résultats. Professionnels, ponctuels, et la qualité du travail est exceptionnelle."
+        },
+        {
+          "name": "Emily Rodriguez",
+          "role": "Propriétaire",
+          "content": "La rénovation de la salle de bain a été terminée dans les délais et dans le budget. L'équipe était courtoise, propre, et leur travail était excellent."
+        },
+        {
+          "name": "David Chen",
+          "role": "Promoteur immobilier",
+          "content": "Nous avons travaillé avec cet entrepreneur sur plusieurs projets et ils fournissent constamment des résultats de haute qualité. Fortement recommandé pour tous les besoins de construction."
+        }
+      ]
+    },
+    "contact_section": {
+      "badge": "Contactez-nous",
+      "title": "Prêt à démarrer votre projet ?",
+      "description": "Contactez‑nous dès aujourd'hui pour demander une estimation gratuite. Concrétisons votre vision.",
+      "location_title": "Notre emplacement",
+      "location_text": "Toronto, Ontario, Canada\nService mobile disponible",
+      "contact_info_title": "Informations de contact",
+      "contact_info_text": "Email: info@truenorthconstruction.com\nTéléphone: (647) 860-5500\nSite web: truenorthconstruction.com",
+      "service_hours_title": "Heures de service",
+      "service_hours_text": "Lundi - Vendredi: 8h00 - 18h00\nSamedi: 9h00 - 17h00\nDimanche: 10h00 - 16h00"
+    },
+    "cta": {
+      "title": "Prêt à transformer votre espace?",
+      "description": "Contactez-nous aujourd'hui pour une consultation et un devis gratuits. Donnons vie à votre vision.",
+      "primary_cta": "Obtenir un devis gratuit",
+      "secondary_cta": "En savoir plus"
+    }
   }
 }
