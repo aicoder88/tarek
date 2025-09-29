@@ -265,7 +265,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const uploadItems = useMemo(() => t.raw("upload.items") as string[], [t]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
     "idle",
   );
