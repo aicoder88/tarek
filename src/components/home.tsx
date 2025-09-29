@@ -240,24 +240,38 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-muted/20 to-muted/40">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
-                {t('services.badge')}
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container px-4 md:px-6 relative z-10">
+          <motion.div
+            className="flex flex-col items-center justify-center space-y-3 text-center mb-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Badge
+              variant="outline"
+              className="px-4 py-2 text-sm font-medium bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-600 dark:text-red-400"
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              {t('services.badge')}
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+              <span className="bg-gradient-to-r from-red-600 via-red-500 to-blue-900 bg-clip-text text-transparent">
                 {t('services.title')}
-              </h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg">
-                {t('services.description')}
-              </p>
-            </div>
-          </div>
-          <div className="mt-8">
-            <ServiceGrid locale={locale} />
-          </div>
+              </span>
+            </h2>
+            <p className="mx-auto max-w-[700px] text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+              {t('services.description')}
+            </p>
+          </motion.div>
+          <ServiceGrid locale={locale} />
         </div>
       </section>
 

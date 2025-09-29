@@ -10,13 +10,17 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, ChevronLeft, ChevronRight, Home, Droplet, Grid3x3, Building2, Tent, PaintBucket, Trees, Hammer, Warehouse } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ServiceCardProps {
   image: string;
   title: string;
   description: string;
   href: string;
+  icon?: React.ComponentType<{ className?: string }>;
+  gradient?: string;
 }
 
 const ServiceCard = ({
@@ -24,51 +28,79 @@ const ServiceCard = ({
   title,
   description,
   href = "#",
+  icon,
+  gradient = "from-red-500 to-pink-600",
 }: ServiceCardProps) => {
+  const IconComponent = icon;
+
   return (
-    <Card className="group service-card-hover hover:shadow-2xl transition-all duration-300 h-full cursor-pointer overflow-hidden border-2 hover:border-primary/20 bg-gradient-to-b from-card to-card/95 flex flex-col">
-      <a href={href} className="block h-full flex flex-col">
-        <div className="aspect-video overflow-hidden relative">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-            <div className="bg-primary/90 text-white p-2 rounded-full shadow-lg">
-              <ArrowRight className="h-4 w-4" />
-            </div>
-          </div>
-        </div>
-        <CardHeader className="pb-3 flex-shrink-0">
-          <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300 flex items-center justify-between min-h-[2.5rem] leading-tight">
-            <span className="flex-1 pr-2">{title}</span>
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            </div>
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="flex-grow pb-4">
-          <CardDescription className="text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300 line-clamp-3">
-            {description}
-          </CardDescription>
-        </CardContent>
-        <CardFooter className="pt-0 flex-shrink-0">
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center text-primary font-medium text-sm group-hover:text-primary/80 transition-colors duration-300">
-              Learn More
-              <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </div>
-            <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
-              <div className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full whitespace-nowrap">
-                Click to explore
+    <motion.div
+      whileHover={{ y: -8 }}
+      transition={{ duration: 0.3 }}
+      className="h-full"
+    >
+      <Card className="group relative overflow-hidden border-2 hover:border-red-200 dark:hover:border-red-800 transition-all duration-300 h-full hover:shadow-2xl">
+        <a href={href} className="block h-full flex flex-col">
+          {/* Image with overlay */}
+          <div className="relative aspect-video overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+            {/* Gradient overlay */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-90 transition-opacity duration-300`}></div>
+
+            {/* Icon that appears on hover */}
+            {IconComponent && (
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-50 group-hover:scale-100">
+                <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
+                  <IconComponent className="w-10 h-10 text-white" />
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        </CardFooter>
-      </a>
-    </Card>
+
+          {/* Card Content */}
+          <CardHeader className="pb-3 flex-shrink-0">
+            <div className="flex items-start justify-between">
+              <CardTitle className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors leading-tight flex-1">
+                {title}
+              </CardTitle>
+              {IconComponent && (
+                <div className={`p-2 rounded-lg bg-gradient-to-br ${gradient} opacity-10 group-hover:opacity-100 transition-opacity flex-shrink-0`}>
+                  <IconComponent className="w-4 h-4 text-white" />
+                </div>
+              )}
+            </div>
+          </CardHeader>
+
+          <CardContent className="flex-grow pb-3">
+            <CardDescription className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2">
+              {description}
+            </CardDescription>
+          </CardContent>
+
+          {/* Call to action that appears on hover */}
+          <CardFooter className="pt-0 flex-shrink-0">
+            <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 w-full">
+              <Button
+                variant="ghost"
+                className="w-full justify-between text-red-600 hover:text-red-700 hover:bg-red-50 dark:text-red-400 dark:hover:text-red-300 dark:hover:bg-red-900/20 p-0 h-auto"
+              >
+                Learn More
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </CardFooter>
+
+          {/* Animated border effect */}
+          <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${gradient} opacity-20 blur-xl`}></div>
+          </div>
+        </a>
+      </Card>
+    </motion.div>
   );
 };
 
@@ -82,18 +114,13 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
   const [currentIndex, setCurrentIndex] = useState(0);
   const defaultServices: ServiceCardProps[] = [
     {
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=300&q=80',
-      title: "Flooring",
-      description:
-        "Hardwood, laminate, tile, and vinyl flooring installation with expert craftsmanship.",
-      href: `/${locale}/services/flooring`,
-    },
-    {
       image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=300&q=80',
       title: "Kitchen Remodeling",
       description:
         "Complete kitchen renovations including cabinets, countertops, and appliance installation.",
       href: `/${locale}/services/kitchen-remodeling`,
+      icon: Home,
+      gradient: 'from-red-500 to-pink-600'
     },
     {
       image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=500&h=300&q=80',
@@ -101,6 +128,17 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
       description:
         "Transform your bathroom with new fixtures, tiling, and custom shower installations.",
       href: `/${locale}/services/bathroom-renovation`,
+      icon: Droplet,
+      gradient: 'from-blue-500 to-cyan-600'
+    },
+    {
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=300&q=80',
+      title: "Flooring",
+      description:
+        "Hardwood, laminate, tile, and vinyl flooring installation with expert craftsmanship.",
+      href: `/${locale}/services/flooring`,
+      icon: Grid3x3,
+      gradient: 'from-amber-500 to-orange-600'
     },
     {
       image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&h=300&q=80',
@@ -108,6 +146,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
       description:
         "Convert your basement into a functional living space with proper insulation and design.",
       href: `/${locale}/services/basement-finishing`,
+      icon: Building2,
+      gradient: 'from-slate-500 to-gray-700'
     },
     {
       image: 'https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=500&h=300&q=80',
@@ -115,6 +155,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
       description:
         "Quality roofing and siding installation to protect and beautify your home exterior.",
       href: `/${locale}/services/roofing-siding`,
+      icon: Tent,
+      gradient: 'from-indigo-500 to-purple-600'
     },
     {
       image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=500&h=300&q=80',
@@ -122,6 +164,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
       description:
         "Professional interior and exterior painting services with drywall repair and installation.",
       href: `/${locale}/services/painting-drywall`,
+      icon: PaintBucket,
+      gradient: 'from-violet-500 to-fuchsia-600'
     },
     {
       image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500&h=300&q=80',
@@ -129,6 +173,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
       description:
         "Deck building, patio installation, and landscaping to enhance your outdoor living areas.",
       href: `/${locale}/services/outdoor-landscaping`,
+      icon: Trees,
+      gradient: 'from-emerald-500 to-green-600'
     },
     {
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500&h=300&q=80',
@@ -136,6 +182,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
       description:
         "Full-service general contracting for additions, renovations, and custom home projects.",
       href: `/${locale}/services/general-contracting`,
+      icon: Hammer,
+      gradient: 'from-red-600 to-rose-700'
     },
     {
       image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=500&h=300&q=80',
@@ -143,6 +191,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
       description:
         "Custom sheds, garages, and prefabricated buildings with professional installation and quality materials.",
       href: `/${locale}/services/prefabricated-structures`,
+      icon: Warehouse,
+      gradient: 'from-teal-500 to-cyan-600'
     },
   ];
 
@@ -158,6 +208,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
             title={service.title}
             description={service.description}
             href={service.href}
+            icon={service.icon}
+            gradient={service.gradient}
           />
         ))}
       </div>
@@ -224,6 +276,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
                       title={service.title}
                       description={service.description}
                       href={service.href}
+                      icon={service.icon}
+                      gradient={service.gradient}
                     />
                   </div>
                 ))}
@@ -305,6 +359,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
                 title={service.title}
                 description={service.description}
                 href={service.href}
+                icon={service.icon}
+                gradient={service.gradient}
               />
             ))}
           </div>
@@ -340,6 +396,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
                       title={service.title}
                       description={service.description}
                       href={service.href}
+                      icon={service.icon}
+                      gradient={service.gradient}
                     />
                   </div>
                 ))}
@@ -370,6 +428,8 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
                 title={service.title}
                 description={service.description}
                 href={service.href}
+                icon={service.icon}
+                gradient={service.gradient}
               />
             ))}
           </div>
