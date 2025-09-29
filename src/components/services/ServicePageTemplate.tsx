@@ -115,9 +115,6 @@ export function ServicePageTemplate({
                 Get Free Estimate
                 <CheckCircle className="h-5 w-5" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-6 text-lg font-semibold border-2 hover:bg-muted/50 transition-all duration-300">
-                View Portfolio
-              </Button>
             </motion.div>
 
             {/* Trust indicators */}

@@ -75,9 +75,10 @@ const ServiceCard = ({
 interface ServiceGridProps {
   services?: ServiceCardProps[];
   locale?: string;
+  variant?: 'carousel' | 'grid';
 }
 
-const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
+const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceGridProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const defaultServices: ServiceCardProps[] = [
     {
@@ -146,6 +147,22 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
   ];
 
   const displayServices = services || defaultServices;
+
+  if (variant === 'grid') {
+    return (
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {displayServices.map((service, index) => (
+          <ServiceCard
+            key={index}
+            image={service.image}
+            title={service.title}
+            description={service.description}
+            href={service.href}
+          />
+        ))}
+      </div>
+    );
+  }
 
   const itemsPerView = 3; // Desktop: 3, Tablet: 2, Mobile: 1
   const maxIndex = Math.max(0, displayServices.length - itemsPerView);

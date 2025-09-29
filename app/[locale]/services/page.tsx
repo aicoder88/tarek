@@ -73,7 +73,7 @@ export default async function ServicesPage({ params }: PageProps) {
       {/* Services Grid */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container px-4 md:px-6">
-          <ServiceGrid locale={locale} />
+          <ServiceGrid locale={locale} variant="grid" />
         </div>
       </section>
 

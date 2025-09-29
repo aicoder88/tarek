@@ -41,9 +41,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <Header locale={locale} />
 
       {/* Hero Section */}
-      <section className="relative w-full py-24 md:py-40 bg-gradient-to-br from-muted/60 via-background to-muted/30">
+      <section className="relative w-full py-20 md:py-32 bg-gradient-to-br from-muted/60 via-background to-muted/30">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center space-y-8 text-center">
+          <div className="flex flex-col items-center space-y-6 text-center">
             <motion.div
               className="space-y-6"
               initial={{ opacity: 0, y: 20 }}
@@ -119,7 +119,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
@@ -156,7 +156,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/20 to-muted/40">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-muted/20 to-muted/40">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -171,10 +171,10 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </p>
             </div>
           </div>
-          <div className="mt-10">
+          <div className="mt-8">
             <ServiceGrid locale={locale} />
           </div>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <Button>
               {t('services.cta')}
             </Button>
@@ -183,7 +183,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/40 to-background">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-muted/40 to-background">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -195,7 +195,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </h2>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 lg:gap-12 mt-10">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 lg:gap-12 mt-8">
             {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => (
               <Card key={i} className="bg-background">
                 <CardHeader>
@@ -211,7 +211,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -226,10 +226,10 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </p>
             </div>
           </div>
-          <div className="mt-10">
+          <div className="mt-8">
             <ProjectGallery locale={locale} />
           </div>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <Button>
               {t('featured_projects.cta')}
             </Button>
@@ -238,7 +238,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-muted/30 to-background">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -250,7 +250,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </h2>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12 mt-10">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12 mt-8">
             {t.raw('testimonials.items').map((testimonial: {name: string, role: string, content: string}, i: number) => (
               <Card key={i} className="bg-background">
                 <CardContent className="p-6">
@@ -289,7 +289,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <FAQ />
 
       {/* Contact Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/20">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-start">
             <div className="space-y-4">
@@ -355,7 +355,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
+      <section className="py-16 md:py-24 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
