@@ -26,25 +26,45 @@ const ServiceCard = ({
   href = "#",
 }: ServiceCardProps) => {
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 h-full cursor-pointer transform hover:scale-[1.02] overflow-hidden">
+    <Card className="group service-card-hover hover:shadow-2xl transition-all duration-300 h-full cursor-pointer overflow-hidden border-2 hover:border-primary/20 bg-gradient-to-b from-card to-card/95">
       <a href={href} className="block h-full">
-        <div className="aspect-video overflow-hidden">
+        <div className="aspect-video overflow-hidden relative">
           <img
             src={image}
             alt={title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+            <div className="bg-primary/90 text-white p-2 rounded-full shadow-lg">
+              <ArrowRight className="h-4 w-4" />
+            </div>
+          </div>
         </div>
         <CardHeader className="pb-3">
-          <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">{title}</CardTitle>
+          <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300 flex items-center justify-between">
+            {title}
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            </div>
+          </CardTitle>
         </CardHeader>
         <CardContent className="flex-grow pb-4">
-          <CardDescription className="text-sm leading-relaxed">{description}</CardDescription>
+          <CardDescription className="text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+            {description}
+          </CardDescription>
         </CardContent>
         <CardFooter className="pt-0">
-          <div className="flex items-center text-primary font-medium text-sm group-hover:text-primary/80 transition-colors duration-300">
-            Learn More
-            <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center text-primary font-medium text-sm group-hover:text-primary/80 transition-colors duration-300">
+              Learn More
+              <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+            </div>
+            <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+              <div className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">
+                Click to explore
+              </div>
+            </div>
           </div>
         </CardFooter>
       </a>
@@ -141,20 +161,35 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
   return (
     <div className="w-full">
       <div className="relative">
-        {/* Desktop/Tablet: Carousel view */}
+        {/* Desktop/Tablet: Enhanced Carousel view */}
         <div className="hidden lg:block">
-          <div className="flex items-center gap-4">
+          {/* Carousel Header with Navigation Hint */}
+          <div className="flex items-center justify-between mb-6">
+            <div className="text-sm text-muted-foreground flex items-center gap-2">
+              <div className="flex items-center gap-1">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span>Browse our services</span>
+              </div>
+            </div>
+            <div className="text-sm text-muted-foreground">
+              {currentIndex + 1} - {Math.min(currentIndex + itemsPerView, displayServices.length)} of {displayServices.length} services
+            </div>
+          </div>
+
+          <div className="flex items-center gap-6 relative">
+            {/* Left Arrow - Bigger and more prominent */}
             <Button
               variant="outline"
               size="icon"
               onClick={prevSlide}
-              className="h-12 w-12 rounded-full shadow-md hover:shadow-lg transition-shadow"
+              className="h-16 w-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 bg-background/80 backdrop-blur-sm z-10 hover:scale-110"
               disabled={currentIndex === 0}
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-8 w-8" />
             </Button>
 
-            <div className="flex-1 overflow-hidden">
+            {/* Carousel Container with enhanced styling */}
+            <div className="flex-1 overflow-hidden rounded-xl bg-gradient-to-r from-muted/20 via-transparent to-muted/20 p-2">
               <div
                 className="flex transition-transform duration-500 ease-out gap-6"
                 style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}
@@ -172,28 +207,51 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
               </div>
             </div>
 
+            {/* Right Arrow - Bigger and more prominent */}
             <Button
               variant="outline"
               size="icon"
               onClick={nextSlide}
-              className="h-12 w-12 rounded-full shadow-md hover:shadow-lg transition-shadow"
+              className="h-16 w-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border-2 hover:border-primary/50 bg-background/80 backdrop-blur-sm z-10 hover:scale-110"
               disabled={currentIndex >= maxIndex}
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-8 w-8" />
             </Button>
+
+            {/* Gradient overlays to indicate more content */}
+            {currentIndex > 0 && (
+              <div className="absolute left-16 top-0 bottom-0 w-8 bg-gradient-to-r from-background/60 to-transparent pointer-events-none z-5" />
+            )}
+            {currentIndex < maxIndex && (
+              <div className="absolute right-16 top-0 bottom-0 w-8 bg-gradient-to-l from-background/60 to-transparent pointer-events-none z-5" />
+            )}
           </div>
 
-          {/* Carousel indicators */}
-          <div className="flex justify-center mt-6 gap-2">
+          {/* Enhanced Carousel indicators */}
+          <div className="flex justify-center mt-8 gap-3">
             {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                  index === currentIndex ? 'bg-primary' : 'bg-muted-foreground/30'
+                className={`relative group transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-8 h-3 bg-primary rounded-full'
+                    : 'w-3 h-3 bg-muted-foreground/30 hover:bg-muted-foreground/50 rounded-full'
                 }`}
-              />
+                title={`View services ${index * itemsPerView + 1}-${Math.min((index + 1) * itemsPerView, displayServices.length)}`}
+              >
+                {index === currentIndex && (
+                  <div className="absolute inset-0 bg-primary/20 rounded-full scale-150 animate-ping" />
+                )}
+              </button>
             ))}
+          </div>
+
+          {/* Call-to-action hint */}
+          <div className="text-center mt-4">
+            <p className="text-sm text-muted-foreground">
+              Click on any service card to learn more or use the arrows to browse all services
+            </p>
           </div>
         </div>
 
@@ -210,29 +268,59 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
           ))}
         </div>
 
-        {/* Mobile: Single column with horizontal scroll for featured services */}
+        {/* Mobile: Enhanced horizontal scroll with clear indicators */}
         <div className="md:hidden">
-          {/* Featured services horizontal scroll */}
-          <div className="overflow-x-auto pb-4 mb-6">
-            <div className="flex gap-4 w-max">
-              {displayServices.slice(0, 4).map((service, index) => (
-                <div key={index} className="w-72 flex-shrink-0">
-                  <ServiceCard
-                    image={service.image}
-                    title={service.title}
-                    description={service.description}
-                    href={service.href}
-                  />
-                </div>
-              ))}
+          {/* Mobile scroll hint */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="text-sm text-muted-foreground flex items-center gap-2">
+              <div className="flex items-center gap-1">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span>Swipe to explore services</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+              <ChevronLeft className="h-3 w-3" />
+              <ChevronRight className="h-3 w-3" />
             </div>
           </div>
 
+          {/* Featured services horizontal scroll with enhanced styling */}
+          <div className="relative">
+            <div className="overflow-x-auto pb-6 mb-6 scrollbar-hide">
+              <div className="flex gap-4 w-max pl-2 pr-2">
+                {displayServices.slice(0, 6).map((service, index) => (
+                  <div key={index} className="w-72 flex-shrink-0">
+                    <ServiceCard
+                      image={service.image}
+                      title={service.title}
+                      description={service.description}
+                      href={service.href}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Gradient indicators for mobile scroll */}
+            <div className="absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+          </div>
+
+          {/* Additional services hint */}
+          {displayServices.length > 6 && (
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-full text-sm text-muted-foreground">
+                <span>+{displayServices.length - 6} more services below</span>
+                <div className="w-1 h-1 rounded-full bg-primary animate-bounce" />
+              </div>
+            </div>
+          )}
+
           {/* Additional services grid */}
           <div className="grid grid-cols-1 gap-4">
-            {displayServices.slice(4, 8).map((service, index) => (
+            {displayServices.slice(6).map((service, index) => (
               <ServiceCard
-                key={index + 4}
+                key={index + 6}
                 image={service.image}
                 title={service.title}
                 description={service.description}

@@ -229,3 +229,33 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
 }
+
+/* Hide scrollbar for carousel on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Enhanced carousel indicators */
+@keyframes carousel-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.carousel-indicator-active {
+  animation: carousel-pulse 2s infinite;
+}
+
+/* Service card hover effects */
+.service-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+}
