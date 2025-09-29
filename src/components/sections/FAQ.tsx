@@ -17,7 +17,7 @@ export function FAQ() {
   const faqItems = t.raw('items') as FAQItem[];
 
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-14 md:py-20 bg-muted/30">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -33,7 +33,7 @@ export function FAQ() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-3xl mt-10">
+        <div className="mx-auto max-w-3xl mt-8">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqItems.map((item: FAQItem, index: number) => (
               <AccordionItem

@@ -44,7 +44,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <Header locale={locale} />
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[95vh] flex items-center justify-center bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] overflow-hidden">
+      <section className="relative w-full min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -61,9 +61,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
         </div>
 
         <div className="relative z-10 container px-4 md:px-6 lg:px-8">
-          <div className="flex flex-col items-center space-y-10 text-center max-w-6xl mx-auto">
+          <div className="flex flex-col items-center space-y-8 text-center max-w-6xl mx-auto">
             <motion.div
-              className="space-y-9"
+              className="space-y-7"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -72,24 +72,22 @@ const Home = ({ locale = "en" }: HomeProps) => {
                 <span className="inline-block mr-2 animate-pulse">✦</span>
                 {t('hero.badge')}
               </Badge>
-              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] text-white leading-[1.1] px-4">
-                <span className="block bg-gradient-to-br from-white via-gray-50 to-gray-200 bg-clip-text text-transparent drop-shadow-2xl">
-                  {t('hero.title')}
-                </span>
+              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] text-white leading-[1.08] px-4 drop-shadow-[0_6px_28px_rgba(0,0,0,0.45)]">
+                {t('hero.title')}
               </h1>
               <p className="mx-auto max-w-[850px] text-gray-300/90 text-xl md:text-2xl lg:text-[1.75rem] leading-relaxed font-light tracking-wide px-4">
                 {t('hero.subtitle')}
               </p>
             </motion.div>
             <motion.div
-              className="flex flex-col sm:flex-row gap-6 pt-6"
+              className="flex flex-col sm:flex-row gap-6 pt-4"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
               <Button
                 size="lg"
-                className="group relative gap-3 px-14 py-8 text-xl font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden"
+                className="group relative gap-3 px-12 py-6 text-xl font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                 <span className="relative">{t('hero.cta')}</span>
@@ -155,7 +153,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Enhanced Stats Bar */}
-      <section className="relative bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-12 md:py-16">
+      <section className="relative bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-10 md:py-14">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
@@ -208,7 +206,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 -left-40 w-96 h-96 bg-red-500/5 rounded-full blur-[100px]"></div>
@@ -228,7 +226,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
                 <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
                   {t('about.badge')}
                 </Badge>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight bg-gradient-to-br from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white">
                   {t('about.title')}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed font-light">
@@ -272,7 +270,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Services Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-10 md:py-14 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 left-10 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
@@ -281,7 +279,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
 
         <div className="container px-4 md:px-6 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-3 text-center mb-10"
+            className="flex flex-col items-center justify-center space-y-3 text-center mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -295,9 +293,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               {t('services.badge')}
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-              <span className="bg-gradient-to-r from-red-600 via-red-500 to-blue-900 bg-clip-text text-transparent">
-                {t('services.title')}
-              </span>
+              {t('services.title')}
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
               {t('services.description')}
@@ -308,7 +304,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -317,7 +313,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
 
         <div className="container px-4 md:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-6 text-center mb-16"
+            className="flex flex-col items-center justify-center space-y-6 text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -326,7 +322,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
             <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
               {t('why_choose_us.badge')}
             </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl bg-gradient-to-br from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white">
               {t('why_choose_us.title')}
             </h2>
           </motion.div>
@@ -364,7 +360,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-muted/30">
+      <section className="py-14 md:py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -379,14 +375,14 @@ const Home = ({ locale = "en" }: HomeProps) => {
               </p>
             </div>
           </div>
-          <div className="mt-8">
+          <div className="mt-6">
             <ProjectGallery locale={locale} />
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -395,7 +391,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
 
         <div className="container px-4 md:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-6 text-center mb-16"
+            className="flex flex-col items-center justify-center space-y-6 text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -404,7 +400,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
             <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
               {t('testimonials.badge')}
             </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl bg-gradient-to-br from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white">
               {t('testimonials.title')}
             </h2>
           </motion.div>
@@ -460,7 +456,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <FAQ />
 
       {/* Contact Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 -left-40 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -480,7 +476,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
                 <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
                   {t('contact_section.badge')}
                 </Badge>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight bg-gradient-to-br from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white">
                   {t('contact_section.title')}
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed font-light">
@@ -552,7 +548,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -595,7 +591,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
 
         <div className="container px-4 md:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-10 text-center max-w-4xl mx-auto"
+            className="flex flex-col items-center justify-center space-y-8 text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

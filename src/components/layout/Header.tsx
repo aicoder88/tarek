@@ -54,7 +54,7 @@ export function Header({ locale = 'en' }: HeaderProps) {
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-[#DC143C] via-[#001F3F] to-[#DC143C] dark:from-red-400 dark:via-blue-900 dark:to-red-500 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-[#112b4a] dark:text-white">
                 TrueNorth Construction
               </h1>
               <p className="text-xs text-gray-600 dark:text-gray-400 font-medium tracking-wide">

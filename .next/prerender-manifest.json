@@ -1,55 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/_not-found": {
-      "initialStatus": 404,
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/_not-found",
-      "dataRoute": "/_not-found.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/api/sitemap": {
       "initialHeaders": {
         "content-type": "application/xml",
@@ -79,7 +30,8 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/ar/services/basement-finishing": {
+    "/_not-found": {
+      "initialStatus": 404,
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -92,128 +44,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/basement-finishing",
-      "dataRoute": "/ar/services/basement-finishing.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/en/services/basement-finishing": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/basement-finishing",
-      "dataRoute": "/en/services/basement-finishing.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/fr/services/basement-finishing": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/basement-finishing",
-      "dataRoute": "/fr/services/basement-finishing.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/ar/services/outdoor-landscaping": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/outdoor-landscaping",
-      "dataRoute": "/ar/services/outdoor-landscaping.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/en/services/outdoor-landscaping": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/outdoor-landscaping",
-      "dataRoute": "/en/services/outdoor-landscaping.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/fr/services/outdoor-landscaping": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/outdoor-landscaping",
-      "dataRoute": "/fr/services/outdoor-landscaping.rsc",
+      "srcRoute": "/_not-found",
+      "dataRoute": "/_not-found.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -295,7 +127,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/ar/services/kitchen-remodeling": {
+    "/ar/services/basement-finishing": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -308,8 +140,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/kitchen-remodeling",
-      "dataRoute": "/ar/services/kitchen-remodeling.rsc",
+      "srcRoute": "/[locale]/services/basement-finishing",
+      "dataRoute": "/ar/services/basement-finishing.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -319,7 +151,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/en/services/kitchen-remodeling": {
+    "/en/services/basement-finishing": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -332,8 +164,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/kitchen-remodeling",
-      "dataRoute": "/en/services/kitchen-remodeling.rsc",
+      "srcRoute": "/[locale]/services/basement-finishing",
+      "dataRoute": "/en/services/basement-finishing.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -343,7 +175,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/fr/services/kitchen-remodeling": {
+    "/fr/services/basement-finishing": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -356,8 +188,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/kitchen-remodeling",
-      "dataRoute": "/fr/services/kitchen-remodeling.rsc",
+      "srcRoute": "/[locale]/services/basement-finishing",
+      "dataRoute": "/fr/services/basement-finishing.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -439,6 +271,78 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/ar/services/flooring": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/flooring",
+      "dataRoute": "/ar/services/flooring.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/en/services/flooring": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/flooring",
+      "dataRoute": "/en/services/flooring.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/fr/services/flooring": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/flooring",
+      "dataRoute": "/fr/services/flooring.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/ar/services/general-contracting": {
       "experimentalBypassFor": [
         {
@@ -502,78 +406,6 @@
       "initialRevalidateSeconds": false,
       "srcRoute": "/[locale]/services/general-contracting",
       "dataRoute": "/fr/services/general-contracting.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/ar/services/prefabricated-structures": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/prefabricated-structures",
-      "dataRoute": "/ar/services/prefabricated-structures.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/en/services/prefabricated-structures": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/prefabricated-structures",
-      "dataRoute": "/en/services/prefabricated-structures.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/fr/services/prefabricated-structures": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/prefabricated-structures",
-      "dataRoute": "/fr/services/prefabricated-structures.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -727,7 +559,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/ar/services/flooring": {
+    "/": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -740,8 +572,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/flooring",
-      "dataRoute": "/ar/services/flooring.rsc",
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -751,7 +583,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/en/services/flooring": {
+    "/ar/services/prefabricated-structures": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -764,8 +596,8 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/flooring",
-      "dataRoute": "/en/services/flooring.rsc",
+      "srcRoute": "/[locale]/services/prefabricated-structures",
+      "dataRoute": "/ar/services/prefabricated-structures.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -775,7 +607,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/fr/services/flooring": {
+    "/en/services/prefabricated-structures": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -788,8 +620,176 @@
         }
       ],
       "initialRevalidateSeconds": false,
-      "srcRoute": "/[locale]/services/flooring",
-      "dataRoute": "/fr/services/flooring.rsc",
+      "srcRoute": "/[locale]/services/prefabricated-structures",
+      "dataRoute": "/en/services/prefabricated-structures.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/fr/services/prefabricated-structures": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/prefabricated-structures",
+      "dataRoute": "/fr/services/prefabricated-structures.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/ar/services/outdoor-landscaping": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/outdoor-landscaping",
+      "dataRoute": "/ar/services/outdoor-landscaping.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/en/services/outdoor-landscaping": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/outdoor-landscaping",
+      "dataRoute": "/en/services/outdoor-landscaping.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/fr/services/outdoor-landscaping": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/outdoor-landscaping",
+      "dataRoute": "/fr/services/outdoor-landscaping.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/ar/services/kitchen-remodeling": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/kitchen-remodeling",
+      "dataRoute": "/ar/services/kitchen-remodeling.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/en/services/kitchen-remodeling": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/kitchen-remodeling",
+      "dataRoute": "/en/services/kitchen-remodeling.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/fr/services/kitchen-remodeling": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/[locale]/services/kitchen-remodeling",
+      "dataRoute": "/fr/services/kitchen-remodeling.rsc",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -801,56 +801,6 @@
     }
   },
   "dynamicRoutes": {
-    "/[locale]/services/basement-finishing": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "routeRegex": "^/([^/]+?)/services/basement\\-finishing(?:/)?$",
-      "dataRoute": "/[locale]/services/basement-finishing.rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/basement\\-finishing\\.rsc$",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/[locale]/services/outdoor-landscaping": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "routeRegex": "^/([^/]+?)/services/outdoor\\-landscaping(?:/)?$",
-      "dataRoute": "/[locale]/services/outdoor-landscaping.rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/outdoor\\-landscaping\\.rsc$",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/[locale]/services/painting-drywall": {
       "experimentalBypassFor": [
         {
@@ -876,7 +826,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/[locale]/services/kitchen-remodeling": {
+    "/[locale]/services/basement-finishing": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -888,10 +838,10 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "routeRegex": "^/([^/]+?)/services/kitchen\\-remodeling(?:/)?$",
-      "dataRoute": "/[locale]/services/kitchen-remodeling.rsc",
+      "routeRegex": "^/([^/]+?)/services/basement\\-finishing(?:/)?$",
+      "dataRoute": "/[locale]/services/basement-finishing.rsc",
       "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/kitchen\\-remodeling\\.rsc$",
+      "dataRouteRegex": "^/([^/]+?)/services/basement\\-finishing\\.rsc$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -926,6 +876,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/[locale]/services/flooring": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/([^/]+?)/services/flooring(?:/)?$",
+      "dataRoute": "/[locale]/services/flooring.rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/([^/]+?)/services/flooring\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/[locale]/services/general-contracting": {
       "experimentalBypassFor": [
         {
@@ -942,31 +917,6 @@
       "dataRoute": "/[locale]/services/general-contracting.rsc",
       "fallback": null,
       "dataRouteRegex": "^/([^/]+?)/services/general\\-contracting\\.rsc$",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
-    "/[locale]/services/prefabricated-structures": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "routeRegex": "^/([^/]+?)/services/prefabricated\\-structures(?:/)?$",
-      "dataRoute": "/[locale]/services/prefabricated-structures.rsc",
-      "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/prefabricated\\-structures\\.rsc$",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -1026,7 +976,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/[locale]/services/flooring": {
+    "/[locale]/services/prefabricated-structures": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -1038,10 +988,60 @@
           "value": "multipart/form-data;.*"
         }
       ],
-      "routeRegex": "^/([^/]+?)/services/flooring(?:/)?$",
-      "dataRoute": "/[locale]/services/flooring.rsc",
+      "routeRegex": "^/([^/]+?)/services/prefabricated\\-structures(?:/)?$",
+      "dataRoute": "/[locale]/services/prefabricated-structures.rsc",
       "fallback": null,
-      "dataRouteRegex": "^/([^/]+?)/services/flooring\\.rsc$",
+      "dataRouteRegex": "^/([^/]+?)/services/prefabricated\\-structures\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/[locale]/services/outdoor-landscaping": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/([^/]+?)/services/outdoor\\-landscaping(?:/)?$",
+      "dataRoute": "/[locale]/services/outdoor-landscaping.rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/([^/]+?)/services/outdoor\\-landscaping\\.rsc$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/[locale]/services/kitchen-remodeling": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "routeRegex": "^/([^/]+?)/services/kitchen\\-remodeling(?:/)?$",
+      "dataRoute": "/[locale]/services/kitchen-remodeling.rsc",
+      "fallback": null,
+      "dataRouteRegex": "^/([^/]+?)/services/kitchen\\-remodeling\\.rsc$",
       "allowHeader": [
         "host",
         "x-matched-path",

@@ -4,13 +4,13 @@
   "/page": "/",
   "/[locale]/services/page": "/[locale]/services",
   "/[locale]/services/bathroom-renovation/page": "/[locale]/services/bathroom-renovation",
-  "/[locale]/services/basement-finishing/page": "/[locale]/services/basement-finishing",
   "/[locale]/page": "/[locale]",
-  "/[locale]/services/flooring/page": "/[locale]/services/flooring",
-  "/[locale]/services/general-contracting/page": "/[locale]/services/general-contracting",
-  "/[locale]/services/outdoor-landscaping/page": "/[locale]/services/outdoor-landscaping",
   "/[locale]/services/painting-drywall/page": "/[locale]/services/painting-drywall",
+  "/[locale]/services/outdoor-landscaping/page": "/[locale]/services/outdoor-landscaping",
+  "/[locale]/services/kitchen-remodeling/page": "/[locale]/services/kitchen-remodeling",
+  "/[locale]/services/basement-finishing/page": "/[locale]/services/basement-finishing",
+  "/[locale]/services/flooring/page": "/[locale]/services/flooring",
   "/[locale]/services/prefabricated-structures/page": "/[locale]/services/prefabricated-structures",
   "/[locale]/services/roofing-siding/page": "/[locale]/services/roofing-siding",
-  "/[locale]/services/kitchen-remodeling/page": "/[locale]/services/kitchen-remodeling"
+  "/[locale]/services/general-contracting/page": "/[locale]/services/general-contracting"
 }

@@ -120,9 +120,7 @@ export function Services() {
             {t('title')}
           </Badge>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-red-600 via-red-500 to-blue-900 bg-clip-text text-transparent">
-              {t('title')}
-            </span>
+            {t('title')}
           </h2>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t('subtitle')}
