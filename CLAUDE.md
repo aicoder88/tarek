@@ -41,6 +41,8 @@ This is a multilingual construction/renovation business website built with **Nex
 - Messages stored in `messages/{locale}.json`
 - RTL support for Arabic via `dir="rtl"` attribute
 - Middleware handles locale detection and routing
+- Custom validation scripts (`scripts/validate-translations.js`, `scripts/fix-translations.js`) ensure translation consistency
+- Translation validation runs automatically during prebuild
 
 ## Development Commands
 
@@ -59,6 +61,11 @@ npm run lint || true
 
 # Generate Supabase types
 npm run types:supabase
+
+# Translation validation and fixing
+npm run translations:validate   # Validate translations across all locales
+npm run translations:fix        # Auto-fix translation issues
+npm run translations:check      # Validate + confirm all translations are valid
 ```
 
 ## Component Architecture
@@ -96,7 +103,7 @@ npm run types:supabase
 ## Configuration Files
 
 ### TypeScript Configuration
-- `strict: false` for relaxed type checking
+- `strict: false` in tsconfig.json but `ignoreBuildErrors: false` in Next.js config (build will fail on TS errors)
 - Path mapping: `@/*` → `./src/*`
 - Next.js plugin enabled
 
@@ -108,8 +115,10 @@ npm run types:supabase
 
 ## Notes for Development
 
-- The project appears to be in active development with mixed architecture (both App Router in `app/` and legacy components in `src/`)
+- The project uses Next.js 15 with App Router (note: README.md incorrectly mentions Vite and is outdated)
+- The project has both App Router pages in `app/[locale]/` and component pages in `src/pages/` - prefer App Router for new pages
 - Supabase integration is partially configured but may not be fully implemented
 - Extensive UI component library available through shadcn/ui
 - All text content uses inline translations rather than translation keys
 - Images use external sources (Unsplash, Dicebear) for placeholders
+- Translation validation scripts automatically check for missing keys and inconsistencies across locales

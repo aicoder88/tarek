@@ -30,6 +30,7 @@ interface Project {
 
 interface ProjectGalleryProps {
   locale?: string;
+  embedded?: boolean;
 }
 
 interface BeforeAfterSliderProps {
@@ -38,7 +39,7 @@ interface BeforeAfterSliderProps {
   title: string;
 }
 
-export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
+export default function ProjectGallery({ locale = "en", embedded = false }: ProjectGalleryProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [beforeAfterPosition, setBeforeAfterPosition] = useState(50);
@@ -225,17 +226,19 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-            Featured Projects
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Discover our latest transformations and see how we bring dreams to life
-          </p>
-        </div>
+    <div className={embedded ? "w-full" : "min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-8"}>
+      <div className={embedded ? "w-full" : "max-w-7xl mx-auto"}>
+        {/* Header - Hide when embedded as it's already shown on the page */}
+        {!embedded && (
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+              Featured Projects
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Discover our latest transformations and see how we bring dreams to life
+            </p>
+          </div>
+        )}
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -409,22 +412,24 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-8 text-white shadow-2xl">
-            <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
-            <p className="text-xl mb-6 opacity-90">
-              Let's transform your space into something extraordinary
-            </p>
-            <Button 
-              size="lg" 
-              className="bg-white text-red-600 hover:bg-gray-100 font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
-            >
-              Get Your Free Quote
-              <ArrowRight className="h-5 w-5 ml-2" />
-            </Button>
+        {/* Call to Action - Hide when embedded */}
+        {!embedded && (
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-8 text-white shadow-2xl">
+              <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
+              <p className="text-xl mb-6 opacity-90">
+                Let's transform your space into something extraordinary
+              </p>
+              <Button
+                size="lg"
+                className="bg-white text-red-600 hover:bg-gray-100 font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+              >
+                Get Your Free Quote
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

@@ -34,6 +34,7 @@ export function ServicePageTemplate({
   locale = 'en'
 }: ServicePageTemplateProps) {
   const isRTL = locale === 'ar';
+  const contactHref = `/${locale}#contact`;
 
   return (
     <div
@@ -111,9 +112,15 @@ export function ServicePageTemplate({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Button size="lg" className="gap-2 px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                Get Free Estimate
-                <CheckCircle className="h-5 w-5" />
+              <Button
+                asChild
+                size="lg"
+                className="gap-2 px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <a href={contactHref}>
+                  Get Free Estimate
+                  <CheckCircle className="h-5 w-5" />
+                </a>
               </Button>
             </motion.div>
 

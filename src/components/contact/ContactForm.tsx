@@ -32,7 +32,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircle, AlertCircle, Phone, Mail, Hammer, Upload, Calendar, DollarSign, MapPin, FileImage, Ruler, Clock, X } from "lucide-react";
+import { CheckCircle, AlertCircle, Phone, Mail, Hammer, Calendar, DollarSign, MapPin, Ruler, Clock } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -262,54 +262,16 @@ const ContactForm: React.FC<ContactFormProps> = ({
   );
 
   const trustItems = useMemo(() => t.raw("trust.items") as string[], [t]);
-  const uploadItems = useMemo(() => t.raw("upload.items") as string[], [t]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
     "idle",
   );
   const [errorType, setErrorType] = useState<"general" | "network" | "validation">("general");
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const formContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollFormIntoView = () => {
     formContainerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files) {
-      const newFiles = Array.from(files).filter(file => {
-        // Limit file size to 10MB
-        if (file.size > 10 * 1024 * 1024) {
-          alert(t("upload.errors.too_large", { name: file.name }));
-          return false;
-        }
-        // Allow common image and document formats
-        const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-        if (!allowedTypes.includes(file.type)) {
-          alert(t("upload.errors.unsupported", { name: file.name }));
-          return false;
-        }
-        return true;
-      });
-
-      setUploadedFiles(prev => [...prev, ...newFiles].slice(0, 5)); // Limit to 5 files
-    }
-    // Reset the input value so the same file can be selected again if needed
-    event.target.value = '';
-  };
-
-  const removeFile = (index: number) => {
-    setUploadedFiles(prev => prev.filter((_, i) => i !== index));
-  };
-
-  const formatFileSize = (bytes: number) => {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 
   const form = useForm<FormValues>({
@@ -338,11 +300,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setFormStatus("idle");
 
     try {
-      // Validate uploaded files if any
-      if (uploadedFiles.length > 5) {
-        throw new Error('Too many files uploaded. Maximum 5 files allowed.');
-      }
-
       // Get the selected labels for email context
       const selectedService = serviceOptions.find(service => service.id === data.service)?.label || data.service;
       const selectedBudget = budgetRanges.find(budget => budget.value === data.budgetRange)?.label || data.budgetRange;
@@ -379,9 +336,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         materials_preference: data.materialsPreference || 'Not specified',
         has_permits: data.hasPermits || 'Not specified',
         access_details: data.accessDetails || 'Standard access',
-        // File upload information
-        files_count: uploadedFiles.length,
-        files_info: uploadedFiles.length > 0 ? uploadedFiles.map(file => `${file.name} (${formatFileSize(file.size)})`).join(', ') : 'No files uploaded',
         // Additional context for the email
         subject: `New ${data.requestType === 'quote' ? 'Quote Request' : data.requestType === 'emergency' ? 'Emergency Service Request' : 'Consultation Request'} from ${data.name}`,
         locale: locale,
@@ -399,7 +353,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
       console.log('Email sent successfully:', result);
       setFormStatus("success");
       form.reset();
-      setUploadedFiles([]);
 
       // Scroll to top to show success message
       scrollFormIntoView();
@@ -854,85 +807,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   </div>
                 )}
               </div>
-
-              {/* File Upload Section - Show for quote and consultation requests */}
-              {(requestType === "quote" || requestType === "consultation") && (
-                <div className="space-y-6 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2 flex items-center gap-2">
-                    <FileImage className="h-5 w-5 text-blue-600" />
-                    {t("sections.upload")}
-                  </h3>
-
-                  <div className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                    <p>{t("upload.instructions")}</p>
-                    <ul className="list-disc list-inside mt-2 space-y-1 text-xs">
-                      {uploadItems.map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* File Upload Input */}
-                  <div className="relative">
-                    <input
-                      type="file"
-                      multiple
-                      accept="image/*,.pdf,.doc,.docx"
-                      onChange={handleFileUpload}
-                      className="sr-only"
-                      id="file-upload"
-                    />
-                    <label
-                      htmlFor="file-upload"
-                      className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-blue-300 dark:border-blue-600 rounded-lg cursor-pointer bg-blue-50 dark:bg-blue-900/10 hover:bg-blue-100 dark:hover:bg-blue-900/20 transition-colors"
-                    >
-                      <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                        <Upload className="h-8 w-8 text-blue-500 mb-2" />
-                        <p className="text-sm text-blue-700 dark:text-blue-300 font-medium">
-                          {t("upload.button")}
-                        </p>
-                        <p className="text-xs text-blue-600 dark:text-blue-400">
-                          {t("upload.hint")}
-                        </p>
-                      </div>
-                    </label>
-                  </div>
-
-                  {/* Uploaded Files List */}
-                  {uploadedFiles.length > 0 && (
-                    <div className="space-y-2">
-                      <h4 className="text-sm font-medium text-gray-900 dark:text-white">{t("upload.list_title")}</h4>
-                      <div className="space-y-2">
-                        {uploadedFiles.map((file, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center justify-between p-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
-                          >
-                            <div className="flex items-center space-x-3">
-                              <FileImage className="h-5 w-5 text-gray-400" />
-                              <div>
-                                <p className="text-sm font-medium text-gray-900 dark:text-white truncate max-w-48">
-                                  {file.name}
-                                </p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">
-                                  {formatFileSize(file.size)}
-                                </p>
-                              </div>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => removeFile(index)}
-                              className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-                            >
-                              <X className="h-4 w-4 text-gray-500 hover:text-red-500" />
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
 
               <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
                 <h3 className="font-semibold text-red-800 dark:text-red-200 mb-2">

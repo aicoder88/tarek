@@ -234,3 +234,251 @@ Each category page will have:
 ## Implementation Status
 
 This plan will create a comprehensive, professional website that showcases all construction services with proper multilingual support and modern web standards. Each page will be optimized for conversions with clear CTAs and compelling content.
+
+---
+
+# Website Audit & Fixes (2025-09-29)
+
+## ✅ COMPLETED (MUST FIX Items)
+
+### 1. ✅ Create missing `/about` page
+**Status:** FIXED
+**Location:** `app/[locale]/about/page.tsx`
+- Created full About page with company values, team section, and stats
+- Includes proper i18n support
+- Uses existing translations from messages/en.json
+
+### 2. ✅ Create missing `/contact` page
+**Status:** FIXED (Not needed)
+**Solution:** Contact link now points to `#contact` anchor on homepage
+- Contact section already exists on homepage with full form
+- Navigation updated to scroll to contact section
+
+### 3. ✅ Fix file upload in contact form
+**Status:** FIXED
+**Location:** `src/components/contact/ContactForm.tsx`
+**Changes:**
+- Removed all file upload functionality (state, handlers, UI)
+- Removed Upload, FileImage, X icons from imports
+- Removed file-related email parameters
+- EmailJS doesn't support file attachments, so this was misleading UX
+
+### 4. ✅ Add .env.local to .gitignore
+**Status:** FIXED
+**Location:** `.gitignore`
+**Changes:**
+- Added explicit .env file patterns
+- Added Next.js specific ignores (.next/, out/, build)
+- Ensures EmailJS keys and other secrets are not committed
+
+### 5. ✅ Fix ProjectGallery integration styling
+**Status:** FIXED
+**Location:** `src/components/projects/ProjectGallery.tsx`, `src/components/home.tsx`
+**Changes:**
+- Added `embedded` prop to ProjectGallery component
+- Conditionally removes full-page styling when embedded
+- Hides duplicate header and CTA when embedded in homepage
+- Homepage now passes `embedded={true}` prop
+
+### 6. ✅ Add FAQ navigation link
+**Status:** FIXED
+**Location:** `src/components/layout/Header.tsx`, `src/components/sections/FAQ.tsx`
+**Changes:**
+- Added `id="faq"` to FAQ section
+- Added FAQ to navigation menu pointing to `/${locale}#faq`
+- Now consistent with Contact link behavior
+
+---
+
+## 🔴 HIGH PRIORITY (Should Fix Soon)
+
+### 7. Service Carousel UX Improvements
+**Severity:** HIGH
+**Location:** `src/components/services/ServiceGrid.tsx`
+**Issues:**
+- Carousel navigation arrows are oversized (h-20 w-20)
+- Multiple redundant prompts to click arrows (lines 238, 241, 334)
+- Over-designed with excessive animations
+- No clear indication of total services
+
+**Recommendations:**
+- Reduce arrow size to h-12 w-12 or h-14 w-14
+- Remove duplicate "click arrows" prompts - keep only one subtle hint
+- Simplify animations (remove animate-pulse, animate-bounce)
+- Add clear service counter (e.g., "9 Services Available")
+
+### 8. Add Theme Toggle Button
+**Severity:** MEDIUM-HIGH
+**Status:** Missing feature
+**Issue:** `next-themes` is installed and working, but no UI to switch themes
+**Recommendation:**
+- Add theme toggle button in Header (next to language selector)
+- Use Sun/Moon icons from lucide-react
+- Support system/light/dark modes
+
+### 9. Mobile Navigation Spacing
+**Severity:** MEDIUM
+**Location:** `src/components/layout/Header.tsx:165-174`
+**Issue:** Mobile menu CTA button is too large, takes up excessive space
+**Recommendation:**
+- Reduce button size from `lg` to `default`
+- Adjust padding in mobile menu container
+
+### 10. Add Image Fallbacks
+**Severity:** MEDIUM
+**Issue:** All images from external sources (Unsplash, Dicebear)
+**Risks:**
+- No fallback if external services fail
+- No local image optimization
+- Potential 404 errors
+
+**Recommendations:**
+- Add fallback images in `/public/images/`
+- Use Next.js Image component with proper error handling
+- Consider hosting critical images locally
+- Add loading states
+
+### 11. Sanitize Form Inputs
+**Severity:** MEDIUM (Security)
+**Location:** `src/components/contact/ContactForm.tsx:363-389`
+**Issue:** User input sent directly to email without sanitization
+**Risk:** Email injection attacks
+**Recommendation:**
+- Add input sanitization before sending to EmailJS
+- Escape HTML characters
+- Validate email format server-side if possible
+- Add rate limiting
+
+---
+
+## 🟡 MEDIUM PRIORITY (Nice to Have)
+
+### 12. Logo Dark Mode Enhancement
+**Severity:** LOW
+**Location:** `src/components/layout/Header.tsx:53`
+**Issue:** Logo uses `brightness-110` filter in dark mode
+**Recommendation:**
+- Provide separate logo file for dark mode
+- Use Next.js Image component with theme-aware src switching
+- Remove brightness filter for professional appearance
+
+### 13. Dynamic Stats Configuration
+**Severity:** LOW
+**Location:** `src/components/home.tsx:171-203`
+**Issue:** Stats (15+ years, 500+ projects) are hardcoded
+**Recommendation:**
+- Move stats to configuration file or CMS
+- Add to translation files for easy updates
+- Consider making them dynamic/real-time
+
+### 14. Before/After Slider UX
+**Severity:** LOW
+**Location:** `src/components/projects/ProjectGallery.tsx:146-225`
+**Issues:**
+- Not obviously draggable on desktop
+- Touch controls may not be intuitive on mobile
+- No usage instructions
+
+**Recommendations:**
+- Add visual hint (e.g., "Drag to compare" text)
+- Add animated cursor hint on hover
+- Improve mobile touch handling
+- Add keyboard support (arrow keys)
+
+### 15. Service Detail Pages Enhancement
+**Status:** Pages exist but may need improvement
+**Location:** `app/[locale]/services/*/page.tsx`
+**Recommendation:**
+- Verify all service pages use translations properly
+- Ensure consistent layout across all service pages
+- Add service-specific content (pricing estimates, timelines, FAQs)
+
+### 16. Phone Number Consistency
+**Location:** Header, Contact Form, Footer
+**Current:** (647) 860-5500
+**Recommendation:**
+- Audit all phone number references
+- Ensure consistency across all locales
+- Add click-to-call functionality on mobile
+- Consider adding multiple contact methods
+
+---
+
+## 🟢 LOW PRIORITY (Future Enhancements)
+
+### 17. Blog Implementation
+**Status:** Navigation entry exists, no implementation
+**Location:** `messages/en.json:8` (navigation.blog)
+**Recommendation:**
+- Remove from navigation OR implement blog
+- If implementing: use MDX or headless CMS
+- Add blog listing and detail pages
+
+### 18. Projects Page
+**Status:** No dedicated projects page
+**Current:** Only embedded gallery on homepage
+**Recommendation:**
+- Create `/projects` route
+- Use existing ProjectGallery with `embedded={false}`
+- Add filtering, pagination
+- Add project detail pages
+
+### 19. Complete Translation Coverage
+**Location:** Various components
+**Issue:** Some text hardcoded instead of using translations
+**Examples:**
+- ServiceGrid carousel instructions (lines 238-239, 334)
+- Stats labels in home.tsx
+
+**Recommendation:**
+- Audit all components for hardcoded text
+- Move to translation files
+- Run translation validation script
+
+### 20. Service Detail Templates
+**Status:** Individual pages exist, may need templates
+**Recommendation:**
+- Create reusable service page template
+- Add consistent sections: overview, process, gallery, pricing, CTA
+- Use dynamic routing where appropriate
+
+---
+
+## 📊 Summary
+
+**Total Issues Identified:** 20
+**Fixed (Must Fix):** 6 ✅
+**High Priority Remaining:** 5 🔴
+**Medium Priority:** 6 🟡
+**Low Priority:** 3 🟢
+
+### Next Steps (Recommended Order):
+
+1. **Simplify service carousel UX** (improves core user experience)
+2. **Add theme toggle button** (requested feature, easy win)
+3. **Fix mobile navigation** (better mobile UX)
+4. **Add image fallbacks** (reliability & performance)
+5. **Sanitize form inputs** (security)
+6. **Everything else as needed**
+
+---
+
+## 🔧 Testing Checklist
+
+Before considering the site production-ready:
+
+- [ ] Test all navigation links on desktop and mobile
+- [ ] Verify email form sends correctly with all field types
+- [ ] Test all three languages (EN, FR, AR) including RTL layout
+- [ ] Test dark mode across all pages
+- [ ] Verify responsive design on multiple screen sizes
+- [ ] Test service carousel on different browsers
+- [ ] Check performance (Lighthouse scores)
+- [ ] Verify all images load (or have fallbacks)
+- [ ] Test form validation and error states
+- [ ] Verify anchor links (#contact, #faq) work correctly
+
+---
+
+*Audit Generated: 2025-09-29*
+*Last Updated: 2025-09-29*

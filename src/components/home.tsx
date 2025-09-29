@@ -34,6 +34,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
   const locationLines = t('contact_section.location_text').split('\n');
   const contactInfoLines = t('contact_section.contact_info_text').split('\n');
   const serviceHourLines = t('contact_section.service_hours_text').split('\n');
+  const contactHref = `/${locale}#contact`;
 
   return (
     <div
@@ -86,12 +87,15 @@ const Home = ({ locale = "en" }: HomeProps) => {
               transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
               <Button
+                asChild
                 size="lg"
                 className="group relative gap-3 px-12 py-6 text-xl font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                <span className="relative">{t('hero.cta')}</span>
-                <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 duration-300" />
+                <a href={contactHref}>
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                  <span className="relative">{t('hero.cta')}</span>
+                  <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 duration-300" />
+                </a>
               </Button>
             </motion.div>
           </div>
@@ -304,7 +308,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <section
+        className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden"
+      >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/2 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -379,7 +385,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
             </div>
           </div>
           <div className="mt-6">
-            <ProjectGallery locale={locale} />
+            <ProjectGallery locale={locale} embedded={true} />
           </div>
         </div>
       </section>
@@ -459,7 +465,10 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <FAQ />
 
       {/* Contact Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden">
+      <section
+        id="contact"
+        className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden"
+      >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 -left-40 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -610,12 +619,15 @@ const Home = ({ locale = "en" }: HomeProps) => {
             </div>
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
               <Button
+                asChild
                 size="lg"
                 className="group relative gap-3 px-12 py-7 text-lg font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                <span className="relative">{t('cta.primary_cta')}</span>
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 duration-300" />
+                <a href={contactHref}>
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                  <span className="relative">{t('cta.primary_cta')}</span>
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 duration-300" />
+                </a>
               </Button>
             </div>
           </motion.div>

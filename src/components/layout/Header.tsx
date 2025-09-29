@@ -27,7 +27,8 @@ export function Header({ locale = 'en' }: HeaderProps) {
     { name: tNav('home'), href: `/${locale}` },
     { name: tNav('services'), href: `/${locale}/services` },
     { name: tNav('about'), href: `/${locale}/about` },
-    { name: tNav('contact'), href: `/${locale}/contact` },
+    { name: tNav('faq'), href: `/${locale}#faq` },
+    { name: tNav('contact'), href: `/${locale}#contact` },
   ];
 
   const languages = [

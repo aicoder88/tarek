@@ -46,6 +46,7 @@ export function ServiceCTA({
   };
 
   const t = getTranslations(locale);
+  const contactHref = `/${locale}#contact`;
 
   return (
     <section className="py-16 md:py-24 bg-primary/5">
@@ -60,9 +61,11 @@ export function ServiceCTA({
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="gap-1">
-              {primaryCTA}
-              <ArrowRight className="h-4 w-4" />
+            <Button size="lg" className="gap-1" asChild>
+              <a href={contactHref}>
+                {primaryCTA}
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </Button>
             <Button size="lg" variant="outline" className="gap-1">
               <Phone className="h-4 w-4" />

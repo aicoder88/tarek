@@ -12,6 +12,7 @@ interface PageProps {
 export default async function ServicesPage({ params }: PageProps) {
   const { locale } = await params;
   const isRTL = locale === 'ar';
+  const contactHref = `/${locale}#contact`;
 
   const getTranslations = (locale: string) => {
     const translations = {
@@ -62,8 +63,8 @@ export default async function ServicesPage({ params }: PageProps) {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg">
-                {t.cta}
+              <Button size="lg" asChild>
+                <a href={contactHref}>{t.cta}</a>
               </Button>
             </div>
           </div>

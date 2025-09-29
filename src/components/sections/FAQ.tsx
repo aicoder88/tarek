@@ -17,7 +17,7 @@ export function FAQ() {
   const faqItems = t.raw('items') as FAQItem[];
 
   return (
-    <section className="py-14 md:py-20 bg-muted/30">
+    <section id="faq" className="py-14 md:py-20 bg-muted/30">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
