@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import emailjs from '@emailjs/browser';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -159,18 +160,42 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setIsSubmitting(true);
 
     try {
-      // Simulate API call with a timeout
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Get the selected service name from the services array
+      const selectedService = services.find(service => service.id === data.service)?.name || data.service;
 
-      // In a real implementation, you would send the data to your backend
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(data),
-      // });
-      //
-      // if (!response.ok) throw new Error('Failed to submit');
+      // EmailJS configuration from environment variables
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing. Please check your environment variables.');
+      }
+
+      // Prepare email template parameters
+      const templateParams = {
+        to_email: 'iptmim@gmail.com',
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        service: selectedService,
+        message: data.message,
+        reply_to: data.email,
+        // Additional context for the email
+        subject: `New Contact Form Submission from ${data.name}`,
+        locale: locale,
+        submission_date: new Date().toLocaleString(),
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      console.log('Email sent successfully:', result);
       setFormStatus("success");
       form.reset();
     } catch (error) {
