@@ -41,8 +41,8 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
     {
       icon: MapPin,
       title: locale === "en" ? "Service Area" : locale === "fr" ? "Zone de service" : "منطقة الخدمة",
-      value: "Toronto, Ontario",
-      description: locale === "en" ? "Mobile service throughout GTA" : locale === "fr" ? "Service mobile dans tout le GTA" : "خدمة متنقلة في جميع أنحاء GTA",
+      value: "Downtown Montreal, Quebec",
+      description: locale === "en" ? "Nationwide service throughout Canada" : locale === "fr" ? "Service national dans tout le Canada" : "خدمة وطنية في جميع أنحاء كندا",
       href: "#",
       available: locale === "en" ? "We come to you!" : locale === "fr" ? "Nous venons à vous!" : "نحن نأتي إليك!"
     }

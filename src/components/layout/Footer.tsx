@@ -8,7 +8,7 @@ export function Footer({ locale = 'en' }: FooterProps) {
   const getTranslations = (locale: string) => {
     const translations = {
       en: {
-        description: "Professional construction and renovation services with over 20 years of experience. Licensed & insured professionals delivering quality results.",
+        description: "Professional construction and renovation services founded by Tarek with over 20 years of experience. Licensed & insured professionals delivering quality results.",
         quickLinks: "Quick Links",
         contactInfo: "Contact Info",
         rights: "All rights reserved.",
@@ -19,7 +19,7 @@ export function Footer({ locale = 'en' }: FooterProps) {
         contact: "Contact",
       },
       fr: {
-        description: "Services de construction et de rénovation professionnels avec plus de 20 ans d'expérience. Professionnels agréés et assurés livrant des résultats de qualité.",
+        description: "Services de construction et de rénovation professionnels fondés par Tarek avec plus de 20 ans d'expérience. Professionnels agréés et assurés livrant des résultats de qualité.",
         quickLinks: "Liens rapides",
         contactInfo: "Informations de contact",
         rights: "Tous droits réservés.",
@@ -30,7 +30,7 @@ export function Footer({ locale = 'en' }: FooterProps) {
         contact: "Contact",
       },
       ar: {
-        description: "خدمات بناء وتجديد احترافية مع أكثر من 20 عامًا من الخبرة. محترفون مرخصون ومؤمنون يقدمون نتائج عالية الجودة.",
+        description: "خدمات بناء وتجديد احترافية أسسها طارق مع أكثر من 20 عامًا من الخبرة. محترفون مرخصون ومؤمنون يقدمون نتائج عالية الجودة.",
         quickLinks: "روابط سريعة",
         contactInfo: "معلومات الاتصال",
         rights: "جميع الحقوق محفوظة.",
@@ -128,8 +128,8 @@ export function Footer({ locale = 'en' }: FooterProps) {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-amber-400 mt-1 flex-shrink-0" />
                 <div>
-                  <p>Toronto, Ontario, Canada</p>
-                  <p className="text-sm text-gray-400">Mobile Service Available</p>
+                  <p>Downtown Montreal, Quebec, Canada</p>
+                  <p className="text-sm text-gray-400">Nationwide Service Available</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">

@@ -58,8 +58,8 @@
       "description": "Ajouts de maison et rénovations majeures"
     },
     "prefab": {
-      "title": "Structures Préfabriquées",
-      "description": "Remises, garages et structures personnalisées"
+      "title": "Structures Préfab",
+      "description": "Remises personnalisées, garages et bâtiments préfabriqués"
     }
   },
   "projects": {
@@ -131,7 +131,7 @@
       },
       {
         "question": "Quelles zones desservez-vous?",
-        "answer": "Nous desservons principalement la région du Grand Toronto (RGT) incluant Toronto, Mississauga, Brampton, Oakville, Burlington et les zones environnantes. Contactez-nous pour confirmer la disponibilité du service dans votre emplacement spécifique."
+        "answer": "Nous desservons tout le Canada avec notre base située au centre-ville de Montréal, Québec. Contactez-nous pour confirmer la disponibilité du service et les arrangements de voyage pour votre emplacement spécifique."
       },
       {
         "question": "Gérez-vous les permis et inspections?",
@@ -205,7 +205,7 @@
     "quick_actions": "Actions Rapides",
     "service_area": "Zone de Service",
     "greater_montreal_area": "Grand Montréal",
-    "mobile_service_gta": "Service mobile dans tout le GTA",
+    "mobile_service_canada": "Service mobile dans tout le Canada",
     "online_booking_available": "Réservation en ligne disponible",
     "emergency_services_available": "Services d'urgence disponibles sur rendez-vous"
   },
@@ -220,13 +220,13 @@
     "hero": {
       "badge": "Construction et rénovation professionnelles",
       "title": "Construire des rêves, un projet à la fois",
-      "subtitle": "Services professionnels de construction, rénovation et remodelage à Toronto. Transformez votre espace avec un savoir-faire expert et une attention aux détails.",
+      "subtitle": "Services professionnels de construction, rénovation et remodelage à travers le Canada. Transformez votre espace avec un savoir-faire expert et une attention aux détails.",
       "cta": "Obtenez une estimation gratuite"
     },
     "about": {
       "badge": "À propos de nous",
       "title": "Plus de 20 ans d'excellence dans la construction",
-      "description": "Chez TrueNorth Construction, nous nous spécialisons dans la transformation de maisons en maisons de rêve. Avec des années d'expérience, une équipe dévouée et une passion pour la qualité, nous livrons des services de premier plan dans les délais et le budget.",
+      "description": "Chez TrueNorth Construction, fondée par Tarek, nous nous spécialisons dans la transformation de maisons en maisons de rêve. Avec des années d'expérience, une équipe dévouée et une passion pour la qualité, nous livrons des services de premier plan dans les délais et le budget.",
       "features": [
         "Entrepreneurs agréés et assurés",
         "Prix transparents et devis gratuits",
@@ -308,7 +308,7 @@
       "title": "Prêt à démarrer votre projet ?",
       "description": "Contactez‑nous dès aujourd'hui pour demander une estimation gratuite. Concrétisons votre vision.",
       "location_title": "Notre emplacement",
-      "location_text": "Toronto, Ontario, Canada\nService mobile disponible",
+      "location_text": "Centre-ville de Montréal, Québec, Canada\nService national disponible",
       "contact_info_title": "Informations de contact",
       "contact_info_text": "Email: info@truenorthconstruction.com\nTéléphone: (647) 860-5500\nSite web: truenorthconstruction.com",
       "service_hours_title": "Heures de service",

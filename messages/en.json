@@ -58,8 +58,8 @@
       "description": "Home additions and major renovations"
     },
     "prefab": {
-      "title": "Prefabricated Structures",
-      "description": "Sheds, garages, and custom structures"
+      "title": "Prefab Structures",
+      "description": "Custom sheds, garages, and prefabricated buildings"
     }
   },
   "projects": {
@@ -131,7 +131,7 @@
       },
       {
         "question": "What areas do you serve?",
-        "answer": "We primarily serve the Greater Toronto Area (GTA) including Toronto, Mississauga, Brampton, Oakville, Burlington, and surrounding areas. Contact us to confirm service availability in your specific location."
+        "answer": "We serve all of Canada with our base located in Downtown Montreal, Quebec. Contact us to confirm service availability and travel arrangements for your specific location."
       },
       {
         "question": "Do you handle permits and inspections?",
@@ -205,7 +205,7 @@
     "quick_actions": "Quick Actions",
     "service_area": "Service Area",
     "greater_montreal_area": "Greater Montreal Area",
-    "mobile_service_gta": "Mobile service throughout GTA",
+    "mobile_service_canada": "Mobile service throughout Canada",
     "online_booking_available": "Online booking available",
     "emergency_services_available": "Emergency services available by appointment"
   },
@@ -220,13 +220,13 @@
     "hero": {
       "badge": "Professional Construction & Renovation",
       "title": "Building Dreams, One Project at a Time",
-      "subtitle": "Professional construction, renovation, and remodeling services in Toronto. Transform your space with expert craftsmanship and attention to detail.",
+      "subtitle": "Professional construction, renovation, and remodeling services across Canada. Transform your space with expert craftsmanship and attention to detail.",
       "cta": "Get a Free Estimate"
     },
     "about": {
       "badge": "About Us",
       "title": "Over 20 Years of Excellence in Construction",
-      "description": "At TrueNorth Construction, we specialize in transforming houses into dream homes. With years of experience, a dedicated team, and a passion for quality, we deliver top-notch services on time and within budget.",
+      "description": "At TrueNorth Construction, founded by Tarek, we specialize in transforming houses into dream homes. With years of experience, a dedicated team, and a passion for quality, we deliver top-notch services on time and within budget.",
       "features": [
         "Licensed & Insured Contractors",
         "Transparent Pricing & Free Estimates",
@@ -308,7 +308,7 @@
       "title": "Ready to Start Your Project?",
       "description": "Contact us today to request a free estimate. Let's bring your vision to life.",
       "location_title": "Our Location",
-      "location_text": "Toronto, Ontario, Canada\nMobile Service Available",
+      "location_text": "Downtown Montreal, Quebec, Canada\nNationwide Service Available",
       "contact_info_title": "Contact Information",
       "contact_info_text": "Email: info@truenorthconstruction.com\nPhone: (647) 860-5500\nWebsite: truenorthconstruction.com",
       "service_hours_title": "Service Hours",

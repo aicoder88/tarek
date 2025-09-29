@@ -26,8 +26,8 @@ const ServiceCard = ({
   href = "#",
 }: ServiceCardProps) => {
   return (
-    <Card className="group service-card-hover hover:shadow-2xl transition-all duration-300 h-full cursor-pointer overflow-hidden border-2 hover:border-primary/20 bg-gradient-to-b from-card to-card/95">
-      <a href={href} className="block h-full">
+    <Card className="group service-card-hover hover:shadow-2xl transition-all duration-300 h-full cursor-pointer overflow-hidden border-2 hover:border-primary/20 bg-gradient-to-b from-card to-card/95 flex flex-col">
+      <a href={href} className="block h-full flex flex-col">
         <div className="aspect-video overflow-hidden relative">
           <img
             src={image}
@@ -41,27 +41,27 @@ const ServiceCard = ({
             </div>
           </div>
         </div>
-        <CardHeader className="pb-3">
-          <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300 flex items-center justify-between">
-            {title}
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <CardHeader className="pb-3 flex-shrink-0">
+          <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300 flex items-center justify-between min-h-[2.5rem] leading-tight">
+            <span className="flex-1 pr-2">{title}</span>
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             </div>
           </CardTitle>
         </CardHeader>
         <CardContent className="flex-grow pb-4">
-          <CardDescription className="text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+          <CardDescription className="text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300 line-clamp-3">
             {description}
           </CardDescription>
         </CardContent>
-        <CardFooter className="pt-0">
+        <CardFooter className="pt-0 flex-shrink-0">
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center text-primary font-medium text-sm group-hover:text-primary/80 transition-colors duration-300">
               Learn More
               <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
             </div>
             <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
-              <div className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full">
+              <div className="text-xs text-muted-foreground bg-muted/50 px-2 py-1 rounded-full whitespace-nowrap">
                 Click to explore
               </div>
             </div>
@@ -137,10 +137,10 @@ const ServiceGrid = ({ services, locale = 'en' }: ServiceGridProps) => {
       href: `/${locale}/services/general-contracting`,
     },
     {
-      image: 'https://images.unsplash.com/photo-1558036117-15d82d732b20?w=500&h=300&q=80',
-      title: "Prefabricated Structures",
+      image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=500&h=300&q=80',
+      title: "Prefab Structures",
       description:
-        "Quick and efficient installation of prefabricated structures for various purposes.",
+        "Custom sheds, garages, and prefabricated buildings with professional installation and quality materials.",
       href: `/${locale}/services/prefabricated-structures`,
     },
   ];

@@ -316,9 +316,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
                     {t('contact_section.location_title')}
                   </h3>
                   <p className="text-muted-foreground">
-                    Toronto, Ontario, Canada
+                    Downtown Montreal, Quebec, Canada
                     <br />
-                    Mobile Service Available
+                    Nationwide Service Available
                   </p>
                 </div>
                 <div className="space-y-2">
