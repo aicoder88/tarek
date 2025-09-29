@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/sitemap/route": "/api/sitemap",
+  "/page": "/",
+  "/[locale]/services/kitchen-remodeling/page": "/[locale]/services/kitchen-remodeling",
+  "/[locale]/services/basement-finishing/page": "/[locale]/services/basement-finishing",
+  "/[locale]/services/bathroom-renovation/page": "/[locale]/services/bathroom-renovation",
+  "/[locale]/services/flooring/page": "/[locale]/services/flooring",
+  "/[locale]/services/general-contracting/page": "/[locale]/services/general-contracting",
+  "/[locale]/services/page": "/[locale]/services",
+  "/[locale]/services/painting-drywall/page": "/[locale]/services/painting-drywall",
+  "/[locale]/services/roofing-siding/page": "/[locale]/services/roofing-siding",
+  "/[locale]/services/prefabricated-structures/page": "/[locale]/services/prefabricated-structures",
+  "/[locale]/services/outdoor-landscaping/page": "/[locale]/services/outdoor-landscaping",
+  "/[locale]/page": "/[locale]"
+}
