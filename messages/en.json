@@ -15,12 +15,46 @@
     "secondary_cta": "View Our Work"
   },
   "about": {
-    "title": "Why Choose Us",
-    "subtitle": "With over 15 years of experience, we deliver quality construction services you can trust.",
-    "experience": "15+ Years Experience",
-    "projects": "500+ Completed Projects",
-    "satisfaction": "100% Customer Satisfaction",
-    "licensed": "Licensed & Insured"
+    "title": "About Us",
+    "subtitle": "Professional construction services with quality craftsmanship",
+    "values": {
+      "precision": {
+        "title": "Precision",
+        "description": "Every detail matters. We approach each project with meticulous attention to achieve perfection."
+      },
+      "passion": {
+        "title": "Passion",
+        "description": "We love what we do. Our passion for construction excellence drives us to deliver exceptional results."
+      },
+      "trust": {
+        "title": "Trust",
+        "description": "Your home is in good hands. We treat every property as if it were our own, with care and respect."
+      }
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Experienced professionals dedicated to your project's success",
+      "members": {
+        "alex": {
+          "name": "Alex Johnson",
+          "role": "Founder & Master Builder",
+          "experience": "15+ years experience",
+          "description": "Certified in residential construction and renovation best practices. Passionate about craftsmanship."
+        },
+        "maria": {
+          "name": "Maria Rodriguez",
+          "role": "Interior Specialist",
+          "experience": "10+ years experience",
+          "description": "Expert in interior design and finishing. Attention to detail is her specialty."
+        },
+        "david": {
+          "name": "David Chen",
+          "role": "Project Manager",
+          "experience": "8+ years experience",
+          "description": "Specialized in project coordination and quality control. Perfectionist by nature."
+        }
+      }
+    }
   },
   "services": {
     "title": "Our Services",
@@ -76,13 +110,32 @@
       "phone": "Phone Number",
       "service": "Service Needed",
       "message": "Project Details",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "card_title": "Send us a message",
+      "select_service_placeholder": "Select a service",
+      "other_option": "Other",
+      "placeholders": {
+        "name": "John Doe",
+        "phone": "(647) 860-5500",
+        "email": "john@example.com",
+        "message": "Tell us about your project..."
+      }
     },
     "info": {
-      "phone": "(555) 123-4567",
-      "email": "info@contractorpro.com",
-      "address": "123 Construction Ave, Builder City, BC 12345",
-      "hours": "Mon-Fri: 8AM-6PM, Sat: 9AM-4PM"
+      "phone": "(647) 860-5500",
+      "email": "info@truenorthconstruction.com",
+      "address": "Downtown Montreal, Quebec, Canada",
+      "hours": "Mon-Fri: 8:00 AM - 6:00 PM\nSat: 9:00 AM - 5:00 PM\nSun: 10:00 AM - 4:00 PM"
+    },
+    "info_titles": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Hours"
+    },
+    "map": {
+      "title": "Interactive Map",
+      "description": "Our base in downtown Montreal."
     }
   },
   "footer": {
@@ -150,48 +203,6 @@
         "answer": "We work with clients of all budget ranges and can often suggest alternatives or phased approaches to help you achieve your goals within your budget. During our consultation, we'll discuss your priorities and find cost-effective solutions."
       }
     ]
-  },
-  "about": {
-    "title": "About Us",
-    "subtitle": "Professional construction services with quality craftsmanship",
-    "values": {
-      "precision": {
-        "title": "Precision",
-        "description": "Every detail matters. We approach each project with meticulous attention to achieve perfection."
-      },
-      "passion": {
-        "title": "Passion",
-        "description": "We love what we do. Our passion for construction excellence drives us to deliver exceptional results."
-      },
-      "trust": {
-        "title": "Trust",
-        "description": "Your home is in good hands. We treat every property as if it were our own, with care and respect."
-      }
-    },
-    "team": {
-      "title": "Meet Our Team",
-      "subtitle": "Experienced professionals dedicated to your project's success",
-      "members": {
-        "alex": {
-          "name": "Alex Johnson",
-          "role": "Founder & Master Builder",
-          "experience": "15+ years experience",
-          "description": "Certified in residential construction and renovation best practices. Passionate about craftsmanship."
-        },
-        "maria": {
-          "name": "Maria Rodriguez",
-          "role": "Interior Specialist",
-          "experience": "10+ years experience",
-          "description": "Expert in interior design and finishing. Attention to detail is her specialty."
-        },
-        "david": {
-          "name": "David Chen",
-          "role": "Project Manager",
-          "experience": "8+ years experience",
-          "description": "Specialized in project coordination and quality control. Perfectionist by nature."
-        }
-      }
-    }
   },
   "services_page": {
     "title": "Our Services",
@@ -320,5 +331,190 @@
       "primary_cta": "Get a Free Quote",
       "secondary_cta": "Learn More"
     }
+  },
+  "contact_form": {
+    "title": "Contact TrueNorth Construction",
+    "description": "Fill out the form below and we'll get back to you within 24 hours to discuss your construction or renovation project.",
+    "contact_phone": "(647) 860-5500",
+    "contact_email": "info@truenorthconstruction.com",
+    "request": {
+      "heading": "What can we help you with?",
+      "options": {
+        "consultation": {
+          "label": "Free Consultation",
+          "description": "Discuss your project ideas"
+        },
+        "quote": {
+          "label": "Detailed Quote",
+          "description": "Get a comprehensive estimate"
+        },
+        "emergency": {
+          "label": "Emergency Service",
+          "description": "Urgent repair needs"
+        }
+      }
+    },
+    "sections": {
+      "contact": "Contact Information",
+      "project": "Project Details",
+      "additional": "Additional Details",
+      "upload": "Upload Photos & Documents",
+      "trust": "Why Choose TrueNorth Construction?"
+    },
+    "fields": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Enter your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "Enter your phone number"
+      },
+      "service": {
+        "label": "Service Needed",
+        "placeholder": "Select a service"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell us about your project and service needs",
+        "quote_placeholder": "Describe your project in detail, including any specific requirements, materials preferences, or design ideas..."
+      },
+      "project_address": {
+        "label": "Project Address",
+        "placeholder": "123 Main St, Toronto, ON",
+        "description": "Where will the work be performed?"
+      },
+      "project_type": {
+        "label": "Project Type",
+        "placeholder": "Select project type"
+      },
+      "budget_range": {
+        "label": "Budget Range",
+        "placeholder": "Select budget range",
+        "description": "This helps us provide accurate estimates"
+      },
+      "timeline": {
+        "label": "Preferred Timeline",
+        "placeholder": "When do you want to start?"
+      },
+      "room_dimensions": {
+        "label": "Room Dimensions",
+        "placeholder": "e.g., 12ft x 10ft or 3.6m x 3m",
+        "description": "Approximate size of the area to be worked on"
+      },
+      "permits": {
+        "label": "Permits Required?",
+        "placeholder": "Do you need permits?"
+      },
+      "materials": {
+        "label": "Materials Preference",
+        "placeholder": "e.g., hardwood floors, granite countertops, specific brands..."
+      },
+      "access": {
+        "label": "Access & Special Considerations",
+        "placeholder": "e.g., narrow stairs, apartment building, pets, working hours restrictions..."
+      }
+    },
+    "project_types": {
+      "new-construction": "New Construction",
+      "full-renovation": "Full Home Renovation",
+      "room-renovation": "Single Room Renovation",
+      "addition": "Home Addition",
+      "repair": "Repair Work",
+      "maintenance": "Maintenance",
+      "consultation": "Consultation Only"
+    },
+    "budget_ranges": {
+      "under-5k": "Under $5,000",
+      "5k-15k": "$5,000 - $15,000",
+      "15k-30k": "$15,000 - $30,000",
+      "30k-50k": "$30,000 - $50,000",
+      "50k-100k": "$50,000 - $100,000",
+      "over-100k": "Over $100,000",
+      "not-sure": "Not sure yet"
+    },
+    "timeline_options": {
+      "asap": "As soon as possible",
+      "1-month": "Within 1 month",
+      "2-3months": "2-3 months",
+      "3-6months": "3-6 months",
+      "6-12months": "6-12 months",
+      "over-year": "More than a year",
+      "flexible": "Flexible timeline"
+    },
+    "permit_options": {
+      "not-sure": "Not sure",
+      "yes-help-needed": "Yes, need help obtaining",
+      "yes-have-them": "Yes, already have them",
+      "no": "No permits required"
+    },
+    "upload": {
+      "instructions": "Help us understand your project better by uploading:",
+      "items": [
+        "Current photos of the space",
+        "Inspiration images or design ideas",
+        "Floor plans or technical drawings",
+        "Product specifications or material samples"
+      ],
+      "button": "Click to upload files",
+      "hint": "Images, PDFs, DOC files (Max 10MB each, up to 5 files)",
+      "list_title": "Uploaded Files:",
+      "errors": {
+        "too_large": "File {name} is too large. Maximum size is 10MB.",
+        "unsupported": "File {name} is not a supported format. Please upload images (JPEG, PNG, GIF, WebP) or documents (PDF, DOC, DOCX)."
+      }
+    },
+    "trust": {
+      "title": "Why Choose TrueNorth Construction?",
+      "items": [
+        "Licensed & insured professionals",
+        "Free estimates and transparent pricing",
+        "Quality materials & craftsmanship",
+        "Serving Greater Toronto Area (GTA) and surrounding areas"
+      ]
+    },
+    "services": {
+      "other": "Other"
+    },
+    "success": {
+      "title": "Thank you!",
+      "general": "Your request has been sent successfully! We'll contact you within 24 hours.",
+      "quote": "Your quote request has been sent! We'll review your details and contact you within 24 hours with a detailed estimate.",
+      "emergency": "Your emergency request has been received! We'll contact you as soon as possible to address your urgent needs."
+    },
+    "error": {
+      "title": "Submission Error",
+      "general": "There was a problem submitting your request. Please try again or call us directly at (647) 860-5500.",
+      "network": "Network error. Please check your internet connection and try again.",
+      "validation": "Please check the form for errors and try again."
+    },
+    "validation": {
+      "name_min": "Name must be at least 2 characters.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number.",
+      "service": "Please select a service.",
+      "message_min": "Message must be at least 10 characters.",
+      "request_type": "Please select a request type.",
+      "project_address": "Project address is required for quote requests.",
+      "budget_range": "Budget range is required for quote requests.",
+      "timeline": "Timeline preference is required for quote requests.",
+      "project_type": "Project type is required for quote requests.",
+      "emergency_details": "Please provide detailed information about the emergency."
+    },
+    "buttons": {
+      "submit": {
+        "loading": "Submitting...",
+        "consultation": "Schedule Consultation",
+        "quote": "Request Quote",
+        "emergency": "Submit Emergency Request"
+      }
+    }
+  },
+  "header": {
+    "tagline": "Construction & Renovation Experts"
   }
 }

@@ -217,7 +217,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
           <Badge className="bg-black/70 text-white">Before</Badge>
         </div>
         <div className="absolute top-4 right-4">
-          <Badge className="bg-amber-600 text-white">After</Badge>
+          <Badge className="bg-red-600 text-white">After</Badge>
         </div>
       </div>
     );
@@ -242,7 +242,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
             <Button
               key={filter}
               variant={filter === 'All' ? 'default' : 'outline'}
-              className={`${filter === 'All' ? 'bg-amber-600 hover:bg-amber-700' : 'hover:bg-amber-50 dark:hover:bg-amber-900/20'} transition-all duration-200`}
+              className={`${filter === 'All' ? 'bg-red-600 hover:bg-red-700' : 'hover:bg-red-50 dark:hover:bg-red-900/20'} transition-all duration-200`}
             >
               {filter}
             </Button>
@@ -260,7 +260,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
                   title={project.title}
                 />
                 <div className="absolute top-4 left-4">
-                  <Badge className="bg-amber-600 text-white shadow-lg">
+                  <Badge className="bg-red-600 text-white shadow-lg">
                     {project.category}
                   </Badge>
                 </div>
@@ -274,7 +274,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
               
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-red-600 transition-colors">
                     {project.title}
                   </h3>
                   <Dialog>
@@ -306,7 +306,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
                                   key={index}
                                   onClick={() => setCurrentImageIndex(index)}
                                   className={`w-3 h-3 rounded-full transition-colors ${
-                                    index === currentImageIndex ? 'bg-amber-600' : 'bg-gray-300'
+                                    index === currentImageIndex ? 'bg-red-600' : 'bg-gray-300'
                                   }`}
                                 />
                               ))}
@@ -328,7 +328,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
                               <h4 className="font-semibold mb-2">Key Features:</h4>
                               <div className="flex flex-wrap gap-2">
                                 {project.features.map((feature, index) => (
-                                  <Badge key={index} variant="outline" className="border-amber-200 text-amber-700">
+                                  <Badge key={index} variant="outline" className="border-red-200 text-red-700">
                                     {feature}
                                   </Badge>
                                 ))}
@@ -346,7 +346,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
                             </div>
                           </div>
                         </div>
-                        <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
+                        <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
                           <h4 className="font-semibold mb-2">Client Testimonial</h4>
                           <blockquote className="italic text-gray-700 dark:text-gray-300 mb-2">
                             "{project.testimonial.text}"
@@ -394,7 +394,7 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
                   <Button 
                     variant="ghost" 
                     size="sm"
-                    className="text-amber-600 hover:text-amber-700 hover:bg-amber-50 dark:hover:bg-amber-900/20"
+                    className="text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20"
                   >
                     View Details
                     <ArrowRight className="h-4 w-4 ml-1" />
@@ -407,14 +407,14 @@ export default function ProjectGallery({ locale = "en" }: ProjectGalleryProps) {
 
         {/* Call to Action */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-8 text-white shadow-2xl">
+          <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-8 text-white shadow-2xl">
             <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
             <p className="text-xl mb-6 opacity-90">
               Let's transform your space into something extraordinary
             </p>
             <Button 
               size="lg" 
-              className="bg-white text-amber-600 hover:bg-gray-100 font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+              className="bg-white text-red-600 hover:bg-gray-100 font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
             >
               Get Your Free Quote
               <ArrowRight className="h-5 w-5 ml-2" />

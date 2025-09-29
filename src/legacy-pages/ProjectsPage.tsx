@@ -209,7 +209,7 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
                     </div>
                     <div className="flex items-center space-x-1">
                       {[...Array(project.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                        <Star key={i} className="h-4 w-4 fill-red-400 text-red-400" />
                       ))}
                     </div>
                   </div>

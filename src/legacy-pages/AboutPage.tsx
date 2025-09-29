@@ -146,11 +146,11 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
               return (
                 <div key={index} className="text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-full">
-                      <Icon className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                    <div className="p-3 bg-red-100 dark:bg-red-900/30 rounded-full">
+                      <Icon className="h-8 w-8 text-red-600 dark:text-red-400" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-amber-600 mb-2">{stat.number}</div>
+                  <div className="text-3xl font-bold text-red-600 mb-2">{stat.number}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </div>
               );
@@ -232,8 +232,8 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
                 <Card key={index} className="text-center">
                   <CardHeader>
                     <div className="flex justify-center mb-4">
-                      <div className="p-4 bg-amber-100 dark:bg-amber-900/30 rounded-full">
-                        <Icon className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                      <div className="p-4 bg-red-100 dark:bg-red-900/30 rounded-full">
+                        <Icon className="h-8 w-8 text-red-600 dark:text-red-400" />
                       </div>
                     </div>
                     <CardTitle className="text-xl">{value.title}</CardTitle>
@@ -276,7 +276,7 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
                     />
                   </div>
                   <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <p className="text-amber-600 font-medium">{member.role}</p>
+                  <p className="text-red-600 font-medium">{member.role}</p>
                   <p className="text-sm text-muted-foreground">{member.experience}</p>
                 </CardHeader>
                 <CardContent>
@@ -307,7 +307,7 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
               <div key={index} className="text-center p-4 border rounded-lg">
-                <Award className="h-8 w-8 text-amber-600 mx-auto mb-2" />
+                <Award className="h-8 w-8 text-red-600 mx-auto mb-2" />
                 <p className="text-sm font-medium">{cert}</p>
               </div>
             ))}

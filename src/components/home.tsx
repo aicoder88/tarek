@@ -31,6 +31,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
   const t = useTranslations('home');
   // Determine if RTL layout is needed
   const isRTL = locale === "ar";
+  const locationLines = t('contact_section.location_text').split('\n');
+  const contactInfoLines = t('contact_section.contact_info_text').split('\n');
+  const serviceHourLines = t('contact_section.service_hours_text').split('\n');
 
   return (
     <div
@@ -60,7 +63,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <Badge variant="outline" className="px-6 py-3 text-sm font-medium bg-amber-500/10 backdrop-blur-sm border-amber-500/30 text-amber-400 hover:bg-amber-500/20 transition-all duration-300">
+              <Badge variant="outline" className="px-6 py-3 text-sm font-medium bg-red-500/10 backdrop-blur-sm border-red-500/30 text-red-400 hover:bg-red-500/20 transition-all duration-300">
                 ✨ {t('hero.badge')}
               </Badge>
               <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[0.9]">
@@ -80,7 +83,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
             >
               <Button
                 size="lg"
-                className="gap-3 px-12 py-8 text-xl font-semibold bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white border-0 shadow-2xl hover:shadow-amber-500/25 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1"
+                className="gap-3 px-12 py-8 text-xl font-semibold bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white border-0 shadow-2xl hover:shadow-red-500/25 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1"
               >
                 {t('hero.cta')}
                 <ArrowRight className="h-6 w-6" />
@@ -92,7 +95,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
         {/* Animated Light Effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/20 rounded-full blur-3xl"
             animate={{
               x: [0, 30, 0],
               y: [0, 20, 0],
@@ -137,7 +140,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
           {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-amber-400/30 rounded-full"
+              className="absolute w-2 h-2 bg-red-400/30 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -158,7 +161,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Enhanced Stats Bar */}
-      <section className="relative bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white py-8">
+      <section className="relative bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-8">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative container px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -169,7 +172,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               className="space-y-2"
             >
               <div className="text-4xl font-bold text-white">15+</div>
-              <div className="text-amber-100 font-medium">Years Experience</div>
+              <div className="text-red-100 font-medium">Years Experience</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -178,7 +181,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               className="space-y-2"
             >
               <div className="text-4xl font-bold text-white">500+</div>
-              <div className="text-amber-100 font-medium">Projects Completed</div>
+              <div className="text-red-100 font-medium">Projects Completed</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -187,7 +190,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               className="space-y-2"
             >
               <div className="text-4xl font-bold text-white">100%</div>
-              <div className="text-amber-100 font-medium">Satisfaction Rate</div>
+              <div className="text-red-100 font-medium">Satisfaction Rate</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -196,7 +199,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               className="space-y-2"
             >
               <div className="text-4xl font-bold text-white">24/7</div>
-              <div className="text-amber-100 font-medium">Support Available</div>
+              <div className="text-red-100 font-medium">Support Available</div>
             </motion.div>
           </div>
         </div>
@@ -368,18 +371,10 @@ const Home = ({ locale = "en" }: HomeProps) => {
                 {t('contact_section.badge')}
               </div>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                {locale === "en"
-                  ? "Ready to Start Your Project?"
-                  : locale === "fr"
-                    ? "Prêt à démarrer votre projet ?"
-                    : "جاهز لبدء مشروعك؟"}
+                {t('contact_section.title')}
               </h2>
               <p className="text-muted-foreground md:text-lg">
-                {locale === "en"
-                  ? "Contact us today to request a free estimate. Let’s bring your vision to life."
-                  : locale === "fr"
-                    ? "Contactez‑nous dès aujourd’hui pour demander une estimation gratuite. Concrétisons votre vision."
-                    : "تواصل معنا اليوم لطلب تقدير مجاني. لنجعل رؤيتك واقعاً."}
+                {t('contact_section.description')}
               </p>
               <div className="space-y-4">
                 <div className="space-y-2">
@@ -387,9 +382,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
                     {t('contact_section.location_title')}
                   </h3>
                   <p className="text-muted-foreground">
-                    Downtown Montreal, Quebec, Canada
-                    <br />
-                    Nationwide Service Available
+                    {locationLines.map((line, index) => (
+                      <span key={index} className={index > 0 ? 'block' : undefined}>{line}</span>
+                    ))}
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -397,11 +392,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
                     {t('contact_section.contact_info_title')}
                   </h3>
                   <p className="text-muted-foreground">
-                    Email: info@truenorthconstruction.com
-                    <br />
-                    Phone: (647) 860-5500
-                    <br />
-                    Website: truenorthconstruction.com
+                    {contactInfoLines.map((line, index) => (
+                      <span key={index} className={index > 0 ? 'block' : undefined}>{line}</span>
+                    ))}
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -409,11 +402,9 @@ const Home = ({ locale = "en" }: HomeProps) => {
                     {t('contact_section.service_hours_title')}
                   </h3>
                   <p className="text-muted-foreground">
-                    {t('contact_section.service_hours_text').split('\n')[0]}
-                    <br />
-                    {t('contact_section.service_hours_text').split('\n')[1]}
-                    <br />
-                    {t('contact_section.service_hours_text').split('\n')[2]}
+                    {serviceHourLines.map((line, index) => (
+                      <span key={index} className={index > 0 ? 'block' : undefined}>{line}</span>
+                    ))}
                   </p>
                 </div>
               </div>

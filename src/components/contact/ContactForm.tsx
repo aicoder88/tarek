@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -28,82 +28,94 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CheckCircle, AlertCircle, Phone, Mail, Hammer, Upload, Calendar, DollarSign, MapPin, FileImage, Ruler, Clock, X } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-// Define the form schema with Zod
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  phone: z.string().min(10, {
-    message: "Please enter a valid phone number.",
-  }),
-  service: z.string().min(1, {
-    message: "Please select a service.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-  // Quote request specific fields
-  requestType: z.enum(["consultation", "quote", "emergency"], {
-    required_error: "Please select a request type.",
-  }),
-  projectAddress: z.string().optional(),
-  projectType: z.string().optional(),
-  budgetRange: z.string().optional(),
-  timelinePreference: z.string().optional(),
-  roomDimensions: z.string().optional(),
-  specialRequirements: z.string().optional(),
-  materialsPreference: z.string().optional(),
-  hasPermits: z.string().optional(),
-  accessDetails: z.string().optional(),
-}).superRefine((data, ctx) => {
-  // Additional validation for quote requests
-  if (data.requestType === "quote") {
-    if (!data.projectAddress || data.projectAddress.trim().length < 5) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Project address is required for quote requests",
-        path: ["projectAddress"]
-      });
-    }
-    if (!data.budgetRange) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Budget range is required for quote requests",
-        path: ["budgetRange"]
-      });
-    }
-    if (!data.projectType) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Project type is required for quote requests",
-        path: ["projectType"]
-      });
-    }
-  }
+type ValidationMessages = {
+  nameMin: string;
+  email: string;
+  phone: string;
+  service: string;
+  messageMin: string;
+  requestType: string;
+  projectAddress: string;
+  budgetRange: string;
+  projectType: string;
+  timeline: string;
+  emergencyDetails: string;
+};
 
-  // Additional validation for emergency requests
-  if (data.requestType === "emergency") {
-    if (data.message.length < 20) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Please provide detailed information about the emergency",
-        path: ["message"]
-      });
-    }
-  }
-});
+const createFormSchema = (messages: ValidationMessages) =>
+  z
+    .object({
+      name: z.string().min(2, { message: messages.nameMin }),
+      email: z.string().email({ message: messages.email }),
+      phone: z.string().min(10, { message: messages.phone }),
+      service: z.string().min(1, { message: messages.service }),
+      message: z.string().min(10, { message: messages.messageMin }),
+      requestType: z.enum(["consultation", "quote", "emergency"], {
+        required_error: messages.requestType,
+      }),
+      projectAddress: z.string().optional(),
+      projectType: z.string().optional(),
+      budgetRange: z.string().optional(),
+      timelinePreference: z.string().optional(),
+      roomDimensions: z.string().optional(),
+      specialRequirements: z.string().optional(),
+      materialsPreference: z.string().optional(),
+      hasPermits: z.string().optional(),
+      accessDetails: z.string().optional(),
+    })
+    .superRefine((data, ctx) => {
+      if (data.requestType === "quote") {
+        if (!data.projectAddress || data.projectAddress.trim().length < 5) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: messages.projectAddress,
+            path: ["projectAddress"],
+          });
+        }
+        if (!data.budgetRange) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: messages.budgetRange,
+            path: ["budgetRange"],
+          });
+        }
+        if (!data.projectType) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: messages.projectType,
+            path: ["projectType"],
+          });
+        }
+        if (!data.timelinePreference) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: messages.timeline,
+            path: ["timelinePreference"],
+          });
+        }
+      }
 
-type FormValues = z.infer<typeof formSchema>;
+      if (data.requestType === "emergency") {
+        if (data.message.trim().length < 20) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: messages.emergencyDetails,
+            path: ["message"],
+          });
+        }
+      }
+    });
+
+type ContactFormSchema = ReturnType<typeof createFormSchema>;
+type FormValues = z.infer<ContactFormSchema>;
 
 interface ContactFormProps {
   locale?: string;
@@ -125,112 +137,134 @@ const ContactForm: React.FC<ContactFormProps> = ({
     { id: "other", name: "Other" },
   ],
 }) => {
-  const getTranslations = (locale: string) => {
-    const translations = {
-      en: {
-        title: "Contact TrueNorth Construction",
-        description: "Fill out the form below and we'll get back to you within 24 hours to discuss your construction or renovation project.",
-        nameLabel: "Name",
-        namePlaceholder: "Enter your name",
-        emailLabel: "Email",
-        emailPlaceholder: "Enter your email",
-        phoneLabel: "Phone",
-        phonePlaceholder: "Enter your phone number",
-        serviceLabel: "Service Needed",
-        servicePlaceholder: "Select a service",
-        messageLabel: "Message",
-        messagePlaceholder: "Tell us about your project and service needs",
-        submitButton: "Get Free Quote",
-        successTitle: "Thank you!",
-        successMessage: "Your request has been sent successfully! We'll contact you within 24 hours.",
-        successQuoteMessage: "Your quote request has been sent! We'll review your details and contact you within 24 hours with a detailed estimate.",
-        successEmergencyMessage: "Your emergency request has been received! We'll contact you as soon as possible to address your urgent needs.",
-        errorTitle: "Submission Error",
-        errorMessage: "There was a problem submitting your request. Please try again or call us directly at (647) 860-5500.",
-        errorNetworkMessage: "Network error. Please check your internet connection and try again.",
-        errorValidationMessage: "Please check the form for errors and try again.",
-      },
-      fr: {
-        title: "Contactez TrueNorth Construction",
-        description: "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures pour discuter de votre projet de construction ou de rénovation.",
-        nameLabel: "Nom",
-        namePlaceholder: "Entrez votre nom",
-        emailLabel: "Email",
-        emailPlaceholder: "Entrez votre email",
-        phoneLabel: "Téléphone",
-        phonePlaceholder: "Entrez votre numéro de téléphone",
-        serviceLabel: "Service requis",
-        servicePlaceholder: "Sélectionnez un service",
-        messageLabel: "Message",
-        messagePlaceholder: "Parlez-nous de votre projet et de vos besoins en services",
-        submitButton: "Obtenir un devis gratuit",
-        successTitle: "Merci!",
-        successMessage: "Votre demande a été envoyée avec succès! Nous vous contacterons dans les 24 heures.",
-        successQuoteMessage: "Votre demande de devis a été envoyée! Nous examinerons vos détails et vous contacterons dans les 24 heures avec une estimation détaillée.",
-        successEmergencyMessage: "Votre demande d'urgence a été reçue! Nous vous contacterons dès que possible pour répondre à vos besoins urgents.",
-        errorTitle: "Erreur de soumission",
-        errorMessage: "Il y a eu un problème lors de la soumission de votre demande. Veuillez réessayer ou nous appeler directement au (647) 860-5500.",
-        errorNetworkMessage: "Erreur réseau. Veuillez vérifier votre connexion internet et réessayer.",
-        errorValidationMessage: "Veuillez vérifier le formulaire pour les erreurs et réessayer.",
-      },
-      ar: {
-        title: "اتصل بـ TrueNorth Construction",
-        description: "املأ النموذج أدناه وسنعاود الاتصال بك خلال 24 ساعة لمناقشة مشروع البناء أو التجديد الخاص بك.",
-        nameLabel: "الاسم",
-        namePlaceholder: "أدخل اسمك",
-        emailLabel: "البريد الإلكتروني",
-        emailPlaceholder: "أدخل بريدك الإلكتروني",
-        phoneLabel: "الهاتف",
-        phonePlaceholder: "أدخل رقم هاتفك",
-        serviceLabel: "الخدمة المطلوبة",
-        servicePlaceholder: "اختر خدمة",
-        messageLabel: "الرسالة",
-        messagePlaceholder: "أخبرنا عن مشروعك واحتياجاتك من الخدمات",
-        submitButton: "احصل على عرض سعر مجاني",
-        successTitle: "شكرًا لك!",
-        successMessage: "تم إرسال طلبك بنجاح! سنتواصل معك خلال 24 ساعة.",
-        successQuoteMessage: "تم إرسال طلب عرض السعر! سنراجع تفاصيلك ونتواصل معك خلال 24 ساعة بتقدير مفصل.",
-        successEmergencyMessage: "تم استلام طلب الطوارئ! سنتواصل معك في أقرب وقت ممكن لتلبية احتياجاتك العاجلة.",
-        errorTitle: "خطأ في الإرسال",
-        errorMessage: "حدثت مشكلة في إرسال طلبك. يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة على (647) 860-5500.",
-        errorNetworkMessage: "خطأ في الشبكة. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.",
-        errorValidationMessage: "يرجى التحقق من النموذج للأخطاء والمحاولة مرة أخرى.",
-      }
-    };
-    return translations[locale as keyof typeof translations] || translations.en;
+  const t = useTranslations("contact_form");
+  const tServices = useTranslations("services");
+
+  const validationMessages = useMemo(
+    () => ({
+      nameMin: t("validation.name_min"),
+      email: t("validation.email"),
+      phone: t("validation.phone"),
+      service: t("validation.service"),
+      messageMin: t("validation.message_min"),
+      requestType: t("validation.request_type"),
+      projectAddress: t("validation.project_address"),
+      budgetRange: t("validation.budget_range"),
+      projectType: t("validation.project_type"),
+      timeline: t("validation.timeline"),
+      emergencyDetails: t("validation.emergency_details"),
+    }),
+    [t]
+  );
+
+  const schema = useMemo(() => createFormSchema(validationMessages), [validationMessages]);
+
+  const serviceOptions = useMemo(
+    () => {
+      const serviceLabels: Record<string, string> = {
+        "kitchen-remodeling": tServices("kitchen.title"),
+        "bathroom-renovation": tServices("bathroom.title"),
+        flooring: tServices("flooring.title"),
+        "basement-finishing": tServices("basement.title"),
+        "roofing-siding": tServices("roofing.title"),
+        "painting-drywall": tServices("painting.title"),
+        "outdoor-landscaping": tServices("outdoor.title"),
+        "general-contracting": tServices("general.title"),
+        "prefab-structures": tServices("prefab.title"),
+      };
+
+      return services.map((service) => ({
+        id: service.id,
+        label: serviceLabels[service.id] ?? t("services.other"),
+      }));
+    },
+    [services, t, tServices]
+  );
+
+  const projectTypes = useMemo(
+    () => [
+      { value: "new-construction", label: t("project_types.new-construction") },
+      { value: "full-renovation", label: t("project_types.full-renovation") },
+      { value: "room-renovation", label: t("project_types.room-renovation") },
+      { value: "addition", label: t("project_types.addition") },
+      { value: "repair", label: t("project_types.repair") },
+      { value: "maintenance", label: t("project_types.maintenance") },
+      { value: "consultation", label: t("project_types.consultation") },
+    ],
+    [t]
+  );
+
+  const budgetRanges = useMemo(
+    () => [
+      { value: "under-5k", label: t("budget_ranges.under-5k") },
+      { value: "5k-15k", label: t("budget_ranges.5k-15k") },
+      { value: "15k-30k", label: t("budget_ranges.15k-30k") },
+      { value: "30k-50k", label: t("budget_ranges.30k-50k") },
+      { value: "50k-100k", label: t("budget_ranges.50k-100k") },
+      { value: "over-100k", label: t("budget_ranges.over-100k") },
+      { value: "not-sure", label: t("budget_ranges.not-sure") },
+    ],
+    [t]
+  );
+
+  const timelineOptions = useMemo(
+    () => [
+      { value: "asap", label: t("timeline_options.asap") },
+      { value: "1-month", label: t("timeline_options.1-month") },
+      { value: "2-3months", label: t("timeline_options.2-3months") },
+      { value: "3-6months", label: t("timeline_options.3-6months") },
+      { value: "6-12months", label: t("timeline_options.6-12months") },
+      { value: "over-year", label: t("timeline_options.over-year") },
+      { value: "flexible", label: t("timeline_options.flexible") },
+    ],
+    [t]
+  );
+
+  const permitOptions = useMemo(
+    () => [
+      { value: "not-sure", label: t("permit_options.not-sure") },
+      { value: "yes-help-needed", label: t("permit_options.yes-help-needed") },
+      { value: "yes-have-them", label: t("permit_options.yes-have-them") },
+      { value: "no", label: t("permit_options.no") },
+    ],
+    [t]
+  );
+
+  type RequestOption = {
+    value: "consultation" | "quote" | "emergency";
+    label: string;
+    description: string;
+    icon: LucideIcon;
   };
 
-  const budgetRanges = [
-    { value: "under-5k", label: "Under $5,000" },
-    { value: "5k-15k", label: "$5,000 - $15,000" },
-    { value: "15k-30k", label: "$15,000 - $30,000" },
-    { value: "30k-50k", label: "$30,000 - $50,000" },
-    { value: "50k-100k", label: "$50,000 - $100,000" },
-    { value: "over-100k", label: "Over $100,000" },
-    { value: "not-sure", label: "Not sure yet" },
-  ];
+  const requestOptions = useMemo<RequestOption[]>(
+    () => [
+      {
+        value: "consultation",
+        label: t("request.options.consultation.label"),
+        description: t("request.options.consultation.description"),
+        icon: Phone,
+      },
+      {
+        value: "quote",
+        label: t("request.options.quote.label"),
+        description: t("request.options.quote.description"),
+        icon: DollarSign,
+      },
+      {
+        value: "emergency",
+        label: t("request.options.emergency.label"),
+        description: t("request.options.emergency.description"),
+        icon: AlertCircle,
+      },
+    ],
+    [t]
+  );
 
-  const timelineOptions = [
-    { value: "asap", label: "As soon as possible" },
-    { value: "1-month", label: "Within 1 month" },
-    { value: "2-3months", label: "2-3 months" },
-    { value: "3-6months", label: "3-6 months" },
-    { value: "6-12months", label: "6-12 months" },
-    { value: "over-year", label: "More than a year" },
-    { value: "flexible", label: "Flexible timeline" },
-  ];
+  const trustItems = useMemo(() => t.raw("trust.items") as string[], [t]);
+  const uploadItems = useMemo(() => t.raw("upload.items") as string[], [t]);
 
-  const projectTypes = [
-    { value: "new-construction", label: "New Construction" },
-    { value: "full-renovation", label: "Full Home Renovation" },
-    { value: "room-renovation", label: "Single Room Renovation" },
-    { value: "addition", label: "Home Addition" },
-    { value: "repair", label: "Repair Work" },
-    { value: "maintenance", label: "Maintenance" },
-    { value: "consultation", label: "Consultation Only" },
-  ];
-
-  const translations = getTranslations(locale);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
     "idle",
@@ -249,13 +283,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
       const newFiles = Array.from(files).filter(file => {
         // Limit file size to 10MB
         if (file.size > 10 * 1024 * 1024) {
-          alert(`File ${file.name} is too large. Maximum size is 10MB.`);
+          alert(t("upload.errors.too_large", { name: file.name }));
           return false;
         }
         // Allow common image and document formats
         const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
         if (!allowedTypes.includes(file.type)) {
-          alert(`File ${file.name} is not a supported format. Please use images (JPEG, PNG, GIF, WebP) or documents (PDF, DOC, DOCX).`);
+          alert(t("upload.errors.unsupported", { name: file.name }));
           return false;
         }
         return true;
@@ -280,7 +314,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(schema),
     defaultValues: {
       name: "",
       email: "",
@@ -310,8 +344,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
         throw new Error('Too many files uploaded. Maximum 5 files allowed.');
       }
 
-      // Get the selected service name from the services array
-      const selectedService = services.find(service => service.id === data.service)?.name || data.service;
+      // Get the selected labels for email context
+      const selectedService = serviceOptions.find(service => service.id === data.service)?.label || data.service;
       const selectedBudget = budgetRanges.find(budget => budget.value === data.budgetRange)?.label || data.budgetRange;
       const selectedTimeline = timelineOptions.find(timeline => timeline.value === data.timelinePreference)?.label || data.timelinePreference;
       const selectedProjectType = projectTypes.find(type => type.value === data.projectType)?.label || data.projectType;
@@ -396,24 +430,44 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   const isRtl = locale === "ar";
   const formDirection = isRtl ? "rtl" : "ltr";
+  const requestType = form.watch("requestType");
+  const submitLabel = isSubmitting
+    ? t("buttons.submit.loading")
+    : requestType === "quote"
+      ? t("buttons.submit.quote")
+      : requestType === "emergency"
+        ? t("buttons.submit.emergency")
+        : t("buttons.submit.consultation");
+  const successMessage = requestType === "quote"
+    ? t("success.quote")
+    : requestType === "emergency"
+      ? t("success.emergency")
+      : t("success.general");
+  const errorMessage = errorType === "network"
+    ? t("error.network")
+    : errorType === "validation"
+      ? t("error.validation")
+      : t("error.general");
+  const contactPhone = t("contact_phone");
+  const contactEmail = t("contact_email");
 
   return (
     <div ref={formContainerRef} className="w-full max-w-2xl mx-auto bg-background" dir={formDirection}>
       <Card className="border shadow-sm">
         <CardHeader>
           <CardTitle className="text-2xl font-bold flex items-center space-x-2">
-            <Hammer className="h-6 w-6 text-amber-600" />
-            <span>{translations.title}</span>
+            <Hammer className="h-6 w-6 text-red-600" />
+            <span>{t("title")}</span>
           </CardTitle>
-          <CardDescription>{translations.description}</CardDescription>
+          <CardDescription>{t("description")}</CardDescription>
           <div className="flex items-center space-x-4 text-sm text-muted-foreground">
             <div className="flex items-center space-x-1">
               <Phone className="h-4 w-4" />
-              <span>(647) 860-5500</span>
+              <span>{contactPhone}</span>
             </div>
             <div className="flex items-center space-x-1">
               <Mail className="h-4 w-4" />
-              <span>info@truenorthconstruction.com</span>
+              <span>{contactEmail}</span>
             </div>
           </div>
         </CardHeader>
@@ -421,59 +475,43 @@ const ContactForm: React.FC<ContactFormProps> = ({
           {formStatus === "success" && (
             <Alert className="mb-6 bg-green-50 text-green-800 border-green-200">
               <CheckCircle className="h-4 w-4" />
-              <AlertTitle>{translations.successTitle}</AlertTitle>
-              <AlertDescription>
-                {form.watch("requestType") === "quote"
-                  ? translations.successQuoteMessage
-                  : form.watch("requestType") === "emergency"
-                  ? translations.successEmergencyMessage
-                  : translations.successMessage}
-              </AlertDescription>
+              <AlertTitle>{t("success.title")}</AlertTitle>
+              <AlertDescription>{successMessage}</AlertDescription>
             </Alert>
           )}
 
           {formStatus === "error" && (
             <Alert className="mb-6 bg-red-50 text-red-800 border-red-200">
               <AlertCircle className="h-4 w-4" />
-              <AlertTitle>{translations.errorTitle}</AlertTitle>
-              <AlertDescription>
-                {errorType === "network"
-                  ? translations.errorNetworkMessage
-                  : errorType === "validation"
-                  ? translations.errorValidationMessage
-                  : translations.errorMessage}
-              </AlertDescription>
+              <AlertTitle>{t("error.title")}</AlertTitle>
+              <AlertDescription>{errorMessage}</AlertDescription>
             </Alert>
           )}
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               {/* Request Type Selection */}
-              <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 p-6 rounded-xl border border-amber-200 dark:border-amber-800">
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 p-6 rounded-xl border border-red-200 dark:border-red-800">
                 <FormField
                   control={form.control}
                   name="requestType"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-lg font-semibold flex items-center gap-2">
-                        <Hammer className="h-5 w-5 text-amber-600" />
-                        What can we help you with?
+                        <Hammer className="h-5 w-5 text-red-600" />
+                        {t("request.heading")}
                       </FormLabel>
                       <FormControl>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3">
-                          {[
-                            { value: "consultation", label: "Free Consultation", desc: "Discuss your project ideas", icon: Phone },
-                            { value: "quote", label: "Detailed Quote", desc: "Get a comprehensive estimate", icon: DollarSign },
-                            { value: "emergency", label: "Emergency Service", desc: "Urgent repair needs", icon: AlertCircle }
-                          ].map((option) => {
+                          {requestOptions.map((option) => {
                             const Icon = option.icon;
                             return (
                               <div
                                 key={option.value}
                                 className={`relative border-2 rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
                                   field.value === option.value
-                                    ? "border-amber-500 bg-amber-100 dark:bg-amber-900/30"
-                                    : "border-gray-200 dark:border-gray-700 hover:border-amber-300"
+                                    ? "border-red-500 bg-red-100 dark:bg-red-900/30"
+                                    : "border-gray-200 dark:border-gray-700 hover:border-red-300"
                                 }`}
                                 onClick={() => field.onChange(option.value)}
                               >
@@ -485,10 +523,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
                                   className="sr-only"
                                 />
                                 <div className="flex items-start space-x-3">
-                                  <Icon className={`h-6 w-6 mt-1 ${field.value === option.value ? "text-amber-600" : "text-gray-400"}`} />
+                                  <Icon className={`h-6 w-6 mt-1 ${field.value === option.value ? "text-red-600" : "text-gray-400"}`} />
                                   <div>
                                     <h3 className="font-semibold text-gray-900 dark:text-white">{option.label}</h3>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300">{option.desc}</p>
+                                    <p className="text-sm text-gray-600 dark:text-gray-300">{option.description}</p>
                                   </div>
                                 </div>
                               </div>
@@ -504,17 +542,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
               {/* Basic Contact Information */}
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">Contact Information</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">{t("sections.contact")}</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{translations.nameLabel}</FormLabel>
+                        <FormLabel>{t("fields.name.label")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder={translations.namePlaceholder}
+                            placeholder={t("fields.name.placeholder")}
                             {...field}
                           />
                         </FormControl>
@@ -528,11 +566,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{translations.emailLabel}</FormLabel>
+                        <FormLabel>{t("fields.email.label")}</FormLabel>
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder={translations.emailPlaceholder}
+                            placeholder={t("fields.email.placeholder")}
                             {...field}
                           />
                         </FormControl>
@@ -548,11 +586,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{translations.phoneLabel}</FormLabel>
+                        <FormLabel>{t("fields.phone.label")}</FormLabel>
                         <FormControl>
                           <Input
                             type="tel"
-                            placeholder={translations.phonePlaceholder}
+                            placeholder={t("fields.phone.placeholder")}
                             {...field}
                           />
                         </FormControl>
@@ -566,22 +604,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
                     name="service"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{translations.serviceLabel}</FormLabel>
+                        <FormLabel>{t("fields.service.label")}</FormLabel>
                         <Select
                           onValueChange={field.onChange}
                           defaultValue={field.value}
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue
-                                placeholder={translations.servicePlaceholder}
-                              />
+                              <SelectValue placeholder={t("fields.service.placeholder")} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            {services.map((service) => (
+                            {serviceOptions.map((service) => (
                               <SelectItem key={service.id} value={service.id}>
-                                {service.name}
+                                {service.label}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -594,11 +630,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </div>
 
               {/* Project Details - Show for quote and consultation requests */}
-              {(form.watch("requestType") === "quote" || form.watch("requestType") === "consultation") && (
+              {(requestType === "quote" || requestType === "consultation") && (
                 <div className="space-y-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2 flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-amber-600" />
-                    Project Details
+                    <MapPin className="h-5 w-5 text-red-600" />
+                    {t("sections.project")}
                   </h3>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -607,15 +643,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
                       name="projectAddress"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Project Address</FormLabel>
+                          <FormLabel>{t("fields.project_address.label")}</FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="123 Main St, Toronto, ON"
+                              placeholder={t("fields.project_address.placeholder")}
                               {...field}
                             />
                           </FormControl>
                           <FormDescription>
-                            Where will the work be performed?
+                            {t("fields.project_address.description")}
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
@@ -627,11 +663,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
                       name="projectType"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Project Type</FormLabel>
+                          <FormLabel>{t("fields.project_type.label")}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="Select project type" />
+                                <SelectValue placeholder={t("fields.project_type.placeholder")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
@@ -656,12 +692,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
                         <FormItem>
                           <FormLabel className="flex items-center gap-2">
                             <DollarSign className="h-4 w-4" />
-                            Budget Range
+                            {t("fields.budget_range.label")}
                           </FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="Select budget range" />
+                                <SelectValue placeholder={t("fields.budget_range.placeholder")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
@@ -672,9 +708,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormDescription>
-                            This helps us provide accurate estimates
-                          </FormDescription>
+                          <FormDescription>{t("fields.budget_range.description")}</FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -687,12 +721,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
                         <FormItem>
                           <FormLabel className="flex items-center gap-2">
                             <Calendar className="h-4 w-4" />
-                            Preferred Timeline
+                            {t("fields.timeline.label")}
                           </FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="When do you want to start?" />
+                                <SelectValue placeholder={t("fields.timeline.placeholder")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
@@ -717,17 +751,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
                         <FormItem>
                           <FormLabel className="flex items-center gap-2">
                             <Ruler className="h-4 w-4" />
-                            Room Dimensions
+                            {t("fields.room_dimensions.label")}
                           </FormLabel>
                           <FormControl>
                             <Input
-                              placeholder="e.g., 12ft x 10ft or 3.6m x 3m"
+                              placeholder={t("fields.room_dimensions.placeholder")}
                               {...field}
                             />
                           </FormControl>
-                          <FormDescription>
-                            Approximate size of the area to be worked on
-                          </FormDescription>
+                          <FormDescription>{t("fields.room_dimensions.description")}</FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -738,18 +770,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
                       name="hasPermits"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Permits Required?</FormLabel>
+                          <FormLabel>{t("fields.permits.label")}</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger>
-                                <SelectValue placeholder="Do you need permits?" />
+                                <SelectValue placeholder={t("fields.permits.placeholder")} />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="not-sure">Not sure</SelectItem>
-                              <SelectItem value="yes-help-needed">Yes, need help obtaining</SelectItem>
-                              <SelectItem value="yes-have-them">Yes, already have them</SelectItem>
-                              <SelectItem value="no">No permits required</SelectItem>
+                              {permitOptions.map((option) => (
+                                <SelectItem key={option.value} value={option.value}>
+                                  {option.label}
+                                </SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -762,17 +795,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
               {/* Additional Details */}
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">Additional Details</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">{t("sections.additional")}</h3>
 
                 <FormField
                   control={form.control}
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{translations.messageLabel}</FormLabel>
+                      <FormLabel>{t("fields.message.label")}</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder={form.watch("requestType") === "quote" ? "Describe your project in detail, including any specific requirements, materials preferences, or design ideas..." : translations.messagePlaceholder}
+                          placeholder={requestType === "quote" ? t("fields.message.quote_placeholder") : t("fields.message.placeholder")}
                           className="min-h-[120px]"
                           {...field}
                         />
@@ -782,17 +815,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   )}
                 />
 
-                {(form.watch("requestType") === "quote" || form.watch("requestType") === "consultation") && (
+                {(requestType === "quote" || requestType === "consultation") && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <FormField
                       control={form.control}
                       name="materialsPreference"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Materials Preference</FormLabel>
+                          <FormLabel>{t("fields.materials.label")}</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="e.g., hardwood floors, granite countertops, specific brands..."
+                              placeholder={t("fields.materials.placeholder")}
                               className="min-h-[80px]"
                               {...field}
                             />
@@ -807,10 +840,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
                       name="accessDetails"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Access & Special Considerations</FormLabel>
+                          <FormLabel>{t("fields.access.label")}</FormLabel>
                           <FormControl>
                             <Textarea
-                              placeholder="e.g., narrow stairs, apartment building, pets, working hours restrictions..."
+                              placeholder={t("fields.access.placeholder")}
                               className="min-h-[80px]"
                               {...field}
                             />
@@ -824,20 +857,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </div>
 
               {/* File Upload Section - Show for quote and consultation requests */}
-              {(form.watch("requestType") === "quote" || form.watch("requestType") === "consultation") && (
+              {(requestType === "quote" || requestType === "consultation") && (
                 <div className="space-y-6 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border border-blue-200 dark:border-blue-800">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2 flex items-center gap-2">
                     <FileImage className="h-5 w-5 text-blue-600" />
-                    Upload Photos & Documents
+                    {t("sections.upload")}
                   </h3>
 
                   <div className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                    <p>Help us understand your project better by uploading:</p>
+                    <p>{t("upload.instructions")}</p>
                     <ul className="list-disc list-inside mt-2 space-y-1 text-xs">
-                      <li>Current photos of the space</li>
-                      <li>Inspiration images or design ideas</li>
-                      <li>Floor plans or technical drawings</li>
-                      <li>Product specifications or material samples</li>
+                      {uploadItems.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
                     </ul>
                   </div>
 
@@ -858,10 +890,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
                       <div className="flex flex-col items-center justify-center pt-5 pb-6">
                         <Upload className="h-8 w-8 text-blue-500 mb-2" />
                         <p className="text-sm text-blue-700 dark:text-blue-300 font-medium">
-                          Click to upload files
+                          {t("upload.button")}
                         </p>
                         <p className="text-xs text-blue-600 dark:text-blue-400">
-                          Images, PDFs, DOC files (Max 10MB each, up to 5 files)
+                          {t("upload.hint")}
                         </p>
                       </div>
                     </label>
@@ -870,7 +902,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   {/* Uploaded Files List */}
                   {uploadedFiles.length > 0 && (
                     <div className="space-y-2">
-                      <h4 className="text-sm font-medium text-gray-900 dark:text-white">Uploaded Files:</h4>
+                      <h4 className="text-sm font-medium text-gray-900 dark:text-white">{t("upload.list_title")}</h4>
                       <div className="space-y-2">
                         {uploadedFiles.map((file, index) => (
                           <div
@@ -903,24 +935,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 </div>
               )}
 
-              <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg">
-                <h3 className="font-semibold text-amber-800 dark:text-amber-200 mb-2">
-              Why Choose TrueNorth Construction?
+              <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                <h3 className="font-semibold text-red-800 dark:text-red-200 mb-2">
+                  {t("trust.title")}
                 </h3>
-                <ul className="text-sm text-amber-700 dark:text-amber-300 space-y-1">
-                  <li>• Licensed & insured professionals</li>
-                  <li>• Free estimates and transparent pricing</li>
-                  <li>• Quality materials & craftsmanship</li>
-                  <li>• Serving Greater Toronto Area (GTA) and surrounding areas</li>
+                <ul className="text-sm text-red-700 dark:text-red-300 space-y-1 list-disc pl-4">
+                  {trustItems.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div className="flex justify-end">
-                <Button type="submit" disabled={isSubmitting} className="px-8 bg-amber-600 hover:bg-amber-700">
-                  {isSubmitting ? "Submitting..." :
-                   form.watch("requestType") === "quote" ? "Request Quote" :
-                   form.watch("requestType") === "emergency" ? "Submit Emergency Request" :
-                   "Schedule Consultation"}
+                <Button type="submit" disabled={isSubmitting} className="px-8 bg-red-600 hover:bg-red-700">
+                  {submitLabel}
                 </Button>
               </div>
             </form>

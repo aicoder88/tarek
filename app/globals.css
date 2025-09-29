@@ -68,19 +68,23 @@
   }
 }
 
-/* Construction theme colors */
+/* Construction theme colors - Navy Blue & Red */
 :root {
-  --construction-primary: 45 93% 47%; /* Amber */
-  --construction-secondary: 210 11% 15%; /* Dark navy */
-  --construction-accent: 210 11% 71%; /* Light gray */
+  --construction-primary: 348 83% 47%; /* Red #DC143C */
+  --construction-secondary: 210 100% 12%; /* Navy Blue #001F3F */
+  --construction-accent: 210 100% 25%; /* Lighter Navy */
   --construction-neutral: 210 6% 93%; /* Very light gray */
+  --construction-red: 348 83% 47%; /* Primary Red */
+  --construction-navy: 210 100% 12%; /* Primary Navy */
 }
 
 .dark {
-  --construction-primary: 45 93% 47%;
+  --construction-primary: 348 83% 47%;
   --construction-secondary: 210 40% 98%;
   --construction-accent: 215 20.2% 65.1%;
   --construction-neutral: 217.2 32.6% 17.5%;
+  --construction-red: 348 83% 47%;
+  --construction-navy: 210 100% 12%;
 }
 
 /* Custom animations and effects */
@@ -119,7 +123,7 @@
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #f59e0b, #d97706, #92400e);
+  background: linear-gradient(135deg, #DC143C, #001F3F, #003A70);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -135,12 +139,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f59e0b;
+  background: #DC143C;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d97706;
+  background: #B01030;
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -148,7 +152,7 @@
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #f59e0b;
+  background: #DC143C;
 }
 
 /* Improved hover effects */
@@ -174,7 +178,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: 100%;
-  background: #f59e0b;
+  background: #DC143C;
   cursor: ew-resize;
   z-index: 10;
 }
@@ -187,7 +191,7 @@
   transform: translate(-50%, -50%);
   width: 40px;
   height: 40px;
-  background: #f59e0b;
+  background: #DC143C;
   border-radius: 50%;
   border: 3px solid white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -201,7 +205,7 @@
 
 /* Custom button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
+  background: linear-gradient(135deg, #DC143C, #B01030);
   border: none;
   color: white;
   font-weight: 600;
@@ -227,7 +231,7 @@
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 10px 25px rgba(220, 20, 60, 0.4);
 }
 
 /* Hide scrollbar for carousel on mobile */

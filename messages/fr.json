@@ -15,12 +15,46 @@
     "secondary_cta": "Voir Nos Travaux"
   },
   "about": {
-    "title": "Pourquoi Nous Choisir",
-    "subtitle": "Avec plus de 15 ans d'expérience, nous offrons des services de construction de qualité en qui vous pouvez avoir confiance.",
-    "experience": "15+ Années d'Expérience",
-    "projects": "500+ Projets Terminés",
-    "satisfaction": "100% Satisfaction Client",
-    "licensed": "Licencié et Assuré"
+    "title": "À Propos de Nous",
+    "subtitle": "Services de construction professionnels avec un savoir-faire de qualité",
+    "values": {
+      "precision": {
+        "title": "Précision",
+        "description": "Chaque détail compte. Nous abordons chaque projet avec une attention méticuleuse pour atteindre la perfection."
+      },
+      "passion": {
+        "title": "Passion",
+        "description": "Nous aimons ce que nous faisons. Notre passion pour l'excellence en construction nous pousse à livrer des résultats exceptionnels."
+      },
+      "trust": {
+        "title": "Confiance",
+        "description": "Votre maison est en bonnes mains. Nous traitons chaque propriété comme si c'était la nôtre, avec soin et respect."
+      }
+    },
+    "team": {
+      "title": "Rencontrez Notre Équipe",
+      "subtitle": "Professionnels expérimentés dédiés au succès de votre projet",
+      "members": {
+        "alex": {
+          "name": "Alex Johnson",
+          "role": "Fondateur et Maître Constructeur",
+          "experience": "15+ années d'expérience",
+          "description": "Certifié en meilleures pratiques de construction résidentielle et de rénovation. Passionné par l'artisanat."
+        },
+        "maria": {
+          "name": "Maria Rodriguez",
+          "role": "Spécialiste Intérieur",
+          "experience": "10+ années d'expérience",
+          "description": "Experte en design intérieur et finitions. L'attention aux détails est sa spécialité."
+        },
+        "david": {
+          "name": "David Chen",
+          "role": "Gestionnaire de Projet",
+          "experience": "8+ années d'expérience",
+          "description": "Spécialisé en coordination de projet et contrôle qualité. Perfectionniste par nature."
+        }
+      }
+    }
   },
   "services": {
     "title": "Nos Services",
@@ -76,13 +110,32 @@
       "phone": "Numéro de Téléphone",
       "service": "Service Requis",
       "message": "Détails du Projet",
-      "submit": "Envoyer le Message"
+      "submit": "Envoyer le Message",
+      "card_title": "Envoyez-nous un message",
+      "select_service_placeholder": "Sélectionnez un service",
+      "other_option": "Autre",
+      "placeholders": {
+        "name": "Jean Dupont",
+        "phone": "(647) 860-5500",
+        "email": "jean@example.com",
+        "message": "Parlez-nous de votre projet..."
+      }
     },
     "info": {
-      "phone": "(555) 123-4567",
-      "email": "info@contractorpro.com",
-      "address": "123 Avenue de la Construction, Ville du Constructeur, BC 12345",
-      "hours": "Lun-Ven: 8h-18h, Sam: 9h-16h"
+      "phone": "(647) 860-5500",
+      "email": "info@truenorthconstruction.com",
+      "address": "Centre-ville de Montréal, Québec, Canada",
+      "hours": "Lun-Ven : 8 h 00 - 18 h 00\nSam : 9 h 00 - 17 h 00\nDim : 10 h 00 - 16 h 00"
+    },
+    "info_titles": {
+      "phone": "Téléphone",
+      "email": "Email",
+      "address": "Adresse",
+      "hours": "Horaires"
+    },
+    "map": {
+      "title": "Carte interactive",
+      "description": "Nous sommes situés au centre-ville de Montréal."
     }
   },
   "footer": {
@@ -150,48 +203,6 @@
         "answer": "Nous travaillons avec des clients de toutes gammes de budget et pouvons souvent suggérer des alternatives ou des approches par phases pour vous aider à atteindre vos objectifs dans votre budget. Lors de notre consultation, nous discuterons de vos priorités et trouverons des solutions rentables."
       }
     ]
-  },
-  "about": {
-    "title": "À Propos de Nous",
-    "subtitle": "Services de construction professionnels avec un savoir-faire de qualité",
-    "values": {
-      "precision": {
-        "title": "Précision",
-        "description": "Chaque détail compte. Nous abordons chaque projet avec une attention méticuleuse pour atteindre la perfection."
-      },
-      "passion": {
-        "title": "Passion",
-        "description": "Nous aimons ce que nous faisons. Notre passion pour l'excellence en construction nous pousse à livrer des résultats exceptionnels."
-      },
-      "trust": {
-        "title": "Confiance",
-        "description": "Votre maison est en bonnes mains. Nous traitons chaque propriété comme si c'était la nôtre, avec soin et respect."
-      }
-    },
-    "team": {
-      "title": "Rencontrez Notre Équipe",
-      "subtitle": "Professionnels expérimentés dédiés au succès de votre projet",
-      "members": {
-        "alex": {
-          "name": "Alex Johnson",
-          "role": "Fondateur et Maître Constructeur",
-          "experience": "15+ années d'expérience",
-          "description": "Certifié en meilleures pratiques de construction résidentielle et de rénovation. Passionné par l'artisanat."
-        },
-        "maria": {
-          "name": "Maria Rodriguez",
-          "role": "Spécialiste Intérieur",
-          "experience": "10+ années d'expérience",
-          "description": "Experte en design intérieur et finitions. L'attention aux détails est sa spécialité."
-        },
-        "david": {
-          "name": "David Chen",
-          "role": "Gestionnaire de Projet",
-          "experience": "8+ années d'expérience",
-          "description": "Spécialisé en coordination de projet et contrôle qualité. Perfectionniste par nature."
-        }
-      }
-    }
   },
   "services_page": {
     "title": "Nos Services",
@@ -320,5 +331,190 @@
       "primary_cta": "Obtenir un devis gratuit",
       "secondary_cta": "En savoir plus"
     }
+  },
+  "contact_form": {
+    "title": "Contactez TrueNorth Construction",
+    "description": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures pour discuter de votre projet de construction ou de rénovation.",
+    "contact_phone": "(647) 860-5500",
+    "contact_email": "info@truenorthconstruction.com",
+    "request": {
+      "heading": "Comment pouvons-nous vous aider ?",
+      "options": {
+        "consultation": {
+          "label": "Consultation gratuite",
+          "description": "Discutez de vos idées de projet"
+        },
+        "quote": {
+          "label": "Devis détaillé",
+          "description": "Obtenez une estimation complète"
+        },
+        "emergency": {
+          "label": "Service d'urgence",
+          "description": "Besoins de réparation urgents"
+        }
+      }
+    },
+    "sections": {
+      "contact": "Informations de contact",
+      "project": "Détails du projet",
+      "additional": "Détails supplémentaires",
+      "upload": "Téléchargez des photos et des documents",
+      "trust": "Pourquoi choisir TrueNorth Construction ?"
+    },
+    "fields": {
+      "name": {
+        "label": "Nom",
+        "placeholder": "Entrez votre nom"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre email"
+      },
+      "phone": {
+        "label": "Téléphone",
+        "placeholder": "Entrez votre numéro de téléphone"
+      },
+      "service": {
+        "label": "Service requis",
+        "placeholder": "Sélectionnez un service"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Parlez-nous de votre projet et de vos besoins en services",
+        "quote_placeholder": "Décrivez votre projet en détail, y compris les exigences spécifiques, les préférences de matériaux ou les idées de design..."
+      },
+      "project_address": {
+        "label": "Adresse du projet",
+        "placeholder": "123 rue Principale, Toronto (ON)",
+        "description": "Où les travaux seront-ils effectués ?"
+      },
+      "project_type": {
+        "label": "Type de projet",
+        "placeholder": "Sélectionnez le type de projet"
+      },
+      "budget_range": {
+        "label": "Plage budgétaire",
+        "placeholder": "Sélectionnez la plage budgétaire",
+        "description": "Cela nous aide à fournir des estimations précises"
+      },
+      "timeline": {
+        "label": "Échéancier souhaité",
+        "placeholder": "Quand souhaitez-vous commencer ?"
+      },
+      "room_dimensions": {
+        "label": "Dimensions de la pièce",
+        "placeholder": "ex. : 12 pi x 10 pi ou 3,6 m x 3 m",
+        "description": "Taille approximative de la zone à travailler"
+      },
+      "permits": {
+        "label": "Permis requis ?",
+        "placeholder": "Avez-vous besoin de permis ?"
+      },
+      "materials": {
+        "label": "Préférences en matière de matériaux",
+        "placeholder": "ex. : planchers de bois franc, comptoirs en granit, marques spécifiques..."
+      },
+      "access": {
+        "label": "Accès et considérations particulières",
+        "placeholder": "ex. : escaliers étroits, immeuble, animaux, restrictions d'horaires..."
+      }
+    },
+    "project_types": {
+      "new-construction": "Construction neuve",
+      "full-renovation": "Rénovation complète de maison",
+      "room-renovation": "Rénovation d'une pièce",
+      "addition": "Agrandissement résidentiel",
+      "repair": "Travaux de réparation",
+      "maintenance": "Entretien",
+      "consultation": "Consultation seulement"
+    },
+    "budget_ranges": {
+      "under-5k": "Moins de 5 000 $",
+      "5k-15k": "5 000 $ - 15 000 $",
+      "15k-30k": "15 000 $ - 30 000 $",
+      "30k-50k": "30 000 $ - 50 000 $",
+      "50k-100k": "50 000 $ - 100 000 $",
+      "over-100k": "Plus de 100 000 $",
+      "not-sure": "Pas encore certain"
+    },
+    "timeline_options": {
+      "asap": "Dès que possible",
+      "1-month": "D'ici un mois",
+      "2-3months": "2 à 3 mois",
+      "3-6months": "3 à 6 mois",
+      "6-12months": "6 à 12 mois",
+      "over-year": "Plus d'un an",
+      "flexible": "Échéancier flexible"
+    },
+    "permit_options": {
+      "not-sure": "Pas certain",
+      "yes-help-needed": "Oui, besoin d'aide pour l'obtenir",
+      "yes-have-them": "Oui, je les ai déjà",
+      "no": "Aucun permis requis"
+    },
+    "upload": {
+      "instructions": "Aidez-nous à mieux comprendre votre projet en téléchargeant :",
+      "items": [
+        "Des photos actuelles de l'espace",
+        "Des images d'inspiration ou des idées de design",
+        "Des plans ou dessins techniques",
+        "Des fiches techniques ou échantillons de matériaux"
+      ],
+      "button": "Cliquez pour télécharger des fichiers",
+      "hint": "Images, PDF, fichiers DOC (10 Mo max chacun, jusqu'à 5 fichiers)",
+      "list_title": "Fichiers téléchargés :",
+      "errors": {
+        "too_large": "Le fichier {name} est trop volumineux. La taille maximale est de 10 Mo.",
+        "unsupported": "Le fichier {name} n'est pas un format pris en charge. Veuillez téléverser des images (JPEG, PNG, GIF, WebP) ou des documents (PDF, DOC, DOCX)."
+      }
+    },
+    "trust": {
+      "title": "Pourquoi choisir TrueNorth Construction ?",
+      "items": [
+        "Professionnels licenciés et assurés",
+        "Estimations gratuites et tarification transparente",
+        "Matériaux et savoir-faire de qualité",
+        "Service dans la grande région de Toronto et les environs"
+      ]
+    },
+    "services": {
+      "other": "Autre"
+    },
+    "success": {
+      "title": "Merci!",
+      "general": "Votre demande a été envoyée avec succès! Nous vous contacterons dans les 24 heures.",
+      "quote": "Votre demande de devis a été envoyée! Nous examinerons vos détails et vous contacterons dans les 24 heures avec une estimation détaillée.",
+      "emergency": "Votre demande d'urgence a été reçue! Nous vous contacterons dès que possible pour répondre à vos besoins urgents."
+    },
+    "error": {
+      "title": "Erreur de soumission",
+      "general": "Il y a eu un problème lors de la soumission de votre demande. Veuillez réessayer ou nous appeler directement au (647) 860-5500.",
+      "network": "Erreur réseau. Veuillez vérifier votre connexion internet et réessayer.",
+      "validation": "Veuillez vérifier le formulaire pour les erreurs et réessayer."
+    },
+    "validation": {
+      "name_min": "Le nom doit contenir au moins 2 caractères.",
+      "email": "Veuillez entrer une adresse email valide.",
+      "phone": "Veuillez entrer un numéro de téléphone valide.",
+      "service": "Veuillez sélectionner un service.",
+      "message_min": "Le message doit contenir au moins 10 caractères.",
+      "request_type": "Veuillez sélectionner un type de demande.",
+      "project_address": "L'adresse du projet est requise pour les demandes de devis.",
+      "budget_range": "La plage budgétaire est requise pour les demandes de devis.",
+      "timeline": "L'échéancier souhaité est requis pour les demandes de devis.",
+      "project_type": "Le type de projet est requis pour les demandes de devis.",
+      "emergency_details": "Veuillez fournir des informations détaillées sur l'urgence."
+    },
+    "buttons": {
+      "submit": {
+        "loading": "Envoi...",
+        "consultation": "Planifier une consultation",
+        "quote": "Demander un devis",
+        "emergency": "Envoyer une demande d'urgence"
+      }
+    }
+  },
+  "header": {
+    "tagline": "Experts en construction et rénovation"
   }
 }

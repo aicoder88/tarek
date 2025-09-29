@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -14,25 +16,25 @@ export function Contact() {
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
+      title: t('info_titles.phone'),
       value: t('info.phone'),
       href: `tel:${t('info.phone')}`
     },
     {
       icon: Mail,
-      title: 'Email',
+      title: t('info_titles.email'),
       value: t('info.email'),
       href: `mailto:${t('info.email')}`
     },
     {
       icon: MapPin,
-      title: 'Address',
+      title: t('info_titles.address'),
       value: t('info.address'),
       href: '#'
     },
     {
       icon: Clock,
-      title: 'Hours',
+      title: t('info_titles.hours'),
       value: t('info.hours'),
       href: '#'
     }
@@ -54,31 +56,31 @@ export function Contact() {
           {/* Contact Form */}
           <Card>
             <CardHeader>
-              <CardTitle>Send us a message</CardTitle>
+              <CardTitle>{t('form.card_title')}</CardTitle>
             </CardHeader>
             <CardContent>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="name">{t('form.name')}</Label>
-                    <Input id="name" placeholder="John Doe" />
+                    <Input id="name" placeholder={t('form.placeholders.name')} />
                   </div>
                   <div>
                     <Label htmlFor="phone">{t('form.phone')}</Label>
-                    <Input id="phone" type="tel" placeholder="(555) 123-4567" />
+                    <Input id="phone" type="tel" placeholder={t('form.placeholders.phone')} />
                   </div>
                 </div>
                 
                 <div>
                   <Label htmlFor="email">{t('form.email')}</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" />
+                  <Input id="email" type="email" placeholder={t('form.placeholders.email')} />
                 </div>
 
                 <div>
                   <Label htmlFor="service">{t('form.service')}</Label>
                   <Select>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a service" />
+                      <SelectValue placeholder={t('form.select_service_placeholder')} />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="kitchen">{services('kitchen.title')}</SelectItem>
@@ -89,7 +91,7 @@ export function Contact() {
                       <SelectItem value="painting">{services('painting.title')}</SelectItem>
                       <SelectItem value="outdoor">{services('outdoor.title')}</SelectItem>
                       <SelectItem value="general">{services('general.title')}</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="other">{t('form.other_option')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -98,12 +100,12 @@ export function Contact() {
                   <Label htmlFor="message">{t('form.message')}</Label>
                   <Textarea 
                     id="message" 
-                    placeholder="Tell us about your project..."
+                    placeholder={t('form.placeholders.message')}
                     rows={4}
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
+                <Button type="submit" className="w-full bg-red-600 hover:bg-red-700">
                   {t('form.submit')}
                 </Button>
               </form>
@@ -118,8 +120,8 @@ export function Contact() {
                 return (
                   <Card key={index} className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="p-2 bg-amber-100 dark:bg-amber-900 rounded-lg">
-                        <Icon className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      <div className="p-2 bg-red-100 dark:bg-red-900 rounded-lg">
+                        <Icon className="h-6 w-6 text-red-600 dark:text-red-400" />
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
@@ -140,10 +142,8 @@ export function Contact() {
               <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                  <p className="text-gray-500 dark:text-gray-400">Interactive Map</p>
-                  <p className="text-sm text-gray-400 dark:text-gray-500">
-                    {t('info.address')}
-                  </p>
+                  <p className="text-gray-500 dark:text-gray-400">{t('map.title')}</p>
+                  <p className="text-sm text-gray-400 dark:text-gray-500">{t('map.description')}</p>
                 </div>
               </div>
             </Card>

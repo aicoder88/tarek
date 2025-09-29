@@ -44,7 +44,7 @@ export function About() {
             const Icon = feature.icon;
             return (
               <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-600 text-white rounded-full mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 text-white rounded-full mb-4">
                   <Icon className="h-8 w-8" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -77,15 +77,15 @@ export function About() {
             </p>
             <ul className="space-y-2 text-gray-600 dark:text-gray-300">
               <li className="flex items-center">
-                <Shield className="h-5 w-5 text-amber-600 mr-2" />
+                <Shield className="h-5 w-5 text-red-600 mr-2" />
                 Licensed and insured professionals
               </li>
               <li className="flex items-center">
-                <Award className="h-5 w-5 text-amber-600 mr-2" />
+                <Award className="h-5 w-5 text-red-600 mr-2" />
                 Award-winning construction quality
               </li>
               <li className="flex items-center">
-                <Users className="h-5 w-5 text-amber-600 mr-2" />
+                <Users className="h-5 w-5 text-red-600 mr-2" />
                 Dedicated project management
               </li>
             </ul>

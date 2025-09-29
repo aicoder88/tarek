@@ -63,7 +63,7 @@ export function Projects() {
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
-                  <Badge className="bg-amber-600 text-white">
+                  <Badge className="bg-red-600 text-white">
                     {project.category}
                   </Badge>
                 </div>
@@ -75,7 +75,7 @@ export function Projects() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
-                <blockquote className="border-l-4 border-amber-600 pl-4 italic text-gray-700 dark:text-gray-300 mb-4">
+                <blockquote className="border-l-4 border-red-600 pl-4 italic text-gray-700 dark:text-gray-300 mb-4">
                   "{project.testimonial}"
                 </blockquote>
                 <Button variant="outline" className="w-full">
@@ -87,7 +87,7 @@ export function Projects() {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
+          <Button size="lg" className="bg-red-600 hover:bg-red-700">
             {t('view_all')}
           </Button>
         </div>

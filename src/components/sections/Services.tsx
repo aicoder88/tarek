@@ -112,7 +112,7 @@ export function Services() {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
+          <Button size="lg" className="bg-red-600 hover:bg-red-700">
             View All Services
           </Button>
         </div>

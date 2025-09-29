@@ -30,7 +30,7 @@ export function Hero() {
           <div>
             <Button
               size="lg"
-              className="bg-amber-600 hover:bg-amber-700 text-white px-12 py-6 text-xl font-semibold"
+              className="bg-red-600 hover:bg-red-700 text-white px-12 py-6 text-xl font-semibold"
             >
               {t('cta')}
               <ArrowRight className="ml-3 h-6 w-6" />
@@ -40,24 +40,24 @@ export function Hero() {
       </div>
 
       {/* Stats */}
-      <div className="relative bg-amber-600/90 backdrop-blur-sm">
+      <div className="relative bg-red-600/90 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl font-bold text-white">15+</div>
-              <div className="text-amber-100">{tStats('years_experience')}</div>
+              <div className="text-red-100">{tStats('years_experience')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">500+</div>
-              <div className="text-amber-100">{tStats('projects_completed')}</div>
+              <div className="text-red-100">{tStats('projects_completed')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">100%</div>
-              <div className="text-amber-100">{tStats('satisfaction_rate')}</div>
+              <div className="text-red-100">{tStats('satisfaction_rate')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-white">24/7</div>
-              <div className="text-amber-100">{tStats('support_available')}</div>
+              <div className="text-red-100">{tStats('support_available')}</div>
             </div>
           </div>
         </div>

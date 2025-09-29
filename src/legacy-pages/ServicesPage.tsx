@@ -164,8 +164,8 @@ const ServicesPage = ({ locale = "en" }: ServicesPageProps) => {
                 <Card key={service.id} className="relative overflow-hidden">
                   <CardHeader>
                     <div className="flex items-center space-x-4">
-                      <div className="p-3 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
-                        <Icon className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                      <div className="p-3 bg-red-100 dark:bg-red-900/30 rounded-lg">
+                        <Icon className="h-6 w-6 text-red-600 dark:text-red-400" />
                       </div>
                       <div>
                         <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -217,17 +217,17 @@ const ServicesPage = ({ locale = "en" }: ServicesPageProps) => {
           
           <div className="grid gap-8 md:grid-cols-3">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`relative ${index === 1 ? 'border-amber-500 shadow-lg scale-105' : ''}`}>
+              <Card key={index} className={`relative ${index === 1 ? 'border-red-500 shadow-lg scale-105' : ''}`}>
                 {index === 1 && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-amber-500 text-white">
+                    <Badge className="bg-red-500 text-white">
                       {locale === "en" ? "Most Popular" : locale === "fr" ? "Le plus populaire" : "الأكثر شعبية"}
                     </Badge>
                   </div>
                 )}
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl">{pkg.name}</CardTitle>
-                  <div className="text-3xl font-bold text-amber-600">{pkg.price}</div>
+                  <div className="text-3xl font-bold text-red-600">{pkg.price}</div>
                   <CardDescription>{pkg.description}</CardDescription>
                 </CardHeader>
                 <CardContent>

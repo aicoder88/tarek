@@ -137,14 +137,14 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
                 <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex justify-center mb-4">
-                      <div className="p-4 bg-amber-100 dark:bg-amber-900/30 rounded-full">
-                        <Icon className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                      <div className="p-4 bg-red-100 dark:bg-red-900/30 rounded-full">
+                        <Icon className="h-8 w-8 text-red-600 dark:text-red-400" />
                       </div>
                     </div>
                     <CardTitle className="text-xl">{method.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <p className="font-semibold text-amber-600">{method.value}</p>
+                    <p className="font-semibold text-red-600">{method.value}</p>
                     <p className="text-sm text-muted-foreground">{method.description}</p>
                     <p className="text-xs text-green-600">{method.available}</p>
                     {method.href !== "#" && (
@@ -177,7 +177,7 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
-                    <Clock className="h-5 w-5 text-amber-600" />
+                    <Clock className="h-5 w-5 text-red-600" />
                     <span>{locale === "en" ? "Service Hours" : locale === "fr" ? "Heures de service" : "ساعات الخدمة"}</span>
                   </CardTitle>
                 </CardHeader>
@@ -186,7 +186,7 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
                     {serviceHours.map((schedule, index) => (
                       <div key={index} className="flex justify-between items-center py-2 border-b border-muted last:border-0">
                         <span className="font-medium">{schedule.day}</span>
-                        <span className="text-amber-600">{schedule.hours}</span>
+                        <span className="text-red-600">{schedule.hours}</span>
                       </div>
                     ))}
                   </div>
@@ -229,7 +229,7 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
-                    <MapPin className="h-5 w-5 text-amber-600" />
+                    <MapPin className="h-5 w-5 text-red-600" />
                     <span>{locale === "en" ? "Service Area" : locale === "fr" ? "Zone de service" : "منطقة الخدمة"}</span>
                   </CardTitle>
                 </CardHeader>
