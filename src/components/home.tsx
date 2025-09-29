@@ -45,7 +45,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <Header locale={locale} />
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] overflow-hidden">
+      <section className="relative w-full min-h-[85vh] sm:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -61,27 +61,27 @@ const Home = ({ locale = "en" }: HomeProps) => {
           }}></div>
         </div>
 
-        <div className="relative z-10 container px-4 md:px-6 lg:px-8">
-          <div className="flex flex-col items-center space-y-8 text-center max-w-6xl mx-auto">
+        <div className="relative z-10 container px-5 sm:px-6 md:px-8 lg:px-10 py-8 sm:py-0">
+          <div className="flex flex-col items-center space-y-6 sm:space-y-8 text-center max-w-6xl mx-auto">
             <motion.div
-              className="space-y-7"
+              className="space-y-5 sm:space-y-7"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Badge variant="outline" className="px-7 py-3.5 text-sm font-semibold tracking-wide bg-gradient-to-r from-red-500/15 to-red-600/15 backdrop-blur-md border-red-500/40 text-red-400 hover:bg-red-500/25 transition-all duration-500 shadow-lg shadow-red-500/10">
+              <Badge variant="outline" className="px-5 py-2.5 sm:px-7 sm:py-3.5 text-xs sm:text-sm font-semibold tracking-wide bg-gradient-to-r from-red-500/15 to-red-600/15 backdrop-blur-md border-red-500/40 text-red-400 hover:bg-red-500/25 transition-all duration-500 shadow-lg shadow-red-500/10">
                 <span className="inline-block mr-2 animate-pulse">✦</span>
                 {t('hero.badge')}
               </Badge>
-              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6rem] text-white leading-[1.08] px-4 drop-shadow-[0_6px_28px_rgba(0,0,0,0.45)]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.15] sm:leading-[1.1] px-2 sm:px-4 drop-shadow-[0_6px_28px_rgba(0,0,0,0.45)]">
                 {t('hero.title')}
               </h1>
-              <p className="mx-auto max-w-[850px] text-gray-300/90 text-xl md:text-2xl lg:text-[1.75rem] leading-relaxed font-light tracking-wide px-4">
+              <p className="mx-auto max-w-[850px] text-gray-300/90 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed font-light tracking-wide px-2 sm:px-4">
                 {t('hero.subtitle')}
               </p>
             </motion.div>
             <motion.div
-              className="flex flex-col sm:flex-row gap-6 pt-4"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-2 sm:pt-4 w-full sm:w-auto px-2 sm:px-0"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -89,12 +89,12 @@ const Home = ({ locale = "en" }: HomeProps) => {
               <Button
                 asChild
                 size="lg"
-                className="group relative gap-3 px-12 py-6 text-xl font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden"
+                className="group relative gap-2 sm:gap-3 px-8 py-5 sm:px-12 sm:py-6 text-base sm:text-lg md:text-xl font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden w-full sm:w-auto"
               >
                 <a href={contactHref}>
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                   <span className="relative">{t('hero.cta')}</span>
-                  <ArrowRight className="h-6 w-6 transition-transform group-hover:translate-x-1 duration-300" />
+                  <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 transition-transform group-hover:translate-x-1 duration-300" />
                 </a>
               </Button>
             </motion.div>
@@ -157,83 +157,83 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Enhanced Stats Bar */}
-      <section className="relative bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-10 md:py-14">
+      <section className="relative bg-gradient-to-r from-red-600 via-red-500 to-red-600 text-white py-8 sm:py-10 md:py-14">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-black/10 rounded-full blur-3xl"></div>
         </div>
-        <div className="relative container px-4 md:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="relative container px-5 sm:px-6 md:px-8 lg:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="space-y-3 text-center group"
+              className="space-y-2 sm:space-y-3 text-center group"
             >
-              <div className="text-5xl md:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">15+</div>
-              <div className="text-red-50/90 font-semibold text-sm md:text-base tracking-wide">Years Experience</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">15+</div>
+              <div className="text-red-50/90 font-semibold text-xs sm:text-sm md:text-base tracking-wide leading-tight">Years Experience</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="space-y-3 text-center group"
+              className="space-y-2 sm:space-y-3 text-center group"
             >
-              <div className="text-5xl md:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">500+</div>
-              <div className="text-red-50/90 font-semibold text-sm md:text-base tracking-wide">Projects Completed</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">500+</div>
+              <div className="text-red-50/90 font-semibold text-xs sm:text-sm md:text-base tracking-wide leading-tight">Projects Completed</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="space-y-3 text-center group"
+              className="space-y-2 sm:space-y-3 text-center group"
             >
-              <div className="text-5xl md:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">100%</div>
-              <div className="text-red-50/90 font-semibold text-sm md:text-base tracking-wide">Satisfaction Rate</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">100%</div>
+              <div className="text-red-50/90 font-semibold text-xs sm:text-sm md:text-base tracking-wide leading-tight">Satisfaction Rate</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="space-y-3 text-center group"
+              className="space-y-2 sm:space-y-3 text-center group"
             >
-              <div className="text-5xl md:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">24/7</div>
-              <div className="text-red-50/90 font-semibold text-sm md:text-base tracking-wide">Support Available</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">24/7</div>
+              <div className="text-red-50/90 font-semibold text-xs sm:text-sm md:text-base tracking-wide leading-tight">Support Available</div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 -left-40 w-96 h-96 bg-red-500/5 rounded-full blur-[100px]"></div>
           <div className="absolute bottom-20 -right-40 w-[500px] h-[500px] bg-blue-900/5 rounded-full blur-[100px]"></div>
         </div>
 
-        <div className="container px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <div className="container px-5 sm:px-6 md:px-8 lg:px-10 relative z-10">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-16 items-center">
             <motion.div
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="space-y-6">
-                <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
+              <div className="space-y-4 sm:space-y-6">
+                <Badge variant="outline" className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
                   {t('about.badge')}
                 </Badge>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white">
                   {t('about.title')}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed font-light">
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed font-light">
                   {t('about.description')}
                 </p>
               </div>
@@ -274,16 +274,16 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Services Section */}
-      <section className="py-8 md:py-12 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-8 sm:py-10 md:py-12 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 left-10 w-72 h-72 bg-red-500/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="container px-4 md:px-6 relative z-10">
+        <div className="container px-5 sm:px-6 md:px-8 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-3 text-center mb-8"
+            className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center mb-6 sm:mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -291,15 +291,15 @@ const Home = ({ locale = "en" }: HomeProps) => {
           >
             <Badge
               variant="outline"
-              className="px-4 py-2 text-sm font-medium bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-600 dark:text-red-400"
+              className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-600 dark:text-red-400"
             >
-              <Sparkles className="w-4 h-4 mr-2" />
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
               {t('services.badge')}
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4 leading-tight">
               {t('services.title')}
             </h2>
-            <p className="mx-auto max-w-[700px] text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+            <p className="mx-auto max-w-[700px] text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed px-4">
               {t('services.description')}
             </p>
           </motion.div>
@@ -309,7 +309,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
 
       {/* Why Choose Us Section */}
       <section
-        className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden"
+        className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden"
       >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -317,22 +317,22 @@ const Home = ({ locale = "en" }: HomeProps) => {
           <div className="absolute top-1/2 right-0 w-96 h-96 bg-blue-900/5 rounded-full blur-[120px]"></div>
         </div>
 
-        <div className="container px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="container px-5 sm:px-6 md:px-8 lg:px-10 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-6 text-center mb-12"
+            className="flex flex-col items-center justify-center space-y-4 sm:space-y-6 text-center mb-8 sm:mb-10 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
+            <Badge variant="outline" className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
               {t('why_choose_us.badge')}
             </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white px-4">
               {t('why_choose_us.title')}
             </h2>
           </motion.div>
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3 lg:gap-10">
             {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => {
               const icons = [Award, Shield, Users];
               const Icon = icons[i % icons.length];
@@ -369,17 +369,17 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-10 md:py-14 bg-gradient-to-b from-background to-muted/30">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+      <section className="py-8 sm:py-10 md:py-14 bg-gradient-to-b from-background to-muted/30">
+        <div className="container px-5 sm:px-6 md:px-8">
+          <div className="flex flex-col items-center justify-center space-y-3 sm:space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
+              <div className="inline-block rounded-lg bg-muted px-3 py-1 text-xs sm:text-sm">
                 {t('featured_projects.badge')}
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tighter px-4">
                 {t('featured_projects.title')}
               </h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg">
+              <p className="mx-auto max-w-[700px] text-muted-foreground text-sm sm:text-base md:text-lg px-4">
                 {t('featured_projects.description')}
               </p>
             </div>
@@ -391,29 +391,29 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
           <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-blue-900/5 rounded-full blur-[120px]"></div>
         </div>
 
-        <div className="container px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="container px-5 sm:px-6 md:px-8 lg:px-10 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-6 text-center mb-12"
+            className="flex flex-col items-center justify-center space-y-4 sm:space-y-6 text-center mb-8 sm:mb-10 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
+            <Badge variant="outline" className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
               {t('testimonials.badge')}
             </Badge>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white px-4">
               {t('testimonials.title')}
             </h2>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
             {t.raw('testimonials.items').map((testimonial: {name: string, role: string, content: string}, i: number) => (
               <motion.div
                 key={i}
@@ -467,7 +467,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       {/* Contact Section */}
       <section
         id="contact"
-        className="py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden"
+        className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden"
       >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -475,23 +475,23 @@ const Home = ({ locale = "en" }: HomeProps) => {
           <div className="absolute bottom-10 -right-40 w-[500px] h-[500px] bg-blue-900/5 rounded-full blur-[120px]"></div>
         </div>
 
-        <div className="container px-4 md:px-6 lg:px-8 relative z-10">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
+        <div className="container px-5 sm:px-6 md:px-8 lg:px-10 relative z-10">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-16 items-start">
             <motion.div
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="space-y-6">
-                <Badge variant="outline" className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
+              <div className="space-y-4 sm:space-y-6">
+                <Badge variant="outline" className="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-400">
                   {t('contact_section.badge')}
                 </Badge>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-gray-900 dark:text-white">
                   {t('contact_section.title')}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-300 text-lg md:text-xl leading-relaxed font-light">
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed font-light">
                   {t('contact_section.description')}
                 </p>
               </div>
@@ -560,7 +560,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] relative overflow-hidden">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] relative overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -601,32 +601,32 @@ const Home = ({ locale = "en" }: HomeProps) => {
           />
         </div>
 
-        <div className="container px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="container px-5 sm:px-6 md:px-8 lg:px-10 relative z-10">
           <motion.div
-            className="flex flex-col items-center justify-center space-y-8 text-center max-w-4xl mx-auto"
+            className="flex flex-col items-center justify-center space-y-6 sm:space-y-8 text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight px-4">
                 {t('cta.title')}
               </h2>
-              <p className="mx-auto max-w-[700px] text-gray-300/90 text-lg md:text-xl leading-relaxed font-light">
+              <p className="mx-auto max-w-[700px] text-gray-300/90 text-base sm:text-lg md:text-xl leading-relaxed font-light px-4">
                 {t('cta.description')}
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-5 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 pt-2 sm:pt-4 w-full sm:w-auto px-2 sm:px-0">
               <Button
                 asChild
                 size="lg"
-                className="group relative gap-3 px-12 py-7 text-lg font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden"
+                className="group relative gap-2 sm:gap-3 px-8 py-5 sm:px-12 sm:py-7 text-base sm:text-lg font-bold bg-gradient-to-r from-red-600 via-red-500 to-red-600 hover:from-red-500 hover:via-red-600 hover:to-red-500 text-white border-0 shadow-2xl hover:shadow-red-500/40 transition-all duration-700 transform hover:scale-[1.03] hover:-translate-y-1 rounded-xl overflow-hidden w-full sm:w-auto"
               >
                 <a href={contactHref}>
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                   <span className="relative">{t('cta.primary_cta')}</span>
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 duration-300" />
+                  <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1 duration-300" />
                 </a>
               </Button>
             </div>

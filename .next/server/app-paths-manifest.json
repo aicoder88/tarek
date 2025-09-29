@@ -1,16 +1,1 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/sitemap/route": "app/api/sitemap/route.js",
-  "/page": "app/page.js",
-  "/[locale]/services/page": "app/[locale]/services/page.js",
-  "/[locale]/services/bathroom-renovation/page": "app/[locale]/services/bathroom-renovation/page.js",
-  "/[locale]/page": "app/[locale]/page.js",
-  "/[locale]/services/painting-drywall/page": "app/[locale]/services/painting-drywall/page.js",
-  "/[locale]/services/outdoor-landscaping/page": "app/[locale]/services/outdoor-landscaping/page.js",
-  "/[locale]/services/kitchen-remodeling/page": "app/[locale]/services/kitchen-remodeling/page.js",
-  "/[locale]/services/basement-finishing/page": "app/[locale]/services/basement-finishing/page.js",
-  "/[locale]/services/flooring/page": "app/[locale]/services/flooring/page.js",
-  "/[locale]/services/prefabricated-structures/page": "app/[locale]/services/prefabricated-structures/page.js",
-  "/[locale]/services/roofing-siding/page": "app/[locale]/services/roofing-siding/page.js",
-  "/[locale]/services/general-contracting/page": "app/[locale]/services/general-contracting/page.js"
-}
+{}

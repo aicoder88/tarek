@@ -406,19 +406,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <div ref={formContainerRef} className="w-full max-w-2xl mx-auto bg-background" dir={formDirection}>
       <Card className="border shadow-sm">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold flex items-center space-x-2">
-            <Hammer className="h-6 w-6 text-red-600" />
+        <CardHeader className="space-y-3 sm:space-y-4">
+          <CardTitle className="text-xl sm:text-2xl font-bold flex items-center space-x-2">
+            <Hammer className="h-5 w-5 sm:h-6 sm:w-6 text-red-600" />
             <span>{t("title")}</span>
           </CardTitle>
-          <CardDescription>{t("description")}</CardDescription>
-          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+          <CardDescription className="text-sm sm:text-base">{t("description")}</CardDescription>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
             <div className="flex items-center space-x-1">
-              <Phone className="h-4 w-4" />
+              <Phone className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>{contactPhone}</span>
             </div>
             <div className="flex items-center space-x-1">
-              <Mail className="h-4 w-4" />
+              <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>{contactEmail}</span>
             </div>
           </div>
@@ -443,24 +443,24 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               {/* Request Type Selection */}
-              <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 p-6 rounded-xl border border-red-200 dark:border-red-800">
+              <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 p-4 sm:p-6 rounded-xl border border-red-200 dark:border-red-800">
                 <FormField
                   control={form.control}
                   name="requestType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-lg font-semibold flex items-center gap-2">
-                        <Hammer className="h-5 w-5 text-red-600" />
+                      <FormLabel className="text-base sm:text-lg font-semibold flex items-center gap-2">
+                        <Hammer className="h-4 w-4 sm:h-5 sm:w-5 text-red-600" />
                         {t("request.heading")}
                       </FormLabel>
                       <FormControl>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mt-3">
                           {requestOptions.map((option) => {
                             const Icon = option.icon;
                             return (
                               <div
                                 key={option.value}
-                                className={`relative border-2 rounded-lg p-4 cursor-pointer transition-all hover:shadow-md ${
+                                className={`relative border-2 rounded-lg p-3 sm:p-4 cursor-pointer transition-all hover:shadow-md active:scale-95 min-h-[80px] sm:min-h-auto ${
                                   field.value === option.value
                                     ? "border-red-500 bg-red-100 dark:bg-red-900/30"
                                     : "border-gray-200 dark:border-gray-700 hover:border-red-300"
@@ -474,11 +474,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
                                   onChange={field.onChange}
                                   className="sr-only"
                                 />
-                                <div className="flex items-start space-x-3">
-                                  <Icon className={`h-6 w-6 mt-1 ${field.value === option.value ? "text-red-600" : "text-gray-400"}`} />
+                                <div className="flex items-start space-x-2 sm:space-x-3">
+                                  <Icon className={`h-5 w-5 sm:h-6 sm:w-6 mt-0.5 sm:mt-1 flex-shrink-0 ${field.value === option.value ? "text-red-600" : "text-gray-400"}`} />
                                   <div>
-                                    <h3 className="font-semibold text-gray-900 dark:text-white">{option.label}</h3>
-                                    <p className="text-sm text-gray-600 dark:text-gray-300">{option.description}</p>
+                                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white leading-tight">{option.label}</h3>
+                                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{option.description}</p>
                                   </div>
                                 </div>
                               </div>
@@ -493,9 +493,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
               </div>
 
               {/* Basic Contact Information */}
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">{t("sections.contact")}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">{t("sections.contact")}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <FormField
                     control={form.control}
                     name="name"
@@ -583,13 +583,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
               {/* Project Details - Show for quote and consultation requests */}
               {(requestType === "quote" || requestType === "consultation") && (
-                <div className="space-y-6 bg-gray-50 dark:bg-gray-800/50 p-6 rounded-xl border">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2 flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-red-600" />
+                <div className="space-y-4 sm:space-y-6 bg-gray-50 dark:bg-gray-800/50 p-4 sm:p-6 rounded-xl border">
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white border-b pb-2 flex items-center gap-2">
+                    <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-red-600" />
                     {t("sections.project")}
                   </h3>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <FormField
                       control={form.control}
                       name="projectAddress"
@@ -746,8 +746,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
               )}
 
               {/* Additional Details */}
-              <div className="space-y-6">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">{t("sections.additional")}</h3>
+              <div className="space-y-4 sm:space-y-6">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white border-b pb-2">{t("sections.additional")}</h3>
 
                 <FormField
                   control={form.control}
@@ -819,8 +819,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 </ul>
               </div>
 
-              <div className="flex justify-end">
-                <Button type="submit" disabled={isSubmitting} className="px-8 bg-red-600 hover:bg-red-700">
+              <div className="flex justify-end pt-2">
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg font-semibold bg-red-600 hover:bg-red-700 active:scale-95 transition-all"
+                >
                   {submitLabel}
                 </Button>
               </div>
