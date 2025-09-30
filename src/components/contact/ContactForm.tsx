@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -270,6 +270,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const [errorType, setErrorType] = useState<"general" | "network" | "validation">("general");
   const formContainerRef = useRef<HTMLDivElement>(null);
 
+  // Initialize EmailJS with public key
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init({
+        publicKey: publicKey,
+      });
+      console.log('EmailJS initialized with public key');
+    }
+  }, []);
+
   const scrollFormIntoView = () => {
     formContainerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -370,8 +381,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       const result = await emailjs.send(
         serviceId,
         templateId,
-        templateParams,
-        publicKey
+        templateParams
       );
 
       console.log('Email sent successfully:', result);
