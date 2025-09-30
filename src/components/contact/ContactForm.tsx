@@ -273,9 +273,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
   // Initialize EmailJS with public key
   useEffect(() => {
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    console.log('Public key from env:', publicKey ? `${publicKey.substring(0, 5)}...` : 'MISSING');
     if (publicKey) {
       emailjs.init(publicKey);
-      console.log('EmailJS initialized with public key');
+      console.log('EmailJS initialized successfully');
+    } else {
+      console.error('EmailJS public key is missing!');
     }
   }, []);
 
