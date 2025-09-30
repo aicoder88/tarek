@@ -274,9 +274,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   useEffect(() => {
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
     if (publicKey) {
-      emailjs.init({
-        publicKey: publicKey,
-      });
+      emailjs.init(publicKey);
       console.log('EmailJS initialized with public key');
     }
   }, []);
