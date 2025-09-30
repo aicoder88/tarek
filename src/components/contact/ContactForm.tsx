@@ -454,13 +454,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
                         {t("request.heading")}
                       </FormLabel>
                       <FormControl>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mt-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mt-3 auto-rows-fr">
                           {requestOptions.map((option) => {
                             const Icon = option.icon;
                             return (
                               <div
                                 key={option.value}
-                                className={`relative border-2 rounded-lg p-3 sm:p-4 cursor-pointer transition-all hover:shadow-md active:scale-95 min-h-[100px] flex items-center ${
+                                className={`relative border-2 rounded-lg p-4 cursor-pointer transition-all hover:shadow-md active:scale-95 flex items-center ${
                                   field.value === option.value
                                     ? "border-red-500 bg-red-100 dark:bg-red-900/30"
                                     : "border-gray-200 dark:border-gray-700 hover:border-red-300"
@@ -474,11 +474,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
                                   onChange={field.onChange}
                                   className="sr-only"
                                 />
-                                <div className="flex items-start space-x-2 sm:space-x-3 w-full">
-                                  <Icon className={`h-5 w-5 sm:h-6 sm:w-6 mt-0.5 sm:mt-1 flex-shrink-0 ${field.value === option.value ? "text-red-600" : "text-gray-400"}`} />
-                                  <div className="flex-1">
-                                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white leading-tight">{option.label}</h3>
-                                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">{option.description}</p>
+                                <div className="flex items-start gap-3 w-full">
+                                  <Icon className={`h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 ${field.value === option.value ? "text-red-600" : "text-gray-400"}`} />
+                                  <div className="flex-1 min-w-0">
+                                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white leading-tight mb-1">{option.label}</h3>
+                                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-snug">{option.description}</p>
                                   </div>
                                 </div>
                               </div>
