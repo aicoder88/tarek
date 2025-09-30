@@ -312,6 +312,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
+      console.log('EmailJS Config:', {
+        serviceId: serviceId ? 'present' : 'missing',
+        templateId: templateId ? 'present' : 'missing',
+        publicKey: publicKey ? 'present' : 'missing'
+      });
+
       if (!serviceId || !templateId || !publicKey) {
         setErrorType("general");
         throw new Error('EmailJS configuration is missing. Please contact support.');
