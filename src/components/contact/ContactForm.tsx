@@ -495,7 +495,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                             return (
                               <div
                                 key={option.value}
-                                className={`relative border-2 rounded-lg p-3 sm:p-4 cursor-pointer transition-all hover:shadow-md active:scale-95 ${
+                                className={`relative border-2 rounded-lg p-4 cursor-pointer transition-all hover:shadow-md active:scale-95 ${
                                   field.value === option.value
                                     ? "border-red-500 bg-red-100 dark:bg-red-900/30"
                                     : "border-gray-200 dark:border-gray-700 hover:border-red-300"
@@ -509,11 +509,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
                                   onChange={field.onChange}
                                   className="sr-only"
                                 />
-                                <div className="flex items-start gap-2 sm:gap-3">
-                                  <Icon className={`h-5 w-5 sm:h-6 sm:w-6 flex-shrink-0 mt-0.5 ${field.value === option.value ? "text-red-600" : "text-gray-400"}`} />
-                                  <div className="flex-1 min-w-0 overflow-hidden">
-                                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white leading-tight mb-1 break-words">{option.label}</h3>
-                                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-snug break-words">{option.description}</p>
+                                <div className="flex flex-col gap-3">
+                                  <Icon className={`h-6 w-6 flex-shrink-0 ${field.value === option.value ? "text-red-600" : "text-gray-400"}`} />
+                                  <div className="space-y-1.5">
+                                    <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white leading-tight">{option.label}</h3>
+                                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{option.description}</p>
                                   </div>
                                 </div>
                               </div>
