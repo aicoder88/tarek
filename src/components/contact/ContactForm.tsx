@@ -371,7 +371,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         serviceId,
         templateId,
         templateParams,
-        { publicKey }
+        publicKey
       );
 
       console.log('Email sent successfully:', result);
