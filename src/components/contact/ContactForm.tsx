@@ -305,6 +305,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       const selectedBudget = budgetRanges.find(budget => budget.value === data.budgetRange)?.label || data.budgetRange;
       const selectedTimeline = timelineOptions.find(timeline => timeline.value === data.timelinePreference)?.label || data.timelinePreference;
       const selectedProjectType = projectTypes.find(type => type.value === data.projectType)?.label || data.projectType;
+      const selectedPermits = permitOptions.find(option => option.value === data.hasPermits)?.label || data.hasPermits;
 
       // EmailJS configuration from environment variables
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
@@ -316,30 +317,47 @@ const ContactForm: React.FC<ContactFormProps> = ({
         throw new Error('EmailJS configuration is missing. Please contact support.');
       }
 
-      // Prepare email template parameters
+      // Format all form data into a single message
+      const requestTypeLabel = data.requestType === 'quote' ? 'Quote Request' :
+                               data.requestType === 'emergency' ? 'Emergency Service Request' :
+                               'Consultation Request';
+
+      let formattedMessage = `REQUEST TYPE: ${requestTypeLabel}\n\n`;
+      formattedMessage += `=== CONTACT INFORMATION ===\n`;
+      formattedMessage += `Name: ${data.name}\n`;
+      formattedMessage += `Email: ${data.email}\n`;
+      formattedMessage += `Phone: ${data.phone}\n`;
+      formattedMessage += `Service: ${selectedService}\n\n`;
+
+      if (data.requestType === 'quote' || data.requestType === 'consultation') {
+        formattedMessage += `=== PROJECT DETAILS ===\n`;
+        if (data.projectAddress) formattedMessage += `Project Address: ${data.projectAddress}\n`;
+        if (data.projectType) formattedMessage += `Project Type: ${selectedProjectType}\n`;
+        if (data.budgetRange) formattedMessage += `Budget Range: ${selectedBudget}\n`;
+        if (data.timelinePreference) formattedMessage += `Timeline: ${selectedTimeline}\n`;
+        if (data.roomDimensions) formattedMessage += `Room Dimensions: ${data.roomDimensions}\n`;
+        if (data.hasPermits) formattedMessage += `Permits: ${selectedPermits}\n`;
+        formattedMessage += `\n`;
+      }
+
+      if (data.materialsPreference || data.accessDetails || data.specialRequirements) {
+        formattedMessage += `=== ADDITIONAL DETAILS ===\n`;
+        if (data.materialsPreference) formattedMessage += `Materials Preference: ${data.materialsPreference}\n`;
+        if (data.accessDetails) formattedMessage += `Access Details: ${data.accessDetails}\n`;
+        if (data.specialRequirements) formattedMessage += `Special Requirements: ${data.specialRequirements}\n`;
+        formattedMessage += `\n`;
+      }
+
+      formattedMessage += `=== MESSAGE ===\n${data.message}\n\n`;
+      formattedMessage += `---\n`;
+      formattedMessage += `Locale: ${locale}\n`;
+      formattedMessage += `Submitted: ${new Date().toLocaleString()}\n`;
+
+      // Prepare email template parameters (simplified for EmailJS template)
       const templateParams = {
-        to_email: 'iptmim@gmail.com',
-        from_name: data.name,
-        from_email: data.email,
-        phone: data.phone,
-        service: selectedService,
-        message: data.message,
-        reply_to: data.email,
-        // Quote request specific data
-        request_type: data.requestType,
-        project_address: data.projectAddress || 'Not specified',
-        project_type: selectedProjectType || 'Not specified',
-        budget_range: selectedBudget || 'Not specified',
-        timeline_preference: selectedTimeline || 'Not specified',
-        room_dimensions: data.roomDimensions || 'Not specified',
-        special_requirements: data.specialRequirements || 'None',
-        materials_preference: data.materialsPreference || 'Not specified',
-        has_permits: data.hasPermits || 'Not specified',
-        access_details: data.accessDetails || 'Standard access',
-        // Additional context for the email
-        subject: `New ${data.requestType === 'quote' ? 'Quote Request' : data.requestType === 'emergency' ? 'Emergency Service Request' : 'Consultation Request'} from ${data.name}`,
-        locale: locale,
-        submission_date: new Date().toLocaleString(),
+        name: data.name,
+        time: new Date().toLocaleString(),
+        message: formattedMessage,
       };
 
       // Send email using EmailJS
