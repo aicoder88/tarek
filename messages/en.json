@@ -253,6 +253,10 @@
       "description": "From small repairs to complete home transformations, we offer a wide range of services to meet your needs.",
       "cta": "View All Services"
     },
+    "slider": {
+      "previous": "Scroll left",
+      "next": "Scroll right"
+    },
     "why_choose_us": {
       "badge": "Why Choose Us",
       "title": "The Preferred Choice for Quality Construction",

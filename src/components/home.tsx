@@ -31,6 +31,21 @@ const Home = ({ locale = "en" }: HomeProps) => {
   const t = useTranslations('home');
   // Determine if RTL layout is needed
   const isRTL = locale === "ar";
+  const PrevIcon = isRTL ? ChevronRight : ChevronLeft;
+  const NextIcon = isRTL ? ChevronLeft : ChevronRight;
+  const whyChooseScrollRef = React.useRef<HTMLDivElement>(null);
+  const testimonialsScrollRef = React.useRef<HTMLDivElement>(null);
+  const scrollSlider = (ref: React.RefObject<HTMLDivElement>, direction: 'left' | 'right') => {
+    const container = ref.current;
+    if (!container) return;
+    const viewportWidth = container.clientWidth;
+    const amount = viewportWidth ? Math.max(viewportWidth * 0.8, 280) : 320;
+    const delta = direction === 'left' ? -amount : amount;
+    container.scrollBy({
+      left: isRTL ? -delta : delta,
+      behavior: 'smooth',
+    });
+  };
   const locationLines = t('contact_section.location_text').split('\n');
   const contactInfoLines = t('contact_section.contact_info_text').split('\n');
   const serviceHourLines = t('contact_section.service_hours_text').split('\n');
@@ -309,7 +324,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
 
       {/* Why Choose Us Section */}
       <section
-        className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden"
+        className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 relative md:overflow-hidden"
       >
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -342,52 +357,50 @@ const Home = ({ locale = "en" }: HomeProps) => {
             </div>
           </motion.div>
 
-          {/* Desktop: Grid layout */}
-          <div className="hidden md:grid mx-auto max-w-7xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3 lg:gap-10">
-            {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => {
-              const icons = [Award, Shield, Users];
-              const Icon = icons[i % icons.length];
-              return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
+          {/* Desktop slider controls */}
+          <div className="hidden md:flex justify-end mb-4 px-6">
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => scrollSlider(whyChooseScrollRef, 'left')}
+                aria-label={t('slider.previous')}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-red-500/30 bg-white/80 text-red-600 shadow-sm transition hover:bg-red-500 hover:text-white dark:border-red-500/40 dark:bg-gray-900/80 dark:text-red-300 dark:hover:bg-red-500/20"
               >
-                <Card className="h-full bg-white dark:bg-gray-800 border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 group overflow-hidden relative">
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 to-red-600/0 group-hover:from-red-500/5 group-hover:to-red-600/5 transition-all duration-500 pointer-events-none"></div>
-
-                  <CardHeader className="pb-4 relative">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg">
-                      <Icon className="h-7 w-7 text-white" />
-                    </div>
-                    <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="relative">
-                    <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-                      {item.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            )})}
+                <PrevIcon className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollSlider(whyChooseScrollRef, 'right')}
+                aria-label={t('slider.next')}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-red-500/30 bg-white/80 text-red-600 shadow-sm transition hover:bg-red-500 hover:text-white dark:border-red-500/40 dark:bg-gray-900/80 dark:text-red-300 dark:hover:bg-red-500/20"
+              >
+                <NextIcon className="h-5 w-5" />
+              </button>
+            </div>
           </div>
 
-          {/* Mobile: Horizontal scroll */}
-          <div className="md:hidden relative">
-            <div className="overflow-x-auto pb-6 scrollbar-hide">
-              <div className="flex gap-4 w-max px-4">
+          {/* Horizontal slider */}
+          <div className="relative">
+            <div
+              ref={whyChooseScrollRef}
+              className="overflow-x-auto snap-x snap-mandatory pb-6 scrollbar-hide"
+            >
+              <div className="grid auto-cols-[minmax(18rem,22rem)] sm:auto-cols-[minmax(20rem,24rem)] md:auto-cols-[minmax(22rem,26rem)] grid-flow-col gap-4 sm:gap-5 md:gap-6 px-4 md:px-6">
                 {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => {
                   const icons = [Award, Shield, Users];
                   const Icon = icons[i % icons.length];
                   return (
-                    <div key={i} className="w-80 flex-shrink-0">
+                    <motion.div
+                      key={i}
+                      className="snap-start w-[280px] sm:w-[300px] md:w-[340px]"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: i * 0.15 }}
+                    >
                       <Card className="h-full bg-white dark:bg-gray-800 border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 group overflow-hidden relative">
                         <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 to-red-600/0 group-hover:from-red-500/5 group-hover:to-red-600/5 transition-all duration-500 pointer-events-none"></div>
+
                         <CardHeader className="pb-4 relative">
                           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg">
                             <Icon className="h-7 w-7 text-white" />
@@ -402,14 +415,14 @@ const Home = ({ locale = "en" }: HomeProps) => {
                           </p>
                         </CardContent>
                       </Card>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
             </div>
             {/* Gradient indicators */}
-            <div className="absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+            <div className="pointer-events-none absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent" />
           </div>
         </div>
       </section>
@@ -437,7 +450,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative overflow-hidden">
+      <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-800/50 dark:to-gray-900 relative md:overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-red-500/5 rounded-full blur-[120px]"></div>
@@ -469,59 +482,44 @@ const Home = ({ locale = "en" }: HomeProps) => {
             </div>
           </motion.div>
 
-          {/* Desktop: Grid layout */}
-          <div className="hidden md:grid mx-auto max-w-6xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
-            {t.raw('testimonials.items').map((testimonial: {name: string, role: string, content: string}, i: number) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
+          {/* Desktop slider controls */}
+          <div className="hidden md:flex justify-end mb-4 px-6">
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => scrollSlider(testimonialsScrollRef, 'left')}
+                aria-label={t('slider.previous')}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-red-500/30 bg-white/80 text-red-600 shadow-sm transition hover:bg-red-500 hover:text-white dark:border-red-500/40 dark:bg-gray-900/80 dark:text-red-300 dark:hover:bg-red-500/20"
               >
-                <Card className="h-full bg-white dark:bg-gray-800 border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 group relative overflow-hidden">
-                  {/* Quote icon background */}
-                  <div className="absolute top-6 right-6 text-red-500/10 dark:text-red-400/10 text-[120px] font-serif leading-none pointer-events-none group-hover:text-red-500/20 dark:group-hover:text-red-400/20 transition-colors duration-500">"</div>
-
-                  <CardContent className="p-8 relative">
-                    <div className="flex items-center space-x-1 mb-6">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-5 w-5 fill-red-500 text-red-500 transition-transform duration-300 hover:scale-125"
-                        />
-                      ))}
-                    </div>
-                    <p className="mb-8 text-gray-700 dark:text-gray-200 text-lg leading-relaxed italic">
-                      "{testimonial.content}"
-                    </p>
-                    <div className="flex items-center pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
-                      <div className="h-14 w-14 rounded-full overflow-hidden mr-4 ring-2 ring-red-500/20 group-hover:ring-red-500/40 transition-all duration-300">
-                        <img
-                          src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${testimonial.name}`}
-                          alt={testimonial.name}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <p className="font-bold text-lg text-gray-900 dark:text-white">{testimonial.name}</p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                          {testimonial.role}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                <PrevIcon className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollSlider(testimonialsScrollRef, 'right')}
+                aria-label={t('slider.next')}
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-red-500/30 bg-white/80 text-red-600 shadow-sm transition hover:bg-red-500 hover:text-white dark:border-red-500/40 dark:bg-gray-900/80 dark:text-red-300 dark:hover:bg-red-500/20"
+              >
+                <NextIcon className="h-5 w-5" />
+              </button>
+            </div>
           </div>
 
-          {/* Mobile: Horizontal scroll */}
-          <div className="md:hidden relative">
-            <div className="overflow-x-auto pb-6 scrollbar-hide">
-              <div className="flex gap-4 w-max px-4">
+          {/* Horizontal slider */}
+          <div className="relative">
+            <div
+              ref={testimonialsScrollRef}
+              className="overflow-x-auto snap-x snap-mandatory pb-6 scrollbar-hide"
+            >
+              <div className="grid auto-cols-[minmax(18rem,22rem)] sm:auto-cols-[minmax(22rem,26rem)] md:auto-cols-[minmax(24rem,28rem)] grid-flow-col gap-4 sm:gap-5 md:gap-6 px-4 md:px-6">
                 {t.raw('testimonials.items').map((testimonial: {name: string, role: string, content: string}, i: number) => (
-                  <div key={i} className="w-80 flex-shrink-0">
+                  <motion.div
+                    key={i}
+                    className="snap-start w-[280px] sm:w-[320px] md:w-[360px]"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.15 }}
+                  >
                     <Card className="h-full bg-white dark:bg-gray-800 border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 group relative overflow-hidden">
                       <div className="absolute top-6 right-6 text-red-500/10 dark:text-red-400/10 text-[120px] font-serif leading-none pointer-events-none group-hover:text-red-500/20 dark:group-hover:text-red-400/20 transition-colors duration-500">"</div>
                       <CardContent className="p-8 relative">
@@ -553,13 +551,13 @@ const Home = ({ locale = "en" }: HomeProps) => {
                         </div>
                       </CardContent>
                     </Card>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
             {/* Gradient indicators */}
-            <div className="absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+            <div className="pointer-events-none absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent" />
           </div>
         </div>
       </section>
