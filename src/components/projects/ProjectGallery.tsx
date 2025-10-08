@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { KeyboardEventHandler, PointerEventHandler } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -42,7 +43,6 @@ interface BeforeAfterSliderProps {
 export default function ProjectGallery({ locale = "en", embedded = false }: ProjectGalleryProps) {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [beforeAfterPosition, setBeforeAfterPosition] = useState(50);
   const [activeFilter, setActiveFilter] = useState('All');
 
   const projects = [
@@ -145,75 +145,111 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
   ];
 
   const BeforeAfterSlider = ({ beforeImage, afterImage, title }: BeforeAfterSliderProps) => {
+    const sliderRef = useRef<HTMLDivElement>(null);
+    const isDraggingRef = useRef(false);
+    const [position, setPosition] = useState(50);
+
+    useEffect(() => {
+      setPosition(50);
+      isDraggingRef.current = false;
+    }, [beforeImage, afterImage]);
+
+    const updatePosition = useCallback((clientX: number) => {
+      const rect = sliderRef.current?.getBoundingClientRect();
+      if (!rect) return;
+
+      const x = clientX - rect.left;
+      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+      setPosition(percentage);
+    }, []);
+
+    const handlePointerDown: PointerEventHandler<HTMLDivElement> = (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) {
+        return;
+      }
+
+      event.preventDefault();
+      event.currentTarget.focus();
+      isDraggingRef.current = true;
+      updatePosition(event.clientX);
+
+      if (event.currentTarget.setPointerCapture) {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }
+    };
+
+    const handlePointerMove: PointerEventHandler<HTMLDivElement> = (event) => {
+      if (!isDraggingRef.current) return;
+      if (event.pointerType === 'mouse' && event.buttons !== 1) {
+        stopDragging(event);
+        return;
+      }
+
+      updatePosition(event.clientX);
+    };
+
+    const stopDragging: PointerEventHandler<HTMLDivElement> = (event) => {
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+
+      if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+      }
+
+      if (event.key === 'ArrowLeft') {
+        setPosition((prev) => Math.max(0, prev - 5));
+      }
+
+      if (event.key === 'ArrowRight') {
+        setPosition((prev) => Math.min(100, prev + 5));
+      }
+    };
+
     return (
-      <div className="relative w-full h-64 overflow-hidden rounded-xl before-after-slider">
+      <div
+        ref={sliderRef}
+        className="relative w-full h-64 overflow-hidden rounded-xl before-after-slider"
+        tabIndex={0}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={stopDragging}
+        onPointerLeave={stopDragging}
+        onPointerCancel={stopDragging}
+        onKeyDown={handleKeyDown}
+        role="slider"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(position)}
+        aria-label={`${title} before and after comparison`}
+      >
         <div className="absolute inset-0">
           <img 
             src={afterImage} 
             alt={`${title} - After`}
             className="w-full h-full object-cover"
+            draggable={false}
           />
         </div>
         <div 
           className="absolute inset-0 overflow-hidden"
-          style={{ clipPath: `inset(0 ${100 - beforeAfterPosition}% 0 0)` }}
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
           <img 
             src={beforeImage} 
             alt={`${title} - Before`}
             className="w-full h-full object-cover"
+            draggable={false}
           />
         </div>
         <div
           className="slider-handle"
-          style={{ left: `${beforeAfterPosition}%` }}
-          onMouseDown={(e) => {
-            const rect = e.currentTarget.parentElement?.getBoundingClientRect();
-            if (!rect) return;
-
-            const handleMove = (clientX: number) => {
-              const x = clientX - rect.left;
-              const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-              setBeforeAfterPosition(percentage);
-            };
-
-            const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX);
-            const handleTouchMove = (e: TouchEvent) => {
-              e.preventDefault();
-              handleMove(e.touches[0].clientX);
-            };
-
-            const handleEnd = () => {
-              document.removeEventListener('mousemove', handleMouseMove);
-              document.removeEventListener('mouseup', handleEnd);
-              document.removeEventListener('touchmove', handleTouchMove);
-              document.removeEventListener('touchend', handleEnd);
-            };
-
-            document.addEventListener('mousemove', handleMouseMove);
-            document.addEventListener('mouseup', handleEnd);
-            document.addEventListener('touchmove', handleTouchMove, { passive: false });
-            document.addEventListener('touchend', handleEnd);
-          }}
-          onTouchStart={(e) => {
-            const rect = e.currentTarget.parentElement?.getBoundingClientRect();
-            if (!rect) return;
-
-            const handleTouchMove = (e: TouchEvent) => {
-              e.preventDefault();
-              const x = e.touches[0].clientX - rect.left;
-              const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-              setBeforeAfterPosition(percentage);
-            };
-
-            const handleTouchEnd = () => {
-              document.removeEventListener('touchmove', handleTouchMove);
-              document.removeEventListener('touchend', handleTouchEnd);
-            };
-
-            document.addEventListener('touchmove', handleTouchMove, { passive: false });
-            document.addEventListener('touchend', handleTouchEnd);
-          }}
+          style={{ left: `${position}%` }}
         />
         <div className="absolute top-4 left-4">
           <Badge className="bg-black/70 text-white">Before</Badge>

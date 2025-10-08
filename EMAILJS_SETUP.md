@@ -1,6 +1,6 @@
 # EmailJS Setup Instructions
 
-The contact form has been configured to use EmailJS to send emails to `iptmim@gmail.com`. Follow these steps to complete the setup:
+The contact form has been configured to use EmailJS to send emails to `tarek.mankash@gmail.com`. Follow these steps to complete the setup:
 
 ## 1. Create EmailJS Account
 
@@ -13,7 +13,7 @@ The contact form has been configured to use EmailJS to send emails to `iptmim@gm
 1. In your EmailJS dashboard, go to **Email Services**
 2. Click **Add New Service**
 3. Choose your email provider (Gmail recommended)
-4. Connect your Gmail account (iptmim@gmail.com)
+4. Connect your Gmail account (tarek.mankash@gmail.com)
 5. Note down the **Service ID** (looks like `service_xxxxxxx`)
 
 ## 3. Create Email Template
@@ -43,7 +43,7 @@ Reply directly to this email to respond to {{from_name}} at {{from_email}}.
 ```
 
 4. Set the template settings:
-   - **To Email**: iptmim@gmail.com
+   - **To Email**: tarek.mankash@gmail.com
    - **From Name**: TrueNorth Construction Website
    - **From Email**: Use the email you connected in step 2
    - **Reply To**: {{reply_to}}
@@ -70,7 +70,7 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_actual_public_key
 1. Start your development server: `npm run dev`
 2. Navigate to the contact form on your website
 3. Fill out and submit the form
-4. Check the email at iptmim@gmail.com
+4. Check the email at tarek.mankash@gmail.com
 
 ## Form Fields Included in Email
 
@@ -87,7 +87,7 @@ The following form fields are automatically included in the email:
 ## Security Notes
 
 - EmailJS runs on the client-side, so your public key is safe to expose
-- The recipient email (iptmim@gmail.com) is hardcoded in the component for security
+- The recipient email (tarek.mankash@gmail.com) is hardcoded in the component for security
 - All form validation is handled client-side with Zod schema validation
 
 ## Troubleshooting
