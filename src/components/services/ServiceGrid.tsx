@@ -389,7 +389,7 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
           <div className="relative">
             <div className="overflow-x-auto pb-6 mb-6 scrollbar-hide">
               <div className="flex gap-4 w-max pl-2 pr-2">
-                {displayServices.slice(0, 6).map((service, index) => (
+                {displayServices.map((service, index) => (
                   <div key={index} className="w-72 flex-shrink-0">
                     <ServiceCard
                       image={service.image}
@@ -409,30 +409,6 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
             <div className="absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           </div>
 
-          {/* Additional services hint */}
-          {displayServices.length > 6 && (
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-muted/50 rounded-full text-sm text-muted-foreground">
-                <span>+{displayServices.length - 6} more services below</span>
-                <div className="w-1 h-1 rounded-full bg-primary animate-bounce" />
-              </div>
-            </div>
-          )}
-
-          {/* Additional services grid */}
-          <div className="grid grid-cols-1 gap-4">
-            {displayServices.slice(6).map((service, index) => (
-              <ServiceCard
-                key={index + 6}
-                image={service.image}
-                title={service.title}
-                description={service.description}
-                href={service.href}
-                icon={service.icon}
-                gradient={service.gradient}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </div>
