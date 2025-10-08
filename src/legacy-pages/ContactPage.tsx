@@ -25,9 +25,9 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
     {
       icon: Mail,
       title: locale === "en" ? "Email" : locale === "fr" ? "Email" : "بريد إلكتروني",
-      value: "info@truenorthconstruction.com",
+      value: "tarek.mankash@gmail.com",
       description: locale === "en" ? "Send us your questions anytime" : locale === "fr" ? "Envoyez-nous vos questions à tout moment" : "أرسل لنا أسئلتك في أي وقت",
-      href: "mailto:info@truenorthconstruction.com",
+      href: "mailto:tarek.mankash@gmail.com",
       available: locale === "en" ? "Response within 24 hours" : locale === "fr" ? "Réponse dans les 24 heures" : "الرد خلال 24 ساعة"
     },
     {
@@ -309,7 +309,7 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="mailto:info@truenorthconstruction.com">
+                <a href="mailto:tarek.mankash@gmail.com">
                   <Mail className="h-4 w-4 mr-2" />
                   {locale === "en" ? "Email Us" : locale === "fr" ? "Envoyez-nous un email" : "راسلنا"}
                 </a>

@@ -118,13 +118,13 @@
       "placeholders": {
         "name": "Jean Dupont",
         "phone": "(647) 860-5500",
-        "email": "jean@example.com",
+        "email": "tarek.mankash@gmail.com",
         "message": "Parlez-nous de votre projet..."
       }
     },
     "info": {
       "phone": "(647) 860-5500",
-      "email": "info@truenorthconstruction.com",
+      "email": "tarek.mankash@gmail.com",
       "address": "Centre-ville de Montréal, Québec, Canada",
       "hours": "Lun-Ven : 8 h 00 - 18 h 00\nSam : 9 h 00 - 17 h 00\nDim : 10 h 00 - 16 h 00"
     },
@@ -326,7 +326,7 @@
       "location_title": "Notre emplacement",
       "location_text": "Centre-ville de Montréal, Québec, Canada\nService national disponible",
       "contact_info_title": "Informations de contact",
-      "contact_info_text": "Email: info@truenorthconstruction.com\nTéléphone: (647) 860-5500\nSite web: truenorthconstruction.com",
+      "contact_info_text": "Email: tarek.mankash@gmail.com\nTéléphone: (647) 860-5500\nSite web: truenorthconstruction.com",
       "service_hours_title": "Heures de service",
       "service_hours_text": "Lundi - Vendredi: 8h00 - 18h00\nSamedi: 9h00 - 17h00\nDimanche: 10h00 - 16h00"
     },
@@ -341,7 +341,7 @@
     "title": "Contactez TrueNorth Construction",
     "description": "Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures pour discuter de votre projet de construction ou de rénovation.",
     "contact_phone": "(647) 860-5500",
-    "contact_email": "info@truenorthconstruction.com",
+    "contact_email": "tarek.mankash@gmail.com",
     "request": {
       "heading": "Comment pouvons-nous vous aider ?",
       "options": {

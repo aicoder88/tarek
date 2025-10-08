@@ -170,6 +170,8 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .before-after-slider .slider-handle {

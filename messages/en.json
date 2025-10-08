@@ -118,13 +118,13 @@
       "placeholders": {
         "name": "John Doe",
         "phone": "(647) 860-5500",
-        "email": "john@example.com",
+        "email": "tarek.mankash@gmail.com",
         "message": "Tell us about your project..."
       }
     },
     "info": {
       "phone": "(647) 860-5500",
-      "email": "info@truenorthconstruction.com",
+      "email": "tarek.mankash@gmail.com",
       "address": "Downtown Montreal, Quebec, Canada",
       "hours": "Mon-Fri: 8:00 AM - 6:00 PM\nSat: 9:00 AM - 5:00 PM\nSun: 10:00 AM - 4:00 PM"
     },
@@ -326,7 +326,7 @@
       "location_title": "Our Location",
       "location_text": "Downtown Montreal, Quebec, Canada\nNationwide Service Available",
       "contact_info_title": "Contact Information",
-      "contact_info_text": "Email: info@truenorthconstruction.com\nPhone: (647) 860-5500\nWebsite: truenorthconstruction.com",
+      "contact_info_text": "Email: tarek.mankash@gmail.com\nPhone: (647) 860-5500\nWebsite: truenorthconstruction.com",
       "service_hours_title": "Service Hours",
       "service_hours_text": "Monday - Friday: 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSunday: 10:00 AM - 4:00 PM"
     },
@@ -341,7 +341,7 @@
     "title": "Contact TrueNorth Construction",
     "description": "Fill out the form below and we'll get back to you within 24 hours to discuss your construction or renovation project.",
     "contact_phone": "(647) 860-5500",
-    "contact_email": "info@truenorthconstruction.com",
+    "contact_email": "tarek.mankash@gmail.com",
     "request": {
       "heading": "What can we help you with?",
       "options": {
