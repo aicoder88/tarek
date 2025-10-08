@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Sparkles, Award, Shield, Users } from "lucide-react";
+import { ArrowRight, Star, Sparkles, Award, Shield, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
 import { Button } from "./ui/button";
@@ -331,8 +331,19 @@ const Home = ({ locale = "en" }: HomeProps) => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white px-4">
               {t('why_choose_us.title')}
             </h2>
+            <div className="flex items-center gap-2 sm:hidden">
+              <div className="flex items-center gap-2 bg-red-500/10 px-4 py-2 rounded-full border-2 border-red-500/20">
+                <span className="text-sm font-medium text-red-600 dark:text-red-400">Swipe to explore</span>
+                <div className="flex items-center gap-1">
+                  <ChevronLeft className="h-4 w-4 text-red-600 dark:text-red-400 animate-bounce" />
+                  <ChevronRight className="h-4 w-4 text-red-600 dark:text-red-400 animate-bounce" />
+                </div>
+              </div>
+            </div>
           </motion.div>
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3 lg:gap-10">
+
+          {/* Desktop: Grid layout */}
+          <div className="hidden md:grid mx-auto max-w-7xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3 lg:gap-10">
             {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => {
               const icons = [Award, Shield, Users];
               const Icon = icons[i % icons.length];
@@ -364,6 +375,41 @@ const Home = ({ locale = "en" }: HomeProps) => {
                 </Card>
               </motion.div>
             )})}
+          </div>
+
+          {/* Mobile: Horizontal scroll */}
+          <div className="md:hidden relative">
+            <div className="overflow-x-auto pb-6 scrollbar-hide">
+              <div className="flex gap-4 w-max px-4">
+                {t.raw('why_choose_us.items').map((item: {title: string, description: string}, i: number) => {
+                  const icons = [Award, Shield, Users];
+                  const Icon = icons[i % icons.length];
+                  return (
+                    <div key={i} className="w-80 flex-shrink-0">
+                      <Card className="h-full bg-white dark:bg-gray-800 border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 group overflow-hidden relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-500/0 to-red-600/0 group-hover:from-red-500/5 group-hover:to-red-600/5 transition-all duration-500 pointer-events-none"></div>
+                        <CardHeader className="pb-4 relative">
+                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-lg">
+                            <Icon className="h-7 w-7 text-white" />
+                          </div>
+                          <CardTitle className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
+                            {item.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="relative">
+                          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+                            {item.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* Gradient indicators */}
+            <div className="absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           </div>
         </div>
       </section>
@@ -412,8 +458,19 @@ const Home = ({ locale = "en" }: HomeProps) => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl text-gray-900 dark:text-white px-4">
               {t('testimonials.title')}
             </h2>
+            <div className="flex items-center gap-2 sm:hidden">
+              <div className="flex items-center gap-2 bg-red-500/10 px-4 py-2 rounded-full border-2 border-red-500/20">
+                <span className="text-sm font-medium text-red-600 dark:text-red-400">Swipe to explore</span>
+                <div className="flex items-center gap-1">
+                  <ChevronLeft className="h-4 w-4 text-red-600 dark:text-red-400 animate-bounce" />
+                  <ChevronRight className="h-4 w-4 text-red-600 dark:text-red-400 animate-bounce" />
+                </div>
+              </div>
+            </div>
           </motion.div>
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
+
+          {/* Desktop: Grid layout */}
+          <div className="hidden md:grid mx-auto max-w-6xl grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
             {t.raw('testimonials.items').map((testimonial: {name: string, role: string, content: string}, i: number) => (
               <motion.div
                 key={i}
@@ -457,6 +514,52 @@ const Home = ({ locale = "en" }: HomeProps) => {
                 </Card>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile: Horizontal scroll */}
+          <div className="md:hidden relative">
+            <div className="overflow-x-auto pb-6 scrollbar-hide">
+              <div className="flex gap-4 w-max px-4">
+                {t.raw('testimonials.items').map((testimonial: {name: string, role: string, content: string}, i: number) => (
+                  <div key={i} className="w-80 flex-shrink-0">
+                    <Card className="h-full bg-white dark:bg-gray-800 border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 group relative overflow-hidden">
+                      <div className="absolute top-6 right-6 text-red-500/10 dark:text-red-400/10 text-[120px] font-serif leading-none pointer-events-none group-hover:text-red-500/20 dark:group-hover:text-red-400/20 transition-colors duration-500">"</div>
+                      <CardContent className="p-8 relative">
+                        <div className="flex items-center space-x-1 mb-6">
+                          {[...Array(5)].map((_, j) => (
+                            <Star
+                              key={j}
+                              className="h-5 w-5 fill-red-500 text-red-500 transition-transform duration-300 hover:scale-125"
+                            />
+                          ))}
+                        </div>
+                        <p className="mb-8 text-gray-700 dark:text-gray-200 text-lg leading-relaxed italic">
+                          "{testimonial.content}"
+                        </p>
+                        <div className="flex items-center pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
+                          <div className="h-14 w-14 rounded-full overflow-hidden mr-4 ring-2 ring-red-500/20 group-hover:ring-red-500/40 transition-all duration-300">
+                            <img
+                              src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${testimonial.name}`}
+                              alt={testimonial.name}
+                              className="h-full w-full object-cover"
+                            />
+                          </div>
+                          <div>
+                            <p className="font-bold text-lg text-gray-900 dark:text-white">{testimonial.name}</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                              {testimonial.role}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Gradient indicators */}
+            <div className="absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
           </div>
         </div>
       </section>
