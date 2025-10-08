@@ -253,6 +253,10 @@
       "description": "Des petites réparations aux transformations complètes de maisons, nous offrons une large gamme de services pour répondre à vos besoins.",
       "cta": "Voir tous les services"
     },
+    "slider": {
+      "previous": "Faire défiler vers la gauche",
+      "next": "Faire défiler vers la droite"
+    },
     "why_choose_us": {
       "badge": "Pourquoi nous choisir",
       "title": "Le choix préféré pour une construction de qualité",
