@@ -334,7 +334,7 @@ const AboutPage = ({ locale = "en" }: AboutPageProps) => {
                 {locale === "en" ? "Book Your Service" : locale === "fr" ? "Réservez votre service" : "احجز خدمتك"}
               </Button>
               <Button size="lg" variant="outline">
-                {locale === "en" ? "Call (647) 860-5500" : locale === "fr" ? "Appelez (647) 860-5500" : "اتصل (647) 860-5500"}
+                {locale === "en" ? "Call +1 438 226 3391" : locale === "fr" ? "Appelez +1 438 226 3391" : "اتصل +1 438 226 3391"}
               </Button>
             </div>
           </div>

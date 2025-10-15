@@ -51,7 +51,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'Ready for New Flooring?',
         ctaSubtitle: 'Contact us today for a free flooring consultation and quote.',
         primaryCTA: 'Book Your Flooring Estimate Today',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       },
       fr: {
         title: 'Services de Revêtement de Sol Professionnels',
@@ -88,7 +88,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'Prêt pour un Nouveau Revêtement de Sol?',
         ctaSubtitle: 'Contactez-nous aujourd\'hui pour une consultation et un devis gratuits.',
         primaryCTA: 'Réservez Votre Estimation de Revêtement Aujourd\'hui',
-        secondaryCTA: 'Appelez Maintenant: (647) 860-5500'
+        secondaryCTA: 'Appelez Maintenant: +1 438 226 3391'
       },
       ar: {
         title: 'خدمات الأرضيات المهنية',
@@ -125,7 +125,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'جاهز لأرضيات جديدة؟',
         ctaSubtitle: 'تواصل معنا اليوم للحصول على استشارة وعرض سعر مجاني للأرضيات.',
         primaryCTA: 'احجز تقدير الأرضيات اليوم',
-        secondaryCTA: 'اتصل الآن: (647) 860-5500'
+        secondaryCTA: 'اتصل الآن: +1 438 226 3391'
       }
     },
     'kitchen-remodeling': {
@@ -159,7 +159,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'Ready for Your Dream Kitchen?',
         ctaSubtitle: 'Contact us today for a free kitchen renovation consultation.',
         primaryCTA: 'Get a Kitchen Renovation Quote',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       },
       fr: {
         title: 'Excellence en Rénovation de Cuisine',
@@ -191,7 +191,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'Prêt pour Votre Cuisine de Rêve?',
         ctaSubtitle: 'Contactez-nous aujourd\'hui pour une consultation gratuite de rénovation de cuisine.',
         primaryCTA: 'Obtenez un Devis de Rénovation de Cuisine',
-        secondaryCTA: 'Appelez Maintenant: (647) 860-5500'
+        secondaryCTA: 'Appelez Maintenant: +1 438 226 3391'
       },
       ar: {
         title: 'تميز في تجديد المطابخ',
@@ -223,7 +223,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'جاهز لمطبخ أحلامك؟',
         ctaSubtitle: 'تواصل معنا اليوم للحصول على استشارة مجانية لتجديد المطبخ.',
         primaryCTA: 'احصل على عرض سعر تجديد المطبخ',
-        secondaryCTA: 'اتصل الآن: (647) 860-5500'
+        secondaryCTA: 'اتصل الآن: +1 438 226 3391'
       }
     },
     'bathroom-renovation': {
@@ -257,7 +257,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'Ready for Your Spa-Like Bathroom?',
         ctaSubtitle: 'Contact us today for a free bathroom renovation consultation.',
         primaryCTA: 'Schedule a Bathroom Makeover Estimate',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       },
       fr: {
         title: 'Spécialistes en Rénovation de Salle de Bain',
@@ -289,7 +289,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'Prêt pour Votre Salle de Bain Type Spa?',
         ctaSubtitle: 'Contactez-nous aujourd\'hui pour une consultation gratuite de rénovation de salle de bain.',
         primaryCTA: 'Planifiez une Estimation de Relooking de Salle de Bain',
-        secondaryCTA: 'Appelez Maintenant: (647) 860-5500'
+        secondaryCTA: 'Appelez Maintenant: +1 438 226 3391'
       },
       ar: {
         title: 'متخصصو تجديد الحمامات',
@@ -321,7 +321,7 @@ export const getServiceData = (serviceType: string, locale: string = 'en'): Serv
         ctaTitle: 'جاهز لحمامك الذي يشبه السبا؟',
         ctaSubtitle: 'تواصل معنا اليوم للحصول على استشارة مجانية لتجديد الحمام.',
         primaryCTA: 'جدولة تقدير تجديد الحمام',
-        secondaryCTA: 'اتصل الآن: (647) 860-5500'
+        secondaryCTA: 'اتصل الآن: +1 438 226 3391'
       }
     }
   };

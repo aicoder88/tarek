@@ -117,13 +117,13 @@
       "other_option": "أخرى",
       "placeholders": {
         "name": "أحمد علي",
-        "phone": "(647) 860-5500",
+        "phone": "+1 438 226 3391",
         "email": "tarek.mankash@gmail.com",
         "message": "أخبرنا عن مشروعك..."
       }
     },
     "info": {
-      "phone": "(647) 860-5500",
+      "phone": "+1 438 226 3391",
       "email": "tarek.mankash@gmail.com",
       "address": "وسط مدينة مونتريال، كيبيك، كندا",
       "hours": "الإثنين-الجمعة: 8:00 ص - 6:00 م\nالسبت: 9:00 ص - 5:00 م\nالأحد: 10:00 ص - 4:00 م"
@@ -310,7 +310,7 @@
       "location_title": "موقعنا",
       "location_text": "تورونتو، أونتاريو، كندا\nخدمة متنقلة متاحة",
       "contact_info_title": "معلومات الاتصال",
-      "contact_info_text": "البريد الإلكتروني: tarek.mankash@gmail.com\nالهاتف: (647) 860-5500\nالموقع: truenorthconstruction.com",
+      "contact_info_text": "البريد الإلكتروني: tarek.mankash@gmail.com\nالهاتف: +1 438 226 3391\nالموقع: truenorthconstruction.com",
       "service_hours_title": "ساعات الخدمة",
       "service_hours_text": "الاثنين - الجمعة: 8:00 صباحًا - 6:00 مساءً\nالسبت: 9:00 صباحًا - 5:00 مساءً\nالأحد: 10:00 صباحًا - 4:00 مساءً"
     },
@@ -324,7 +324,7 @@
   "contact_form": {
     "title": "اتصل بـ TrueNorth Construction",
     "description": "املأ النموذج أدناه وسنعاود الاتصال بك خلال 24 ساعة لمناقشة مشروع البناء أو التجديد الخاص بك.",
-    "contact_phone": "(647) 860-5500",
+    "contact_phone": "+1 438 226 3391",
     "contact_email": "tarek.mankash@gmail.com",
     "request": {
       "heading": "كيف يمكننا مساعدتك؟",
@@ -477,7 +477,7 @@
     },
     "error": {
       "title": "خطأ في الإرسال",
-      "general": "حدثت مشكلة في إرسال طلبك. يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة على (647) 860-5500.",
+      "general": "حدثت مشكلة في إرسال طلبك. يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة على +1 438 226 3391.",
       "network": "خطأ في الشبكة. يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى.",
       "validation": "يرجى التحقق من النموذج للأخطاء والمحاولة مرة أخرى."
     },
