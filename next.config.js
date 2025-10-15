@@ -22,6 +22,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  // Allow ESLint warnings during build (but still show them)
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
 };
 
 export default withNextIntl(nextConfig);

@@ -13,7 +13,6 @@ interface ProjectsPageProps {
 
 const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
   const isRTL = locale === "ar";
-  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   const projects = [
     {
@@ -223,7 +222,7 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
                   </p>
                   
                   <div className="bg-muted/50 p-3 rounded-lg mb-4">
-                    <p className="text-sm italic">"{project.testimonial}"</p>
+                    <p className="text-sm italic">&ldquo;{project.testimonial}&rdquo;</p>
                     <p className="text-xs text-muted-foreground mt-1">- {project.client}</p>
                   </div>
                   
@@ -278,7 +277,7 @@ const ProjectsPage = ({ locale = "en" }: ProjectsPageProps) => {
                           <h3 className="font-semibold mb-2">
                             {locale === "en" ? "Client Testimonial" : locale === "fr" ? "Témoignage client" : "شهادة العميل"}
                           </h3>
-                          <p className="italic">"{project.testimonial}"</p>
+                          <p className="italic">&ldquo;{project.testimonial}&rdquo;</p>
                           <p className="text-sm text-muted-foreground mt-2">- {project.client}</p>
                         </div>
                       </div>

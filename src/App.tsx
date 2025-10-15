@@ -10,6 +10,9 @@ import { ThemeProvider } from "./providers/ThemeProvider";
 import { LocaleProvider } from "./providers/LocaleProvider";
 
 function App() {
+  const tempoRoutes = useRoutes(routes);
+  const isTempoEnabled = import.meta.env.VITE_TEMPO === "true";
+
   return (
     <ThemeProvider defaultTheme="dark">
       <LocaleProvider defaultLocale="en">
@@ -22,7 +25,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
-            {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
+            {isTempoEnabled && tempoRoutes}
           </>
         </Suspense>
       </LocaleProvider>

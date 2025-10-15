@@ -149,17 +149,21 @@ Submitted: ${new Date().toLocaleString()}
 
       // Scroll to top to show success message
       scrollFormIntoView();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Form submission error:", error);
 
       // Determine error type for better user feedback
       if (error instanceof EmailJSResponseStatus) {
         console.error('EmailJS error status:', error.status, error.text);
         setErrorType("network");
-      } else if (error?.message?.includes('network') || error?.message?.includes('fetch')) {
-        setErrorType("network");
-      } else if (error?.message?.includes('validation') || error?.message?.includes('required')) {
-        setErrorType("validation");
+      } else if (error instanceof Error) {
+        if (error.message.includes('network') || error.message.includes('fetch')) {
+          setErrorType("network");
+        } else if (error.message.includes('validation') || error.message.includes('required')) {
+          setErrorType("validation");
+        } else {
+          setErrorType("general");
+        }
       } else {
         setErrorType("general");
       }

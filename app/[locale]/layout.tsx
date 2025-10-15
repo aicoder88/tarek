@@ -13,7 +13,7 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const messages = (await import(`../../messages/${locale}.json`)).default as Record<string, any>;
+  const messages = (await import(`../../messages/${locale}.json`)).default as Record<string, unknown>;
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className="scroll-smooth" suppressHydrationWarning>

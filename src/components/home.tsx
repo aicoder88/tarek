@@ -519,7 +519,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
                     transition={{ duration: 0.6, delay: i * 0.15 }}
                   >
                     <Card className="h-full bg-white dark:bg-gray-800 border-gray-200/60 dark:border-gray-700/60 hover:border-red-300 dark:hover:border-red-700 transition-all duration-500 hover:shadow-2xl hover:shadow-red-500/10 group relative overflow-hidden">
-                      <div className="absolute top-6 right-6 text-red-500/10 dark:text-red-400/10 text-[120px] font-serif leading-none pointer-events-none group-hover:text-red-500/20 dark:group-hover:text-red-400/20 transition-colors duration-500">"</div>
+                      <div className="absolute top-6 right-6 text-red-500/10 dark:text-red-400/10 text-[120px] font-serif leading-none pointer-events-none group-hover:text-red-500/20 dark:group-hover:text-red-400/20 transition-colors duration-500">&ldquo;</div>
                       <CardContent className="p-8 relative">
                         <div className="flex items-center space-x-1 mb-6">
                           {[...Array(5)].map((_, j) => (
