@@ -147,20 +147,32 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
   const BeforeAfterSlider = ({ beforeImage, afterImage, title }: BeforeAfterSliderProps) => {
     const sliderRef = useRef<HTMLDivElement>(null);
     const isDraggingRef = useRef(false);
+    const rafRef = useRef<number | null>(null);
     const [position, setPosition] = useState(50);
 
     useEffect(() => {
       setPosition(50);
       isDraggingRef.current = false;
+      return () => {
+        if (rafRef.current) {
+          cancelAnimationFrame(rafRef.current);
+        }
+      };
     }, [beforeImage, afterImage]);
 
     const updatePosition = useCallback((clientX: number) => {
-      const rect = sliderRef.current?.getBoundingClientRect();
-      if (!rect) return;
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
 
-      const x = clientX - rect.left;
-      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-      setPosition(percentage);
+      rafRef.current = requestAnimationFrame(() => {
+        const rect = sliderRef.current?.getBoundingClientRect();
+        if (!rect) return;
+
+        const x = clientX - rect.left;
+        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        setPosition(percentage);
+      });
     }, []);
 
     const handlePointerDown: PointerEventHandler<HTMLDivElement> = (event) => {

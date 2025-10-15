@@ -172,10 +172,6 @@
     "subtitle": "Get answers to common questions about our services",
     "items": [
       {
-        "question": "How long does a typical renovation project take?",
-        "answer": "Project timelines vary depending on the scope and complexity. Kitchen renovations typically take 2-4 weeks, bathroom renovations 1-2 weeks, and full home renovations can take 2-6 months. We provide detailed timelines during our initial consultation."
-      },
-      {
         "question": "Do you provide free estimates?",
         "answer": "Yes, we provide completely free, no-obligation estimates for all our services. Our team will visit your property, assess your needs, and provide a detailed written estimate within 24-48 hours."
       },
@@ -184,24 +180,12 @@
         "answer": "Absolutely. We are fully licensed contractors and carry comprehensive liability insurance and workers' compensation coverage. All our work comes with warranties, and we can provide proof of insurance upon request."
       },
       {
-        "question": "What areas do you serve?",
-        "answer": "We serve all of Canada with our base located in Downtown Montreal, Quebec. Contact us to confirm service availability and travel arrangements for your specific location."
-      },
-      {
-        "question": "Do you handle permits and inspections?",
-        "answer": "Yes, we handle all necessary permits and coordinate inspections as required by local building codes. This is included in our comprehensive project management service to ensure your project meets all regulatory requirements."
-      },
-      {
-        "question": "What payment methods do you accept?",
-        "answer": "We accept various payment methods including cash, check, credit cards, and bank transfers. Payment schedules are typically structured with a small deposit to start, progress payments during construction, and final payment upon completion."
+        "question": "How long does a typical renovation project take?",
+        "answer": "Project timelines vary depending on the scope and complexity. Kitchen renovations typically take 2-4 weeks, bathroom renovations 1-2 weeks, and full home renovations can take 2-6 months. We provide detailed timelines during our initial consultation."
       },
       {
         "question": "Do you offer warranties on your work?",
         "answer": "Yes, we stand behind our work with comprehensive warranties. Most of our work comes with a 1-year warranty on workmanship, and materials carry manufacturer warranties. We also provide ongoing support and maintenance services."
-      },
-      {
-        "question": "Can you work within my budget?",
-        "answer": "We work with clients of all budget ranges and can often suggest alternatives or phased approaches to help you achieve your goals within your budget. During our consultation, we'll discuss your priorities and find cost-effective solutions."
       }
     ]
   },
