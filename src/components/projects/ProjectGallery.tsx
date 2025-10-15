@@ -147,67 +147,62 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
   const BeforeAfterSlider = ({ beforeImage, afterImage, title }: BeforeAfterSliderProps) => {
     const sliderRef = useRef<HTMLDivElement>(null);
     const isDraggingRef = useRef(false);
-    const rafRef = useRef<number | null>(null);
     const [position, setPosition] = useState(50);
 
     useEffect(() => {
       setPosition(50);
       isDraggingRef.current = false;
-      return () => {
-        if (rafRef.current) {
-          cancelAnimationFrame(rafRef.current);
-        }
-      };
     }, [beforeImage, afterImage]);
 
     const updatePosition = useCallback((clientX: number) => {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      const rect = sliderRef.current?.getBoundingClientRect();
+      if (!rect) return;
 
-      rafRef.current = requestAnimationFrame(() => {
-        const rect = sliderRef.current?.getBoundingClientRect();
-        if (!rect) return;
-
-        const x = clientX - rect.left;
-        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-        setPosition(percentage);
-      });
+      const x = clientX - rect.left;
+      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+      setPosition(percentage);
     }, []);
 
-    const handlePointerDown: PointerEventHandler<HTMLDivElement> = (event) => {
+    const handlePointerDown: PointerEventHandler<HTMLDivElement> = useCallback((event) => {
       if (event.pointerType === 'mouse' && event.button !== 0) {
         return;
       }
 
       event.preventDefault();
-      event.currentTarget.focus();
+      event.stopPropagation();
       isDraggingRef.current = true;
+
+      // Update immediately on touch start
       updatePosition(event.clientX);
 
       if (event.currentTarget.setPointerCapture) {
         event.currentTarget.setPointerCapture(event.pointerId);
       }
-    };
+    }, [updatePosition]);
 
-    const handlePointerMove: PointerEventHandler<HTMLDivElement> = (event) => {
+    const handlePointerMove: PointerEventHandler<HTMLDivElement> = useCallback((event) => {
       if (!isDraggingRef.current) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
       if (event.pointerType === 'mouse' && event.buttons !== 1) {
-        stopDragging(event);
+        isDraggingRef.current = false;
         return;
       }
 
       updatePosition(event.clientX);
-    };
+    }, [updatePosition]);
 
-    const stopDragging: PointerEventHandler<HTMLDivElement> = (event) => {
+    const handlePointerUp: PointerEventHandler<HTMLDivElement> = useCallback((event) => {
       if (!isDraggingRef.current) return;
+
       isDraggingRef.current = false;
 
       if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
         event.currentTarget.releasePointerCapture(event.pointerId);
       }
-    };
+    }, []);
 
     const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -230,9 +225,9 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
         tabIndex={0}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
-        onPointerUp={stopDragging}
-        onPointerLeave={stopDragging}
-        onPointerCancel={stopDragging}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
+        onPointerCancel={handlePointerUp}
         onKeyDown={handleKeyDown}
         role="slider"
         aria-valuemin={0}
@@ -263,10 +258,10 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
           className="slider-handle"
           style={{ left: `${position}%` }}
         />
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 left-4 pointer-events-none">
           <Badge className="bg-black/70 text-white">Before</Badge>
         </div>
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-4 right-4 pointer-events-none">
           <Badge className="bg-red-600 text-white">After</Badge>
         </div>
       </div>
