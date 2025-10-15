@@ -1,12 +1,12 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { KeyboardEventHandler, PointerEventHandler } from 'react';
+import type { KeyboardEventHandler, PointerEventHandler, TouchEventHandler } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { ChevronLeft, ChevronRight, Star, Calendar, MapPin, Eye, ArrowRight } from 'lucide-react';
+import { Star, Calendar, MapPin, Eye, ArrowRight } from 'lucide-react';
 
 interface Project {
   id: number;
@@ -148,20 +148,85 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
     const sliderRef = useRef<HTMLDivElement>(null);
     const isDraggingRef = useRef(false);
     const [position, setPosition] = useState(50);
+    const supportsPointerEvents = typeof window !== 'undefined' && window.PointerEvent != null;
+
+    const updatePosition = useCallback((clientX: number | null | undefined) => {
+      if (typeof clientX !== 'number') return;
+
+      const rect = sliderRef.current?.getBoundingClientRect();
+      if (!rect || rect.width === 0) return;
+
+      const clampedX = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+      setPosition((clampedX / rect.width) * 100);
+    }, []);
+
+    const startDragging = useCallback((clientX: number | null | undefined) => {
+      isDraggingRef.current = true;
+      updatePosition(clientX);
+    }, [updatePosition]);
+
+    const stopDragging = useCallback(() => {
+      if (!isDraggingRef.current) return;
+      isDraggingRef.current = false;
+    }, []);
 
     useEffect(() => {
       setPosition(50);
       isDraggingRef.current = false;
     }, [beforeImage, afterImage]);
 
-    const updatePosition = useCallback((clientX: number) => {
-      const rect = sliderRef.current?.getBoundingClientRect();
-      if (!rect) return;
+    useEffect(() => {
+      if (typeof window === 'undefined') return;
 
-      const x = clientX - rect.left;
-      const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-      setPosition(percentage);
-    }, []);
+      if (window.PointerEvent) {
+        const handleWindowPointerMove = (event: PointerEvent) => {
+          if (!isDraggingRef.current) return;
+          if (event.pointerType === 'mouse' && event.buttons === 0) {
+            isDraggingRef.current = false;
+            return;
+          }
+          updatePosition(event.clientX);
+        };
+
+        const handleWindowPointerUp = () => {
+          stopDragging();
+        };
+
+        window.addEventListener('pointermove', handleWindowPointerMove);
+        window.addEventListener('pointerup', handleWindowPointerUp);
+        window.addEventListener('pointercancel', handleWindowPointerUp);
+
+        return () => {
+          window.removeEventListener('pointermove', handleWindowPointerMove);
+          window.removeEventListener('pointerup', handleWindowPointerUp);
+          window.removeEventListener('pointercancel', handleWindowPointerUp);
+        };
+      }
+
+      const handleWindowTouchMove = (event: TouchEvent) => {
+        if (!isDraggingRef.current) return;
+        const touch = event.touches[0];
+        if (!touch) return;
+        event.preventDefault();
+        updatePosition(touch.clientX);
+      };
+
+      const handleWindowTouchEnd = () => {
+        stopDragging();
+      };
+
+      const touchMoveOptions: AddEventListenerOptions = { passive: false };
+
+      window.addEventListener('touchmove', handleWindowTouchMove, touchMoveOptions);
+      window.addEventListener('touchend', handleWindowTouchEnd);
+      window.addEventListener('touchcancel', handleWindowTouchEnd);
+
+      return () => {
+        window.removeEventListener('touchmove', handleWindowTouchMove, touchMoveOptions);
+        window.removeEventListener('touchend', handleWindowTouchEnd);
+        window.removeEventListener('touchcancel', handleWindowTouchEnd);
+      };
+    }, [stopDragging, updatePosition]);
 
     const handlePointerDown: PointerEventHandler<HTMLDivElement> = useCallback((event) => {
       if (event.pointerType === 'mouse' && event.button !== 0) {
@@ -170,15 +235,10 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
 
       event.preventDefault();
       event.stopPropagation();
-      isDraggingRef.current = true;
+      startDragging(event.clientX);
 
-      // Update immediately on touch start
-      updatePosition(event.clientX);
-
-      if (event.currentTarget.setPointerCapture) {
-        event.currentTarget.setPointerCapture(event.pointerId);
-      }
-    }, [updatePosition]);
+      event.currentTarget.setPointerCapture?.(event.pointerId);
+    }, [startDragging]);
 
     const handlePointerMove: PointerEventHandler<HTMLDivElement> = useCallback((event) => {
       if (!isDraggingRef.current) return;
@@ -186,23 +246,44 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
       event.preventDefault();
       event.stopPropagation();
 
-      if (event.pointerType === 'mouse' && event.buttons !== 1) {
-        isDraggingRef.current = false;
-        return;
-      }
-
       updatePosition(event.clientX);
     }, [updatePosition]);
 
     const handlePointerUp: PointerEventHandler<HTMLDivElement> = useCallback((event) => {
       if (!isDraggingRef.current) return;
 
-      isDraggingRef.current = false;
+      stopDragging();
 
-      if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
-        event.currentTarget.releasePointerCapture(event.pointerId);
-      }
-    }, []);
+      event.currentTarget.releasePointerCapture?.(event.pointerId);
+    }, [stopDragging]);
+
+    const handleTouchStart: TouchEventHandler<HTMLDivElement> = useCallback((event) => {
+      if (supportsPointerEvents) return;
+      const touch = event.touches[0];
+      if (!touch) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      startDragging(touch.clientX);
+    }, [startDragging, supportsPointerEvents]);
+
+    const handleTouchMove: TouchEventHandler<HTMLDivElement> = useCallback((event) => {
+      if (supportsPointerEvents || !isDraggingRef.current) return;
+      const touch = event.touches[0];
+      if (!touch) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      updatePosition(touch.clientX);
+    }, [supportsPointerEvents, updatePosition]);
+
+    const handleTouchEnd: TouchEventHandler<HTMLDivElement> = useCallback((event) => {
+      if (supportsPointerEvents || !isDraggingRef.current) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      stopDragging();
+    }, [stopDragging, supportsPointerEvents]);
 
     const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (event) => {
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -226,14 +307,23 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
-        onPointerLeave={handlePointerUp}
+        onPointerLeave={(event) => {
+          if (event.pointerType === 'mouse') {
+            handlePointerUp(event);
+          }
+        }}
         onPointerCancel={handlePointerUp}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
         onKeyDown={handleKeyDown}
         role="slider"
         aria-valuemin={0}
         aria-valuemax={100}
         aria-valuenow={Math.round(position)}
         aria-label={`${title} before and after comparison`}
+        aria-orientation="horizontal"
       >
         <div className="absolute inset-0">
           <img 
@@ -244,8 +334,8 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
           />
         </div>
         <div 
-          className="absolute inset-0 overflow-hidden"
-          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+          className="absolute inset-y-0 left-0 overflow-hidden"
+          style={{ width: `${position}%` }}
         >
           <img 
             src={beforeImage} 
@@ -399,7 +489,7 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
                         <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
                           <h4 className="font-semibold mb-2">Client Testimonial</h4>
                           <blockquote className="italic text-gray-700 dark:text-gray-300 mb-2">
-                            "{project.testimonial.text}"
+                            &ldquo;{project.testimonial.text}&rdquo;
                           </blockquote>
                           <div className="flex items-center justify-between">
                             <cite className="text-sm font-medium">- {project.testimonial.author}</cite>
@@ -461,7 +551,7 @@ export default function ProjectGallery({ locale = "en", embedded = false }: Proj
             <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-8 text-white shadow-2xl">
               <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
               <p className="text-xl mb-6 opacity-90">
-                Let's transform your space into something extraordinary
+                Let&apos;s transform your space into something extraordinary
               </p>
               <Button
                 size="lg"
