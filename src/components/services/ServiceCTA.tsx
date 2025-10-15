@@ -24,19 +24,19 @@ export function ServiceCTA({
   const getTranslations = (locale: string) => {
     const translations = {
       en: {
-        callNow: 'Call Now: (647) 860-5500',
+        callNow: 'Call Now: +1 438 226 3391',
         readyToStart: 'Ready to Start Your Project?',
         contactToday: 'Contact us today for a free consultation and quote.',
         freeEstimate: 'Get Free Estimate'
       },
       fr: {
-        callNow: 'Appelez maintenant: (647) 860-5500',
+        callNow: 'Appelez maintenant: +1 438 226 3391',
         readyToStart: 'Prêt à démarrer votre projet?',
         contactToday: 'Contactez-nous dès aujourd\'hui pour une consultation et un devis gratuits.',
         freeEstimate: 'Obtenir un devis gratuit'
       },
       ar: {
-        callNow: 'اتصل الآن: (647) 860-5500',
+        callNow: 'اتصل الآن: +1 438 226 3391',
         readyToStart: 'هل أنت مستعد لبدء مشروعك؟',
         contactToday: 'تواصل معنا اليوم للحصول على استشارة وعرض سعر مجاني.',
         freeEstimate: 'احصل على تقدير مجاني'

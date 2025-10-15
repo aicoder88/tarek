@@ -88,7 +88,7 @@ export function Header({ locale = 'en' }: HeaderProps) {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Phone className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 relative z-10" />
-              <span className="relative z-10">(647) 860-5500</span>
+              <span className="relative z-10">+1 438 226 3391</span>
             </Button>
 
             {/* Enhanced Language Selector - Hidden for now */}
@@ -172,7 +172,7 @@ export function Header({ locale = 'en' }: HeaderProps) {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5 mr-2 relative z-10" />
-                  <span className="relative z-10">Call Now - (647) 860-5500</span>
+                  <span className="relative z-10">Call Now - +1 438 226 3391</span>
                 </Button>
               </div>
             </div>

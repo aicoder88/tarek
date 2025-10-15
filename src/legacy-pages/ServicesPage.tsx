@@ -265,7 +265,7 @@ const ServicesPage = ({ locale = "en" }: ServicesPageProps) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg">
-                {locale === "en" ? "Call (647) 860-5500" : locale === "fr" ? "Appelez (647) 860-5500" : "اتصل (647) 860-5500"}
+                {locale === "en" ? "Call +1 438 226 3391" : locale === "fr" ? "Appelez +1 438 226 3391" : "اتصل +1 438 226 3391"}
               </Button>
               <Button size="lg" variant="outline">
                 {locale === "en" ? "Get Quote Online" : locale === "fr" ? "Obtenir un devis en ligne" : "احصل على عرض سعر عبر الإنترنت"}

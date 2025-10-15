@@ -17,9 +17,9 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
     {
       icon: Phone,
       title: locale === "en" ? "Phone" : locale === "fr" ? "Téléphone" : "هاتف",
-      value: "(647) 860-5500",
+      value: "+1 438 226 3391",
       description: locale === "en" ? "Call us for immediate assistance" : locale === "fr" ? "Appelez-nous pour une assistance immédiate" : "اتصل بنا للحصول على المساعدة الفورية",
-      href: "tel:+16478605500",
+      href: "tel:+14382263391",
       available: locale === "en" ? "Available 7 days a week" : locale === "fr" ? "Disponible 7 jours sur 7" : "متاح 7 أيام في الأسبوع"
     },
     {
@@ -303,9 +303,9 @@ const ContactPage = ({ locale = "en" }: ContactPageProps) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <a href="tel:+16478605500">
+                <a href="tel:+14382263391">
                   <Phone className="h-4 w-4 mr-2" />
-                  {locale === "en" ? "Call (647) 860-5500" : locale === "fr" ? "Appelez (647) 860-5500" : "اتصل (647) 860-5500"}
+                  {locale === "en" ? "Call +1 438 226 3391" : locale === "fr" ? "Appelez +1 438 226 3391" : "اتصل +1 438 226 3391"}
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>

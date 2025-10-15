@@ -39,7 +39,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready for New Flooring?',
         ctaSubtitle: 'Contact us today for a free flooring consultation and quote.',
         primaryCTA: 'Book Your Flooring Estimate Today',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'kitchen-remodeling': {
@@ -74,7 +74,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready for Your Dream Kitchen?',
         ctaSubtitle: 'Contact us today for a free kitchen renovation consultation.',
         primaryCTA: 'Get a Kitchen Renovation Quote',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'bathroom-renovation': {
@@ -109,7 +109,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready for Your Spa-Like Bathroom?',
         ctaSubtitle: 'Contact us today for a free bathroom renovation consultation.',
         primaryCTA: 'Schedule a Bathroom Makeover Estimate',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'basement-finishing': {
@@ -144,7 +144,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready to Transform Your Basement?',
         ctaSubtitle: 'Contact us today for a free basement finishing consultation.',
         primaryCTA: 'Transform Your Basement Today',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'roofing-siding': {
@@ -174,7 +174,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready to Protect Your Home?',
         ctaSubtitle: 'Contact us today for a free roofing and siding inspection.',
         primaryCTA: 'Request a Roofing Inspection',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'painting-drywall': {
@@ -204,7 +204,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready for a Fresh New Look?',
         ctaSubtitle: 'Contact us today for a free painting and drywall consultation.',
         primaryCTA: 'Book a Painting Estimate',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'outdoor-landscaping': {
@@ -234,7 +234,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready to Design Your Outdoor Oasis?',
         ctaSubtitle: 'Contact us today for a free outdoor design consultation.',
         primaryCTA: 'Design Your Outdoor Oasis',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'general-contracting': {
@@ -264,7 +264,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready for Your Next Project?',
         ctaSubtitle: 'Contact us today for a free general contracting consultation.',
         primaryCTA: 'Consult with Our Experts',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     },
     'prefabricated-structures': {
@@ -294,7 +294,7 @@ export const getAllServiceData = (serviceType: string, locale: string = 'en'): S
         ctaTitle: 'Ready for Prefab Innovation?',
         ctaSubtitle: 'Contact us today for a free prefabricated structure consultation.',
         primaryCTA: 'Request a Prefabricated Structure Consultation',
-        secondaryCTA: 'Call Now: (647) 860-5500'
+        secondaryCTA: 'Call Now: +1 438 226 3391'
       }
     }
   };
