@@ -60,7 +60,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
       <Header locale={locale} />
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[85vh] sm:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] overflow-hidden">
+      <section className="relative w-full min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-[#001529] via-[#002140] to-[#001529] overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img

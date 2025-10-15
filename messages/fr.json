@@ -172,10 +172,6 @@
     "subtitle": "Obtenez des réponses aux questions courantes sur nos services",
     "items": [
       {
-        "question": "Combien de temps prend un projet de rénovation typique?",
-        "answer": "Les délais de projet varient selon l'ampleur et la complexité. Les rénovations de cuisine prennent généralement 2-4 semaines, les rénovations de salle de bain 1-2 semaines, et les rénovations complètes de maison peuvent prendre 2-6 mois. Nous fournissons des délais détaillés lors de notre consultation initiale."
-      },
-      {
         "question": "Fournissez-vous des estimations gratuites?",
         "answer": "Oui, nous fournissons des estimations complètement gratuites et sans obligation pour tous nos services. Notre équipe visitera votre propriété, évaluera vos besoins et fournira une estimation écrite détaillée dans les 24-48 heures."
       },
@@ -184,24 +180,12 @@
         "answer": "Absolument. Nous sommes des entrepreneurs entièrement agréés et portons une assurance responsabilité complète et une couverture d'indemnisation des travailleurs. Tous nos travaux sont garantis, et nous pouvons fournir une preuve d'assurance sur demande."
       },
       {
-        "question": "Quelles zones desservez-vous?",
-        "answer": "Nous desservons tout le Canada avec notre base située au centre-ville de Montréal, Québec. Contactez-nous pour confirmer la disponibilité du service et les arrangements de voyage pour votre emplacement spécifique."
-      },
-      {
-        "question": "Gérez-vous les permis et inspections?",
-        "answer": "Oui, nous gérons tous les permis nécessaires et coordonnons les inspections tel que requis par les codes de construction locaux. Ceci est inclus dans notre service de gestion de projet complet pour assurer que votre projet respecte toutes les exigences réglementaires."
-      },
-      {
-        "question": "Quels modes de paiement acceptez-vous?",
-        "answer": "Nous acceptons divers modes de paiement incluant espèces, chèque, cartes de crédit et virements bancaires. Les échéanciers de paiement sont généralement structurés avec un petit dépôt pour commencer, des paiements de progression pendant la construction, et le paiement final à l'achèvement."
+        "question": "Combien de temps prend un projet de rénovation typique?",
+        "answer": "Les délais de projet varient selon l'ampleur et la complexité. Les rénovations de cuisine prennent généralement 2-4 semaines, les rénovations de salle de bain 1-2 semaines, et les rénovations complètes de maison peuvent prendre 2-6 mois. Nous fournissons des délais détaillés lors de notre consultation initiale."
       },
       {
         "question": "Offrez-vous des garanties sur votre travail?",
         "answer": "Oui, nous soutenons notre travail avec des garanties complètes. La plupart de nos travaux viennent avec une garantie de 1 an sur la main-d'œuvre, et les matériaux portent des garanties du fabricant. Nous fournissons également des services de support et maintenance continus."
-      },
-      {
-        "question": "Pouvez-vous travailler dans mon budget?",
-        "answer": "Nous travaillons avec des clients de toutes gammes de budget et pouvons souvent suggérer des alternatives ou des approches par phases pour vous aider à atteindre vos objectifs dans votre budget. Lors de notre consultation, nous discuterons de vos priorités et trouverons des solutions rentables."
       }
     ]
   },
