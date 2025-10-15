@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { Moon, Sun, Globe, Menu, X, Hammer, Phone, Monitor } from 'lucide-react';
+import { Globe, Menu, X, Phone } from 'lucide-react';
 import Image from 'next/image';
 
 interface HeaderProps {

@@ -530,7 +530,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
                           ))}
                         </div>
                         <p className="mb-8 text-gray-700 dark:text-gray-200 text-lg leading-relaxed italic">
-                          "{testimonial.content}"
+                          &ldquo;{testimonial.content}&rdquo;
                         </p>
                         <div className="flex items-center pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
                           <div className="h-14 w-14 rounded-full overflow-hidden mr-4 ring-2 ring-red-500/20 group-hover:ring-red-500/40 transition-all duration-300">
