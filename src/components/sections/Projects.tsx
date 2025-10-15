@@ -76,7 +76,7 @@ export function Projects() {
                   {project.description}
                 </p>
                 <blockquote className="border-l-4 border-red-600 pl-4 italic text-gray-700 dark:text-gray-300 mb-4">
-                  "{project.testimonial}"
+                  &ldquo;{project.testimonial}&rdquo;
                 </blockquote>
                 <Button variant="outline" className="w-full">
                   View Project Details
