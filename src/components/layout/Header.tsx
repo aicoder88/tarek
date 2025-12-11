@@ -82,14 +82,14 @@ export function Header({ locale = 'en' }: HeaderProps) {
           {/* Enhanced Right side controls */}
           <div className="flex items-center space-x-2 sm:space-x-3">
             {/* Enhanced Call to Action Button */}
-            <Button
+            {/* <Button
               className="hidden md:flex bg-gradient-to-r from-[#DC143C] via-[#B01030] to-[#001F3F] hover:from-[#B01030] hover:via-[#DC143C] hover:to-[#003A70] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-0.5 border-0 relative overflow-hidden group text-xs sm:text-sm"
               size="sm"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Phone className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2 relative z-10" />
               <span className="relative z-10">+1 438 226 3391</span>
-            </Button>
+            </Button> */}
 
             {/* Enhanced Language Selector - Hidden for now */}
             <div className="hidden">
