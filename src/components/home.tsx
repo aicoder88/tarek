@@ -82,10 +82,10 @@ const Home = ({ locale = "en" }: HomeProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <Badge variant="outline" className="px-5 py-2.5 sm:px-7 sm:py-3.5 text-xs sm:text-sm font-semibold tracking-wide bg-gradient-to-r from-red-500/15 to-red-600/15 backdrop-blur-md border-red-500/40 text-red-400 hover:bg-red-500/25 transition-all duration-500 shadow-lg shadow-red-500/10">
+              {/* <Badge variant="outline" className="px-5 py-2.5 sm:px-7 sm:py-3.5 text-xs sm:text-sm font-semibold tracking-wide bg-gradient-to-r from-red-500/15 to-red-600/15 backdrop-blur-md border-red-500/40 text-red-400 hover:bg-red-500/25 transition-all duration-500 shadow-lg shadow-red-500/10">
                 <span className="inline-block mr-2 animate-pulse">✦</span>
                 {t('hero.badge')}
-              </Badge>
+              </Badge> */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.15] sm:leading-[1.1] px-2 sm:px-4 drop-shadow-[0_6px_28px_rgba(0,0,0,0.45)]">
                 {t('hero.title')}
               </h1>
@@ -185,7 +185,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="space-y-2 sm:space-y-3 text-center group"
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">15+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">10+</div>
               <div className="text-red-50/90 font-semibold text-xs sm:text-sm md:text-base tracking-wide leading-tight">Years Experience</div>
             </motion.div>
             <motion.div
@@ -195,7 +195,7 @@ const Home = ({ locale = "en" }: HomeProps) => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="space-y-2 sm:space-y-3 text-center group"
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">500+</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight transition-transform duration-300 group-hover:scale-110">150+</div>
               <div className="text-red-50/90 font-semibold text-xs sm:text-sm md:text-base tracking-wide leading-tight">Projects Completed</div>
             </motion.div>
             <motion.div
@@ -309,12 +309,12 @@ const Home = ({ locale = "en" }: HomeProps) => {
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
               {t('services.badge')}
             </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4 leading-tight">
+            {/* <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4 leading-tight">
               {t('services.title')}
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed px-4">
               {t('services.description')}
-            </p>
+            </p> */}
           </motion.div>
           <ServiceGrid locale={locale} />
         </div>

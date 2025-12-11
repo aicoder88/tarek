@@ -234,16 +234,9 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
         <div className="hidden lg:block">
           {/* Carousel Header with Prominent Navigation Hint */}
           <div className="text-center mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
               Browse our services
             </h2>
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <div className="flex items-center gap-2 text-lg text-muted-foreground">
-                <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-                <span>Use the arrows to explore all services</span>
-                <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-              </div>
-            </div>
             <div className="text-base text-muted-foreground bg-muted/30 px-4 py-2 rounded-full inline-block">
               Showing {currentIndex + 1} - {Math.min(currentIndex + itemsPerView, displayServices.length)} of {displayServices.length} services
             </div>
@@ -386,7 +379,7 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
           </div>
 
           {/* Featured services horizontal scroll with enhanced styling */}
-          <div className="relative">
+          {/* <div className="relative">
             <div className="overflow-x-auto pb-6 mb-6 scrollbar-hide">
               <div className="flex gap-4 w-max pl-2 pr-2">
                 {displayServices.map((service, index) => (
@@ -404,10 +397,9 @@ const ServiceGrid = ({ services, locale = 'en', variant = 'carousel' }: ServiceG
               </div>
             </div>
 
-            {/* Gradient indicators for mobile scroll */}
             <div className="absolute left-0 top-0 bottom-6 w-4 bg-gradient-to-r from-background to-transparent pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-6 w-4 bg-gradient-to-l from-background to-transparent pointer-events-none" />
-          </div>
+          </div> */}
 
         </div>
       </div>

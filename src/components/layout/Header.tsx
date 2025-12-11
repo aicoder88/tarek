@@ -56,7 +56,7 @@ export function Header({ locale = 'en' }: HeaderProps) {
             </div>
             <div className="hidden sm:block">
               <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#112b4a] dark:text-white leading-tight">
-                TrueNorth Construction
+                Amana Renovation
               </h1>
               <p className="text-xs text-gray-600 dark:text-gray-400 font-medium tracking-wide">
                 {tHeader('tagline')}
